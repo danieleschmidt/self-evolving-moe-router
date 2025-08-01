@@ -205,3 +205,28 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# ML/AI specific
+models/
+checkpoints/
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.joblib
+*.pt
+*.pth
+*.onnx
+*.trt
+*.safetensors
+wandb/
+tensorboard_logs/
+logs/
+data/
+datasets/
+
+# Security
+*.key
+*.pem
+secrets.yaml
+.secrets/

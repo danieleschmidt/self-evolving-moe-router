@@ -1,0 +1,131 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "self-evolving-moe-router"
+version = "0.1.0"
+description = "Neuro-evolution framework for discovering sparse routing topologies in Mixture of Experts models"
+authors = [
+    {name = "Daniel Schmidt", email = "daniel@example.com"}
+]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+keywords = ["machine-learning", "evolutionary-algorithms", "mixture-of-experts", "neural-networks"]
+
+dependencies = [
+    "torch>=1.12.0",
+    "numpy>=1.21.0",
+    "scipy>=1.8.0",
+    "tqdm>=4.64.0",
+    "matplotlib>=3.5.0",
+    "seaborn>=0.11.0",
+    "pyyaml>=6.0",
+    "tensorboard>=2.8.0",
+    "wandb>=0.12.0",
+    "omegaconf>=2.2.0",
+    "hydra-core>=1.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=22.0.0",
+    "isort>=5.10.0",
+    "flake8>=5.0.0",
+    "mypy>=0.991",
+    "pre-commit>=2.20.0",
+    "jupyter>=1.0.0",
+    "ipykernel>=6.15.0",
+]
+viz = [
+    "plotly>=5.10.0",
+    "dash>=2.6.0",
+    "networkx>=2.8.0",
+    "graphviz>=0.20.0",
+]
+distributed = [
+    "ray>=2.0.0",
+    "dask>=2022.8.0",
+    "mpi4py>=3.1.0",
+]
+benchmark = [
+    "datasets>=2.5.0",
+    "transformers>=4.21.0",
+    "accelerate>=0.12.0",
+    "evaluate>=0.2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/terragon-labs/self-evolving-moe-router"
+Documentation = "https://self-evolving-moe.readthedocs.io"
+Repository = "https://github.com/terragon-labs/self-evolving-moe-router"
+Issues = "https://github.com/terragon-labs/self-evolving-moe-router/issues"
+
+[project.scripts]
+evolve-moe = "self_evolving_moe.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 88
+multi_line_output = 3
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+addopts = "--cov=self_evolving_moe --cov-report=html --cov-report=term-missing"
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.ruff]
+line-length = 88
+target-version = "py38"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "C90", "I", "N", "UP", "B", "A", "C4", "SIM"]
+ignore = ["E501"]
+
+[tool.coverage.run]
+source = ["src/self_evolving_moe"]
+omit = ["*/tests/*", "*/test_*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+]

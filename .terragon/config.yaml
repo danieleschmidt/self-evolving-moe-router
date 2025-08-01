@@ -1,0 +1,60 @@
+# Terragon Autonomous SDLC Configuration
+# Continuous value discovery and execution system
+
+repository:
+  name: "self-evolving-moe-router"
+  maturity_level: "nascent"
+  primary_language: "python"
+  framework: "pytorch"
+  domain: "machine-learning"
+
+value_scoring:
+  weights:
+    wsjf: 0.4      # Weighted Shortest Job First
+    ice: 0.3       # Impact, Confidence, Ease
+    technical_debt: 0.2
+    security: 0.1
+  
+  thresholds:
+    min_composite_score: 10
+    max_risk_tolerance: 0.8
+    security_boost_multiplier: 2.0
+    compliance_boost_multiplier: 1.8
+
+discovery:
+  sources:
+    - git_history       # TODOs, FIXMEs, commit patterns
+    - static_analysis   # Code quality metrics
+    - dependencies      # Vulnerability scans
+    - performance       # Profiling data
+    - documentation     # Outdated docs detection
+  
+  scan_intervals:
+    security: "1h"      # Hourly security scans
+    quality: "24h"      # Daily quality analysis
+    dependencies: "168h" # Weekly dependency updates
+    architecture: "720h" # Monthly architecture review
+
+automation:
+  max_concurrent_tasks: 1
+  auto_pr_creation: true
+  require_tests: true
+  min_test_coverage: 80
+  
+  rollback_triggers:
+    - test_failure
+    - build_failure
+    - security_violation
+    - performance_regression
+
+metrics:
+  track_cycle_time: true
+  track_value_delivered: true
+  track_debt_reduction: true
+  track_security_improvements: true
+  export_format: "json"
+
+notifications:
+  slack_webhook: null
+  email_alerts: false
+  github_comments: true
