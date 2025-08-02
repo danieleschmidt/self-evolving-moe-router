@@ -1,0 +1,200 @@
+version: '3.8'
+
+services:
+  # Main application service
+  moe-router:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    image: self-evolving-moe-router:latest
+    container_name: moe-router-app
+    ports:
+      - "8080:8080"  # Visualization dashboard
+    volumes:
+      - ./checkpoints:/app/checkpoints
+      - ./logs:/app/logs
+      - ./data:/app/data
+      - ./configs:/app/configs:ro
+    environment:
+      - PYTHONPATH=/app/src
+      - WANDB_MODE=offline
+      - CUDA_VISIBLE_DEVICES=0
+    networks:
+      - moe-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import self_evolving_moe; print('OK')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # Development service with dev dependencies
+  moe-router-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    image: self-evolving-moe-router:dev
+    container_name: moe-router-dev
+    ports:
+      - "8080:8080"
+      - "8888:8888"  # Jupyter
+      - "6006:6006"  # TensorBoard
+    volumes:
+      - .:/app
+      - ./checkpoints:/app/checkpoints
+      - ./logs:/app/logs
+      - ./data:/app/data
+    environment:
+      - PYTHONPATH=/app/src
+      - JUPYTER_ENABLE_LAB=yes
+    networks:
+      - moe-network
+    command: /bin/bash
+    stdin_open: true
+    tty: true
+    profiles:
+      - dev
+
+  # PostgreSQL for experiment tracking
+  postgres:
+    image: postgres:15-alpine
+    container_name: moe-postgres
+    environment:
+      POSTGRES_DB: moe_experiments
+      POSTGRES_USER: moe_user
+      POSTGRES_PASSWORD: moe_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init_db.sql:/docker-entrypoint-initdb.d/init_db.sql:ro
+    ports:
+      - "5432:5432"
+    networks:
+      - moe-network
+    restart: unless-stopped
+    profiles:
+      - database
+
+  # Redis for caching and task queue
+  redis:
+    image: redis:7-alpine
+    container_name: moe-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - moe-network
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    profiles:
+      - cache
+
+  # MLflow tracking server
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:latest
+    container_name: moe-mlflow
+    ports:
+      - "5000:5000"
+    environment:
+      - MLFLOW_BACKEND_STORE_URI=postgresql://moe_user:moe_password@postgres:5432/moe_experiments
+      - MLFLOW_DEFAULT_ARTIFACT_ROOT=/mlflow/artifacts
+    volumes:
+      - mlflow_artifacts:/mlflow/artifacts
+    networks:
+      - moe-network
+    depends_on:
+      - postgres
+    restart: unless-stopped
+    command: mlflow server --host 0.0.0.0 --port 5000
+    profiles:
+      - tracking
+
+  # Jupyter notebook server
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    container_name: moe-jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/app
+      - ./notebooks:/app/notebooks
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_TOKEN=moe-router-token
+    networks:
+      - moe-network
+    command: jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.allow_remote_access=True
+    profiles:
+      - jupyter
+
+  # TensorBoard for visualization
+  tensorboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    container_name: moe-tensorboard
+    ports:
+      - "6006:6006"
+    volumes:
+      - ./logs:/app/logs:ro
+    networks:
+      - moe-network
+    command: tensorboard --logdir=/app/logs --host=0.0.0.0 --port=6006
+    profiles:
+      - tensorboard
+
+  # Prometheus for metrics collection
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: moe-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    networks:
+      - moe-network
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    profiles:
+      - monitoring
+
+  # Grafana for monitoring dashboards
+  grafana:
+    image: grafana/grafana:latest
+    container_name: moe-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources:ro
+    networks:
+      - moe-network
+    profiles:
+      - monitoring
+
+volumes:
+  postgres_data:
+  redis_data:
+  mlflow_artifacts:
+  prometheus_data:
+  grafana_data:
+
+networks:
+  moe-network:
+    driver: bridge

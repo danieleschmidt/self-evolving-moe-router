@@ -1,0 +1,65 @@
+# Global code owners for self-evolving-moe-router
+# Lines starting with '#' are comments.
+# Each line is a file pattern followed by one or more owners.
+
+# Global owners (fallback for any files not covered by specific rules)
+* @danieleschmidt @terragon-labs/core-team
+
+# Core Python code
+src/ @danieleschmidt @terragon-labs/python-experts
+*.py @danieleschmidt @terragon-labs/python-experts
+
+# Evolution algorithm components
+src/self_evolving_moe/evolution/ @danieleschmidt @terragon-labs/ml-experts
+src/self_evolving_moe/routing/ @danieleschmidt @terragon-labs/ml-experts
+src/self_evolving_moe/experts/ @danieleschmidt @terragon-labs/ml-experts
+
+# Configuration files
+pyproject.toml @danieleschmidt @terragon-labs/maintainers
+requirements*.txt @danieleschmidt @terragon-labs/maintainers
+*.yaml @danieleschmidt @terragon-labs/maintainers
+*.yml @danieleschmidt @terragon-labs/maintainers
+
+# CI/CD and DevOps
+.github/ @danieleschmidt @terragon-labs/devops-team
+.github/workflows/ @danieleschmidt @terragon-labs/devops-team
+Dockerfile @danieleschmidt @terragon-labs/devops-team
+docker-compose*.yml @danieleschmidt @terragon-labs/devops-team
+Makefile @danieleschmidt @terragon-labs/devops-team
+
+# Documentation
+docs/ @danieleschmidt @terragon-labs/docs-team
+*.md @danieleschmidt @terragon-labs/docs-team
+README.md @danieleschmidt @terragon-labs/docs-team
+CONTRIBUTING.md @danieleschmidt @terragon-labs/docs-team
+
+# Security-related files
+SECURITY.md @danieleschmidt @terragon-labs/security-team
+.github/workflows/security.yml @danieleschmidt @terragon-labs/security-team
+
+# Testing
+tests/ @danieleschmidt @terragon-labs/qa-team
+pytest.ini @danieleschmidt @terragon-labs/qa-team
+conftest.py @danieleschmidt @terragon-labs/qa-team
+
+# Monitoring and observability
+monitoring/ @danieleschmidt @terragon-labs/sre-team
+scripts/metrics_collector.py @danieleschmidt @terragon-labs/sre-team
+
+# Automation scripts
+scripts/ @danieleschmidt @terragon-labs/devops-team
+
+# Project configuration and governance
+PROJECT_CHARTER.md @danieleschmidt @terragon-labs/leadership
+CODE_OF_CONDUCT.md @danieleschmidt @terragon-labs/leadership
+LICENSE @danieleschmidt @terragon-labs/leadership
+
+# Benchmarks and examples
+benchmarks/ @danieleschmidt @terragon-labs/ml-experts
+examples/ @danieleschmidt @terragon-labs/ml-experts
+
+# Configuration directories
+configs/ @danieleschmidt @terragon-labs/ml-experts
+
+# Architecture decisions
+docs/adr/ @danieleschmidt @terragon-labs/architects

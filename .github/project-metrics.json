@@ -1,0 +1,336 @@
+{
+  "project": {
+    "name": "self-evolving-moe-router",
+    "description": "Neuro-evolution framework for discovering sparse routing topologies in Mixture of Experts models",
+    "version": "0.1.0",
+    "license": "MIT",
+    "homepage": "https://github.com/terragon-labs/self-evolving-moe-router",
+    "repository": "https://github.com/terragon-labs/self-evolving-moe-router",
+    "documentation": "https://self-evolving-moe.readthedocs.io"
+  },
+  "metrics": {
+    "code_quality": {
+      "description": "Code quality metrics and standards",
+      "metrics": {
+        "test_coverage": {
+          "target": 85,
+          "current": 0,
+          "unit": "percent",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "technical_debt_ratio": {
+          "target": 5,
+          "current": 0,
+          "unit": "percent",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "code_duplication": {
+          "target": 3,
+          "current": 0,
+          "unit": "percent",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "maintainability_index": {
+          "target": 80,
+          "current": 0,
+          "unit": "score",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "cyclomatic_complexity": {
+          "target": 10,
+          "current": 0,
+          "unit": "average",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        }
+      }
+    },
+    "security": {
+      "description": "Security vulnerability metrics",
+      "metrics": {
+        "critical_vulnerabilities": {
+          "target": 0,
+          "current": 0,
+          "unit": "count",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "high_vulnerabilities": {
+          "target": 0,
+          "current": 0,
+          "unit": "count",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "medium_vulnerabilities": {
+          "target": 5,
+          "current": 0,
+          "unit": "count",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "security_hotspots": {
+          "target": 10,
+          "current": 0,
+          "unit": "count",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "dependency_vulnerabilities": {
+          "target": 0,
+          "current": 0,
+          "unit": "count",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        }
+      }
+    },
+    "performance": {
+      "description": "Application performance metrics",
+      "metrics": {
+        "inference_latency_p95": {
+          "target": 100,
+          "current": 0,
+          "unit": "milliseconds",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "throughput": {
+          "target": 1000,
+          "current": 0,
+          "unit": "samples_per_second",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "memory_usage": {
+          "target": 8,
+          "current": 0,
+          "unit": "gb",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "gpu_utilization": {
+          "target": 80,
+          "current": 0,
+          "unit": "percent",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "evolution_convergence_rate": {
+          "target": 0.01,
+          "current": 0,
+          "unit": "fitness_per_generation",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        }
+      }
+    },
+    "development": {
+      "description": "Development process metrics",
+      "metrics": {
+        "build_success_rate": {
+          "target": 95,
+          "current": 0,
+          "unit": "percent",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "deployment_frequency": {
+          "target": 2,
+          "current": 0,
+          "unit": "per_week",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "lead_time": {
+          "target": 24,
+          "current": 0,
+          "unit": "hours",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "mean_time_to_recovery": {
+          "target": 4,
+          "current": 0,
+          "unit": "hours",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "change_failure_rate": {
+          "target": 10,
+          "current": 0,
+          "unit": "percent",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        }
+      }
+    },
+    "evolution": {
+      "description": "Evolution algorithm specific metrics",
+      "metrics": {
+        "best_fitness_achieved": {
+          "target": 0.95,
+          "current": 0,
+          "unit": "score",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "population_diversity": {
+          "target": 0.3,
+          "current": 0,
+          "unit": "score",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "generations_to_convergence": {
+          "target": 500,
+          "current": 0,
+          "unit": "count",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "expert_utilization_balance": {
+          "target": 0.8,
+          "current": 0,
+          "unit": "score",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "routing_efficiency": {
+          "target": 0.9,
+          "current": 0,
+          "unit": "score",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        }
+      }
+    },
+    "repository": {
+      "description": "Repository health metrics",
+      "metrics": {
+        "open_issues": {
+          "target": 20,
+          "current": 0,
+          "unit": "count",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "open_pull_requests": {
+          "target": 10,
+          "current": 0,
+          "unit": "count",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "issue_resolution_time": {
+          "target": 7,
+          "current": 0,
+          "unit": "days",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "pr_review_time": {
+          "target": 24,
+          "current": 0,
+          "unit": "hours",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "contributor_count": {
+          "target": 10,
+          "current": 1,
+          "unit": "count",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        },
+        "commit_frequency": {
+          "target": 5,
+          "current": 0,
+          "unit": "per_day",
+          "trend": "stable",
+          "last_updated": "2024-01-01T00:00:00Z"
+        }
+      }
+    }
+  },
+  "alerts": {
+    "thresholds": {
+      "critical": {
+        "test_coverage": 70,
+        "critical_vulnerabilities": 1,
+        "build_success_rate": 90,
+        "inference_latency_p95": 200
+      },
+      "warning": {
+        "test_coverage": 80,
+        "high_vulnerabilities": 1,
+        "build_success_rate": 95,
+        "inference_latency_p95": 150
+      }
+    },
+    "notification_channels": {
+      "critical": ["slack", "email"],
+      "warning": ["slack"],
+      "info": ["dashboard"]
+    }
+  },
+  "dashboards": {
+    "main": {
+      "url": "https://grafana.moe-router.com/d/main",
+      "description": "Main project dashboard with key metrics"
+    },
+    "evolution": {
+      "url": "https://grafana.moe-router.com/d/evolution",
+      "description": "Evolution algorithm performance dashboard"
+    },
+    "security": {
+      "url": "https://grafana.moe-router.com/d/security",
+      "description": "Security metrics and vulnerability tracking"
+    },
+    "performance": {
+      "url": "https://grafana.moe-router.com/d/performance",
+      "description": "Application performance monitoring"
+    }
+  },
+  "automation": {
+    "scheduled_tasks": {
+      "daily": [
+        "security_scan",
+        "dependency_update_check",
+        "performance_benchmarks",
+        "metrics_collection"
+      ],
+      "weekly": [
+        "comprehensive_testing",
+        "code_quality_analysis",
+        "technical_debt_assessment",
+        "contributor_report"
+      ],
+      "monthly": [
+        "dependency_audit",
+        "performance_trend_analysis",
+        "security_review",
+        "project_health_report"
+      ]
+    },
+    "auto_actions": {
+      "dependency_updates": "enabled",
+      "security_patches": "enabled",
+      "performance_alerts": "enabled",
+      "quality_gates": "enabled"
+    }
+  },
+  "reporting": {
+    "frequency": "weekly",
+    "recipients": ["team@terragon-labs.com", "security@terragon-labs.com"],
+    "format": "html",
+    "include_trends": true,
+    "historical_data_retention": "6_months"
+  },
+  "last_updated": "2024-01-01T00:00:00Z",
+  "version": "1.0"
+}

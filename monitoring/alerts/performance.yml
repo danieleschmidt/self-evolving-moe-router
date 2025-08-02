@@ -1,0 +1,310 @@
+# Performance and system alert rules for Self-Evolving MoE-Router
+
+groups:
+- name: performance.rules
+  interval: 15s
+  rules:
+
+  # Inference Performance Alerts
+  - alert: HighInferenceLatency
+    expr: histogram_quantile(0.95, inference_latency_seconds_bucket) > 0.1
+    for: 1m
+    labels:
+      severity: critical
+      component: inference
+      alert_type: latency
+    annotations:
+      summary: "High inference latency detected"
+      description: "95th percentile inference latency is {{ $value }}s, exceeding 100ms threshold"
+      runbook_url: "https://docs.moe-router.com/runbooks/high-latency"
+
+  - alert: InferenceLatencySpike
+    expr: |
+      histogram_quantile(0.95, rate(inference_latency_seconds_bucket[5m])) > 
+      histogram_quantile(0.95, rate(inference_latency_seconds_bucket[1h] offset 1h)) * 2
+    for: 2m
+    labels:
+      severity: warning
+      component: inference
+      alert_type: latency
+    annotations:
+      summary: "Inference latency spike detected"
+      description: "Current 95th percentile latency is 2x higher than historical average"
+
+  - alert: LowInferenceThroughput
+    expr: inference_throughput_samples < 100
+    for: 3m
+    labels:
+      severity: warning
+      component: inference
+      alert_type: throughput
+    annotations:
+      summary: "Low inference throughput"
+      description: "Current throughput is {{ $value }} samples/sec, below expected minimum of 100"
+
+  - alert: InferenceThroughputDrop
+    expr: |
+      inference_throughput_samples < 
+      (avg_over_time(inference_throughput_samples[1h] offset 1h) * 0.5)
+    for: 5m
+    labels:
+      severity: critical
+      component: inference
+      alert_type: throughput
+    annotations:
+      summary: "Significant inference throughput drop"
+      description: "Throughput has dropped to {{ $value }}, 50% below historical average"
+
+  # Expert Utilization Alerts
+  - alert: ExpertImbalance
+    expr: expert_load_balance_variance > 0.5
+    for: 5m
+    labels:
+      severity: warning
+      component: routing
+      alert_type: load_balance
+    annotations:
+      summary: "Expert load imbalance detected"
+      description: "Load variance across experts is {{ $value }}, indicating poor load balancing"
+      runbook_url: "https://docs.moe-router.com/runbooks/expert-imbalance"
+
+  - alert: UnderutilizedExperts
+    expr: count(expert_utilization_ratio < 0.1) > 4
+    for: 10m
+    labels:
+      severity: warning
+      component: routing
+      alert_type: utilization
+    annotations:
+      summary: "Multiple underutilized experts"
+      description: "{{ $value }} experts have utilization below 10%"
+
+  - alert: ExpertOverutilization
+    expr: max(expert_utilization_ratio) > 0.8
+    for: 5m
+    labels:
+      severity: warning
+      component: routing
+      alert_type: utilization
+    annotations:
+      summary: "Expert overutilization detected"
+      description: "An expert has {{ $value }} utilization ratio, may become a bottleneck"
+
+  # Routing Efficiency Alerts
+  - alert: LowRoutingEfficiency
+    expr: routing_efficiency_score < 0.6
+    for: 5m
+    labels:
+      severity: warning
+      component: routing
+      alert_type: efficiency
+    annotations:
+      summary: "Low routing efficiency"
+      description: "Routing efficiency score is {{ $value }}, below optimal threshold"
+
+  - alert: HighRoutingSparsity
+    expr: routing_sparsity_ratio > 0.95
+    for: 5m
+    labels:
+      severity: warning
+      component: routing
+      alert_type: sparsity
+    annotations:
+      summary: "Routing too sparse"
+      description: "Routing sparsity is {{ $value }}, may limit model capacity"
+
+  - alert: LowRoutingSparsity
+    expr: routing_sparsity_ratio < 0.1
+    for: 5m
+    labels:
+      severity: warning
+      component: routing
+      alert_type: sparsity
+    annotations:
+      summary: "Routing not sparse enough"
+      description: "Routing sparsity is {{ $value }}, may increase computation overhead"
+
+  # Resource Utilization Alerts
+  - alert: HighMemoryUsage
+    expr: memory_usage_bytes{memory_type="gpu"} / (1024^3) > 14
+    for: 2m
+    labels:
+      severity: warning
+      component: system
+      alert_type: memory
+    annotations:
+      summary: "High GPU memory usage"
+      description: "GPU memory usage is {{ $value }}GB, approaching limit"
+
+  - alert: CriticalMemoryUsage
+    expr: memory_usage_bytes{memory_type="gpu"} / (1024^3) > 15
+    for: 1m
+    labels:
+      severity: critical
+      component: system
+      alert_type: memory
+    annotations:
+      summary: "Critical GPU memory usage"
+      description: "GPU memory usage is {{ $value }}GB, risk of OOM errors"
+      runbook_url: "https://docs.moe-router.com/runbooks/memory-pressure"
+
+  - alert: LowGPUUtilization
+    expr: avg(gpu_utilization_percent) < 30
+    for: 10m
+    labels:
+      severity: info
+      component: system
+      alert_type: utilization
+    annotations:
+      summary: "Low GPU utilization"
+      description: "Average GPU utilization is {{ $value }}%, resources may be underutilized"
+
+  - alert: HighGPUUtilization
+    expr: avg(gpu_utilization_percent) > 95
+    for: 5m
+    labels:
+      severity: warning
+      component: system
+      alert_type: utilization
+    annotations:
+      summary: "High GPU utilization"
+      description: "Average GPU utilization is {{ $value }}%, may indicate bottleneck"
+
+  # Training Performance Alerts
+  - alert: TrainingLossStagnation
+    expr: (training_loss - training_loss offset 1h) > -0.01
+    for: 10m
+    labels:
+      severity: warning
+      component: training
+      alert_type: convergence
+    annotations:
+      summary: "Training loss not decreasing"
+      description: "Training loss has not improved significantly in the last hour"
+
+  - alert: TrainingAccuracyDrop
+    expr: training_accuracy < (avg_over_time(training_accuracy[24h] offset 24h) * 0.9)
+    for: 5m
+    labels:
+      severity: critical
+      component: training
+      alert_type: accuracy
+    annotations:
+      summary: "Training accuracy drop"
+      description: "Training accuracy {{ $value }} is 10% below recent average"
+
+  - alert: LearningRateTooHigh
+    expr: training_learning_rate > 0.01
+    for: 5m
+    labels:
+      severity: warning
+      component: training
+      alert_type: hyperparameters
+    annotations:
+      summary: "Learning rate may be too high"
+      description: "Current learning rate is {{ $value }}, may cause training instability"
+
+  - alert: LearningRateTooLow
+    expr: training_learning_rate < 1e-6
+    for: 5m
+    labels:
+      severity: warning
+      component: training
+      alert_type: hyperparameters
+    annotations:
+      summary: "Learning rate may be too low"
+      description: "Current learning rate is {{ $value }}, may slow convergence"
+
+  # Model Quality Alerts
+  - alert: ModelSizeUnexpected
+    expr: model_size_bytes / (1024^2) > 2000  # 2GB
+    for: 1m
+    labels:
+      severity: warning
+      component: model
+      alert_type: size
+    annotations:
+      summary: "Model size larger than expected"
+      description: "Model size is {{ $value }}MB, may impact deployment"
+
+  - alert: HighModelComplexity
+    expr: model_flops > 1e12  # 1 TFLOPs
+    for: 1m
+    labels:
+      severity: info
+      component: model
+      alert_type: complexity
+    annotations:
+      summary: "High model computational complexity"
+      description: "Model requires {{ $value }} FLOPs per forward pass"
+
+  # System Health Alerts
+  - alert: HighCPUUsage
+    expr: cpu_utilization_percent > 90
+    for: 5m
+    labels:
+      severity: warning
+      component: system
+      alert_type: cpu
+    annotations:
+      summary: "High CPU utilization"
+      description: "CPU utilization is {{ $value }}%, system may be overloaded"
+
+  - alert: DiskSpaceLow
+    expr: (disk_usage_bytes / 1024^3) > 80  # 80GB threshold
+    for: 2m
+    labels:
+      severity: warning
+      component: system
+      alert_type: disk
+    annotations:
+      summary: "Low disk space"
+      description: "Disk usage is {{ $value }}GB, approaching storage limit"
+
+  - alert: DiskSpaceCritical
+    expr: (disk_usage_bytes / 1024^3) > 90  # 90GB threshold
+    for: 1m
+    labels:
+      severity: critical
+      component: system
+      alert_type: disk
+    annotations:
+      summary: "Critical disk space"
+      description: "Disk usage is {{ $value }}GB, immediate action required"
+      runbook_url: "https://docs.moe-router.com/runbooks/disk-space"
+
+  # Application Health Alerts
+  - alert: ApplicationDown
+    expr: up{job="moe-router"} == 0
+    for: 1m
+    labels:
+      severity: critical
+      component: application
+      alert_type: availability
+    annotations:
+      summary: "MoE Router application is down"
+      description: "The MoE Router application has been down for more than 1 minute"
+      runbook_url: "https://docs.moe-router.com/runbooks/application-down"
+
+  - alert: ApplicationRestarting
+    expr: increase(process_start_time_seconds[10m]) > 0
+    for: 0s
+    labels:
+      severity: warning
+      component: application
+      alert_type: stability
+    annotations:
+      summary: "Application restarted"
+      description: "The MoE Router application has restarted"
+
+  - alert: HighErrorRate
+    expr: rate(http_requests_total{status=~"5.."}[5m]) > 0.1
+    for: 2m
+    labels:
+      severity: critical
+      component: application
+      alert_type: errors
+    annotations:
+      summary: "High error rate detected"
+      description: "Error rate is {{ $value }} requests/second"
+      runbook_url: "https://docs.moe-router.com/runbooks/high-error-rate"
