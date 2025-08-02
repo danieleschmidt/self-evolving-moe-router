@@ -1,0 +1,178 @@
+# Evolution-specific alert rules for Self-Evolving MoE-Router
+
+groups:
+- name: evolution.rules
+  interval: 30s
+  rules:
+  
+  # Evolution Progress Alerts
+  - alert: EvolutionStagnation
+    expr: (evolution_fitness_best - evolution_fitness_best offset 10m) < 0.001
+    for: 5m
+    labels:
+      severity: warning
+      component: evolution
+      alert_type: performance
+    annotations:
+      summary: "Evolution showing no improvement"
+      description: "Best fitness score has not improved by more than 0.001 in the last 10 minutes. Current best fitness: {{ $value }}"
+      runbook_url: "https://docs.moe-router.com/runbooks/evolution-stagnation"
+
+  - alert: EvolutionConvergenceFailed
+    expr: evolution_convergence_rate < 0.0001
+    for: 15m
+    labels:
+      severity: critical
+      component: evolution
+      alert_type: convergence
+    annotations:
+      summary: "Evolution convergence rate too low"
+      description: "Evolution convergence rate is {{ $value }}, indicating the algorithm may be stuck"
+      runbook_url: "https://docs.moe-router.com/runbooks/convergence-failure"
+
+  # Population Diversity Alerts
+  - alert: LowPopulationDiversity
+    expr: evolution_diversity_score < 0.1
+    for: 2m
+    labels:
+      severity: warning
+      component: evolution
+      alert_type: diversity
+    annotations:
+      summary: "Low population diversity detected"
+      description: "Population diversity is {{ $value }}, indicating potential premature convergence"
+      runbook_url: "https://docs.moe-router.com/runbooks/low-diversity"
+
+  - alert: CriticalPopulationDiversity
+    expr: evolution_diversity_score < 0.05
+    for: 1m
+    labels:
+      severity: critical
+      component: evolution
+      alert_type: diversity
+    annotations:
+      summary: "Critical population diversity"
+      description: "Population diversity has dropped to {{ $value }}, evolution may have converged prematurely"
+      runbook_url: "https://docs.moe-router.com/runbooks/diversity-crisis"
+
+  # Population Management Alerts
+  - alert: PopulationSizeReduced
+    expr: evolution_population_size < 50
+    for: 1m
+    labels:
+      severity: warning
+      component: evolution
+      alert_type: population
+    annotations:
+      summary: "Evolution population size too small"
+      description: "Current population size is {{ $value }}, which may limit evolution effectiveness"
+
+  - alert: HighMutationRate
+    expr: evolution_mutation_rate > 0.5
+    for: 5m
+    labels:
+      severity: warning
+      component: evolution
+      alert_type: parameters
+    annotations:
+      summary: "Mutation rate unusually high"
+      description: "Current mutation rate is {{ $value }}, which may prevent convergence"
+
+  - alert: LowMutationRate
+    expr: evolution_mutation_rate < 0.01
+    for: 5m
+    labels:
+      severity: warning
+      component: evolution
+      alert_type: parameters
+    annotations:
+      summary: "Mutation rate unusually low"
+      description: "Current mutation rate is {{ $value }}, which may limit exploration"
+
+  # Fitness Function Alerts
+  - alert: FitnessEvaluationSlow
+    expr: rate(evolution_fitness_evaluations_total[5m]) < 1
+    for: 2m
+    labels:
+      severity: warning
+      component: evolution
+      alert_type: performance
+    annotations:
+      summary: "Slow fitness evaluation rate"
+      description: "Fitness evaluation rate is {{ $value }} evaluations/second, evolution may be bottlenecked"
+
+  - alert: FitnessVarianceHigh
+    expr: evolution_fitness_variance > 0.3
+    for: 5m
+    labels:
+      severity: info
+      component: evolution
+      alert_type: quality
+    annotations:
+      summary: "High fitness variance in population"
+      description: "Fitness variance is {{ $value }}, indicating diverse population quality"
+
+  # Generation Progress Alerts
+  - alert: GenerationProgressSlow
+    expr: rate(evolution_generation_current[10m]) < 0.01
+    for: 5m
+    labels:
+      severity: warning
+      component: evolution
+      alert_type: progress
+    annotations:
+      summary: "Slow generation progress"
+      description: "Generation progress rate is {{ $value }} generations/minute"
+
+  - alert: GenerationStuck
+    expr: increase(evolution_generation_current[30m]) == 0
+    for: 5m
+    labels:
+      severity: critical
+      component: evolution
+      alert_type: progress
+    annotations:
+      summary: "Evolution generation stuck"
+      description: "No generation progress in the last 30 minutes"
+      runbook_url: "https://docs.moe-router.com/runbooks/generation-stuck"
+
+  # Elite Preservation Alerts
+  - alert: NoEliteIndividuals
+    expr: evolution_elite_count == 0
+    for: 1m
+    labels:
+      severity: critical
+      component: evolution
+      alert_type: selection
+    annotations:
+      summary: "No elite individuals preserved"
+      description: "Elite count is 0, best solutions may be lost"
+
+  - alert: TooManyElites
+    expr: evolution_elite_count > (evolution_population_size * 0.2)
+    for: 5m
+    labels:
+      severity: warning
+      component: evolution
+      alert_type: selection
+    annotations:
+      summary: "Too many elite individuals"
+      description: "Elite count ({{ $value }}) is more than 20% of population, may reduce diversity"
+
+  # Evolution Health Summary
+  - alert: EvolutionHealthPoor
+    expr: |
+      (
+        (evolution_diversity_score < 0.2) +
+        (evolution_convergence_rate < 0.001) +
+        (rate(evolution_generation_current[10m]) < 0.01)
+      ) >= 2
+    for: 3m
+    labels:
+      severity: critical
+      component: evolution
+      alert_type: health
+    annotations:
+      summary: "Poor evolution health detected"
+      description: "Multiple evolution health indicators are poor - diversity, convergence, or progress issues"
+      runbook_url: "https://docs.moe-router.com/runbooks/evolution-health"

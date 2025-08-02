@@ -127,13 +127,22 @@ docker-build: ## Build Docker image
 	docker build -t self-evolving-moe-router .
 
 docker-dev: ## Build development Docker image
-	docker build --target development -t self-evolving-moe-router:dev .
+	docker build --target builder -t self-evolving-moe-router:dev .
 
 docker-run: ## Run Docker container
 	docker run -it --rm --gpus all self-evolving-moe-router
 
 docker-shell: ## Open shell in Docker container
 	docker run -it --rm --gpus all -v $(PWD):/workspace self-evolving-moe-router:dev bash
+
+docker-compose-dev: ## Start development environment with docker-compose
+	docker-compose --profile dev up -d
+
+docker-compose-full: ## Start full environment with all services
+	docker-compose --profile dev --profile database --profile tracking --profile monitoring up -d
+
+docker-compose-down: ## Stop all docker-compose services
+	docker-compose down --volumes
 
 # Environment targets
 env-check: ## Check Python environment and dependencies
