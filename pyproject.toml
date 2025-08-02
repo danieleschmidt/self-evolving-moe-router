@@ -44,13 +44,19 @@ dependencies = [
 dev = [
     "pytest>=7.0.0",
     "pytest-cov>=4.0.0",
+    "pytest-xdist>=3.0.0",
+    "pytest-mock>=3.10.0",
     "black>=22.0.0",
     "isort>=5.10.0",
     "flake8>=5.0.0",
+    "ruff>=0.0.280",
     "mypy>=0.991",
     "pre-commit>=2.20.0",
     "jupyter>=1.0.0",
     "ipykernel>=6.15.0",
+    "bandit>=1.7.0",
+    "safety>=2.3.0",
+    "pydocstyle>=6.3.0",
 ]
 viz = [
     "plotly>=5.10.0",
@@ -78,6 +84,15 @@ Issues = "https://github.com/terragon-labs/self-evolving-moe-router/issues"
 
 [project.scripts]
 evolve-moe = "self_evolving_moe.cli:main"
+
+# Development scripts for common tasks
+[project.entry-points."self_evolving_moe.commands"]
+test = "self_evolving_moe.scripts:test_command"
+lint = "self_evolving_moe.scripts:lint_command"
+format = "self_evolving_moe.scripts:format_command"
+build = "self_evolving_moe.scripts:build_command"
+clean = "self_evolving_moe.scripts:clean_command"
+dev = "self_evolving_moe.scripts:dev_command"
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -1,31 +1,75 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
 root = true
 
+# All files
 [*]
 charset = utf-8
 end_of_line = lf
+indent_style = space
+indent_size = 2
 insert_final_newline = true
 trim_trailing_whitespace = true
-indent_style = space
-indent_size = 4
+max_line_length = 88
 
-[*.{py,pyi}]
+# Python files
+[*.py]
 indent_size = 4
 max_line_length = 88
 
+# YAML files
 [*.{yml,yaml}]
 indent_size = 2
 
-[*.{json,toml}]
+# JSON files
+[*.json]
 indent_size = 2
 
-[*.{md,rst}]
-trim_trailing_whitespace = false
-
-[Makefile]
-indent_style = tab
-
+# JavaScript/TypeScript files
 [*.{js,ts,jsx,tsx}]
 indent_size = 2
 
-[*.{html,css}]
+# CSS/SCSS files  
+[*.{css,scss,sass}]
 indent_size = 2
+
+# HTML files
+[*.html]
+indent_size = 2
+
+# XML files
+[*.xml]
+indent_size = 2
+
+# Markdown files
+[*.md]
+trim_trailing_whitespace = false
+max_line_length = 120
+
+# Configuration files
+[*.{toml,ini,cfg}]
+indent_size = 4
+
+# Shell scripts
+[*.{sh,bash}]
+indent_size = 2
+
+# Makefile
+[Makefile]
+indent_style = tab
+indent_size = 4
+
+# Docker files
+[{Dockerfile,*.dockerfile}]
+indent_size = 2
+
+# Jupyter notebooks (don't modify)
+[*.ipynb]
+insert_final_newline = false
+trim_trailing_whitespace = false
+
+# Ignore binary files
+[*.{png,jpg,jpeg,gif,ico,svg,pdf,zip,tar,gz,bz2,xz}]
+insert_final_newline = false
+trim_trailing_whitespace = false
