@@ -12,10 +12,15 @@ __email__ = "daniel@example.com"
 from .evolution import EvolvingMoERouter
 from .experts import ExpertPool, SlimmableMoE
 from .routing import TopologyGenome
+from .data import TopologyRepository, ExperimentRepository, EvolutionCache, ModelStorage
 
 __all__ = [
     "EvolvingMoERouter",
     "ExpertPool", 
     "SlimmableMoE",
     "TopologyGenome",
+    "TopologyRepository",
+    "ExperimentRepository", 
+    "EvolutionCache",
+    "ModelStorage",
 ]
