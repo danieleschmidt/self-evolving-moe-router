@@ -15,9 +15,24 @@ from dataclasses import dataclass
 from pathlib import Path
 import time
 import logging
+import warnings
 
 from ..routing.topology import TopologyGenome
 from ..experts.pool import ExpertPool
+from ..utils.exceptions import (
+    EvolutionError, 
+    TopologyError, 
+    ConfigurationError,
+    ResourceConstraintError
+)
+from ..utils.validation import (
+    validate_config,
+    validate_topology,
+    validate_expert_pool,
+    validate_data_loader
+)
+from ..utils.logging import get_evolution_logger, log_execution_time, log_memory_usage
+from ..utils.monitoring import PerformanceTracker
 
 
 @dataclass
@@ -328,31 +343,52 @@ class EvolvingMoERouter:
             config: Evolution configuration
             fitness_evaluator: Custom fitness evaluator
             device: Device for computations
+            
+        Raises:
+            ConfigurationError: If configuration is invalid
+            ExpertPoolError: If expert pool is invalid
+            EvolutionError: If initialization fails
         """
-        self.expert_pool = expert_pool
-        self.config = config or EvolutionConfig()
-        self.device = device
-        
-        # Initialize fitness evaluator
-        self.fitness_evaluator = fitness_evaluator or FitnessEvaluator(self.config)
-        
-        # Evolution state
-        self.population: List[TopologyGenome] = []
-        self.fitness_scores: List[float] = []
-        self.fitness_history: List[Dict[str, Any]] = []
-        self.generation = 0
-        self.best_topology: Optional[TopologyGenome] = None
-        self.best_fitness = float('-inf')
-        
-        # Convergence tracking
-        self.no_improvement_count = 0
-        self.last_best_fitness = float('-inf')
-        
-        # Initialize population
-        self._initialize_population()
-        
-        # Setup logging
-        self.logger = logging.getLogger(__name__)
+        try:
+            # Validate inputs
+            validate_expert_pool(expert_pool)
+            
+            self.expert_pool = expert_pool
+            self.config = config or EvolutionConfig()
+            
+            # Validate configuration
+            validate_config(self.config)
+            
+            self.device = device
+            
+            # Initialize fitness evaluator
+            self.fitness_evaluator = fitness_evaluator or FitnessEvaluator(self.config)
+            
+            # Evolution state
+            self.population: List[TopologyGenome] = []
+            self.fitness_scores: List[float] = []
+            self.fitness_history: List[Dict[str, Any]] = []
+            self.generation = 0
+            self.best_topology: Optional[TopologyGenome] = None
+            self.best_fitness = float('-inf')
+            
+            # Convergence tracking
+            self.no_improvement_count = 0
+            self.last_best_fitness = float('-inf')
+            
+            # Performance tracking
+            self.performance_tracker = PerformanceTracker()
+            
+            # Setup logging
+            self.logger = get_evolution_logger(__name__)
+            
+            # Initialize population with error handling
+            self._initialize_population()
+            
+            self.logger.info(f"Initialized EvolvingMoERouter with {self.config.population_size} population")
+            
+        except Exception as e:
+            raise EvolutionError(f"Failed to initialize EvolvingMoERouter: {e}")
     
     def _initialize_population(self):
         """Initialize random population of routing topologies."""
