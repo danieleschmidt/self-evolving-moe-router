@@ -28,7 +28,7 @@ pip install self-evolving-moe-router[viz]
 pip install self-evolving-moe-router[distributed]
 
 # Development installation
-git clone https://github.com/yourusername/self-evolving-moe-router
+git clone https://github.com/danieleschmidt/self-evolving-moe-router
 cd self-evolving-moe-router
 pip install -e ".[dev]"
 ```
@@ -832,7 +832,7 @@ if health.expert_utilization < 0.5:
 ```bibtex
 @article{self_evolving_moe_router,
   title={Self-Evolving MoE-Router: Evolutionary Discovery of Sparse Expert Routing},
-  author={Your Name},
+  author={Daniel Schmidt},
   journal={NeurIPS},
   year={2025}
 }
