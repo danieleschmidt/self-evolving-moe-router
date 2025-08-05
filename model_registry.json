@@ -1,0 +1,325 @@
+{
+  "models": [
+    {
+      "model_id": "b1ec1c06f3c24d4c",
+      "name": "Test Topology",
+      "version": "1.0",
+      "model_type": "topology",
+      "created_time": "2025-08-05 01:08:21.154703",
+      "size_bytes": 2469,
+      "num_parameters": 80,
+      "config": {
+        "num_tokens": 16,
+        "num_experts": 4,
+        "sparsity": 0.8,
+        "routing_params": {
+          "temperature": 1.0,
+          "top_k": 2,
+          "load_balancing_weight": 0.01,
+          "diversity_weight": 0.1,
+          "sparsity_target": 0.1
+        }
+      },
+      "metrics": {
+        "sparsity": 0.75,
+        "total_connections": 16,
+        "generation": 0
+      },
+      "tags": [],
+      "description": ""
+    },
+    {
+      "model_id": "7f57b5543d36bdc6",
+      "name": "Test Topology",
+      "version": "1.0",
+      "model_type": "topology",
+      "created_time": "2025-08-05 01:09:19.572520",
+      "size_bytes": 2469,
+      "num_parameters": 80,
+      "config": {
+        "num_tokens": 16,
+        "num_experts": 4,
+        "sparsity": 0.8,
+        "routing_params": {
+          "temperature": 1.0,
+          "top_k": 2,
+          "load_balancing_weight": 0.01,
+          "diversity_weight": 0.1,
+          "sparsity_target": 0.1
+        }
+      },
+      "metrics": {
+        "sparsity": 0.75,
+        "total_connections": 16,
+        "generation": 0
+      },
+      "tags": [],
+      "description": ""
+    },
+    {
+      "model_id": "2a654ddf4da478ee",
+      "name": "Test Topology",
+      "version": "1.0",
+      "model_type": "topology",
+      "created_time": "2025-08-05 01:09:40.686277",
+      "size_bytes": 2469,
+      "num_parameters": 80,
+      "config": {
+        "num_tokens": 16,
+        "num_experts": 4,
+        "sparsity": 0.8,
+        "routing_params": {
+          "temperature": 1.0,
+          "top_k": 2,
+          "load_balancing_weight": 0.01,
+          "diversity_weight": 0.1,
+          "sparsity_target": 0.1
+        }
+      },
+      "metrics": {
+        "sparsity": 0.75,
+        "total_connections": 16,
+        "generation": 0
+      },
+      "tags": [],
+      "description": ""
+    },
+    {
+      "model_id": "2a851308a6c3eaeb",
+      "name": "Test Topology",
+      "version": "1.0",
+      "model_type": "topology",
+      "created_time": "2025-08-05 01:09:49.249164",
+      "size_bytes": 2469,
+      "num_parameters": 80,
+      "config": {
+        "num_tokens": 16,
+        "num_experts": 4,
+        "sparsity": 0.8,
+        "routing_params": {
+          "temperature": 1.0,
+          "top_k": 2,
+          "load_balancing_weight": 0.01,
+          "diversity_weight": 0.1,
+          "sparsity_target": 0.1
+        }
+      },
+      "metrics": {
+        "sparsity": 0.75,
+        "total_connections": 16,
+        "generation": 0
+      },
+      "tags": [],
+      "description": ""
+    },
+    {
+      "model_id": "351c2af3a477e6ad",
+      "name": "Test Topology",
+      "version": "1.0",
+      "model_type": "topology",
+      "created_time": "2025-08-05 01:09:56.384160",
+      "size_bytes": 2469,
+      "num_parameters": 80,
+      "config": {
+        "num_tokens": 16,
+        "num_experts": 4,
+        "sparsity": 0.8,
+        "routing_params": {
+          "temperature": 1.0,
+          "top_k": 2,
+          "load_balancing_weight": 0.01,
+          "diversity_weight": 0.1,
+          "sparsity_target": 0.1
+        }
+      },
+      "metrics": {
+        "sparsity": 0.75,
+        "total_connections": 16,
+        "generation": 0
+      },
+      "tags": [],
+      "description": ""
+    },
+    {
+      "model_id": "36eb0aaee6ec1a1e",
+      "name": "Test Topology",
+      "version": "1.0",
+      "model_type": "topology",
+      "created_time": "2025-08-05 01:10:09.645719",
+      "size_bytes": 2469,
+      "num_parameters": 80,
+      "config": {
+        "num_tokens": 16,
+        "num_experts": 4,
+        "sparsity": 0.8,
+        "routing_params": {
+          "temperature": 1.0,
+          "top_k": 2,
+          "load_balancing_weight": 0.01,
+          "diversity_weight": 0.1,
+          "sparsity_target": 0.1
+        }
+      },
+      "metrics": {
+        "sparsity": 0.75,
+        "total_connections": 16,
+        "generation": 0
+      },
+      "tags": [],
+      "description": ""
+    },
+    {
+      "model_id": "feb83f80a7effb1c",
+      "name": "Test Topology",
+      "version": "1.0",
+      "model_type": "topology",
+      "created_time": "2025-08-05 01:10:24.036829",
+      "size_bytes": 2469,
+      "num_parameters": 80,
+      "config": {
+        "num_tokens": 16,
+        "num_experts": 4,
+        "sparsity": 0.8,
+        "routing_params": {
+          "temperature": 1.0,
+          "top_k": 2,
+          "load_balancing_weight": 0.01,
+          "diversity_weight": 0.1,
+          "sparsity_target": 0.1
+        }
+      },
+      "metrics": {
+        "sparsity": 0.75,
+        "total_connections": 16,
+        "generation": 0
+      },
+      "tags": [],
+      "description": ""
+    },
+    {
+      "model_id": "8b2517ae05fef3df",
+      "name": "Test Topology",
+      "version": "1.0",
+      "model_type": "topology",
+      "created_time": "2025-08-05 01:10:44.024624",
+      "size_bytes": 2469,
+      "num_parameters": 80,
+      "config": {
+        "num_tokens": 16,
+        "num_experts": 4,
+        "sparsity": 0.8,
+        "routing_params": {
+          "temperature": 1.0,
+          "top_k": 2,
+          "load_balancing_weight": 0.01,
+          "diversity_weight": 0.1,
+          "sparsity_target": 0.1
+        }
+      },
+      "metrics": {
+        "sparsity": 0.75,
+        "total_connections": 16,
+        "generation": 0
+      },
+      "tags": [],
+      "description": ""
+    },
+    {
+      "model_id": "13ed83da4abc0592",
+      "name": "Test Topology",
+      "version": "1.0",
+      "model_type": "topology",
+      "created_time": "2025-08-05 01:11:03.635741",
+      "size_bytes": 2469,
+      "num_parameters": 80,
+      "config": {
+        "num_tokens": 16,
+        "num_experts": 4,
+        "sparsity": 0.8,
+        "routing_params": {
+          "temperature": 1.0,
+          "top_k": 2,
+          "load_balancing_weight": 0.01,
+          "diversity_weight": 0.1,
+          "sparsity_target": 0.1
+        }
+      },
+      "metrics": {
+        "sparsity": 0.75,
+        "total_connections": 16,
+        "generation": 0
+      },
+      "tags": [],
+      "description": ""
+    },
+    {
+      "model_id": "020ef5754cec8ac2",
+      "name": "Test Topology",
+      "version": "1.0",
+      "model_type": "topology",
+      "created_time": "2025-08-05 01:11:34.615506",
+      "size_bytes": 2469,
+      "num_parameters": 80,
+      "config": {
+        "num_tokens": 16,
+        "num_experts": 4,
+        "sparsity": 0.8,
+        "routing_params": {
+          "temperature": 1.0,
+          "top_k": 2,
+          "load_balancing_weight": 0.01,
+          "diversity_weight": 0.1,
+          "sparsity_target": 0.1
+        }
+      },
+      "metrics": {
+        "sparsity": 0.75,
+        "total_connections": 16,
+        "generation": 0
+      },
+      "tags": [],
+      "description": ""
+    },
+    {
+      "model_id": "0d5d9079793028f5",
+      "name": "Test Topology",
+      "version": "1.0",
+      "model_type": "topology",
+      "created_time": "2025-08-05 01:11:52.076400",
+      "size_bytes": 2469,
+      "num_parameters": 80,
+      "config": {
+        "num_tokens": 16,
+        "num_experts": 4,
+        "sparsity": 0.8,
+        "routing_params": {
+          "temperature": 1.0,
+          "top_k": 2,
+          "load_balancing_weight": 0.01,
+          "diversity_weight": 0.1,
+          "sparsity_target": 0.1
+        }
+      },
+      "metrics": {
+        "sparsity": 0.75,
+        "total_connections": 16,
+        "generation": 0
+      },
+      "tags": [],
+      "description": ""
+    }
+  ],
+  "checkpoints": {
+    "b1ec1c06f3c24d4c": [],
+    "7f57b5543d36bdc6": [],
+    "2a654ddf4da478ee": [],
+    "2a851308a6c3eaeb": [],
+    "351c2af3a477e6ad": [],
+    "36eb0aaee6ec1a1e": [],
+    "feb83f80a7effb1c": [],
+    "8b2517ae05fef3df": [],
+    "13ed83da4abc0592": [],
+    "020ef5754cec8ac2": [],
+    "0d5d9079793028f5": []
+  }
+}

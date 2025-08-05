@@ -159,14 +159,16 @@ class SlimmableExpert(nn.Module):
         if expert_type == "transformer":
             # Transformer-based expert
             self.attention = SlimmableMultiHeadAttention(max_dim, min_width_ratio=min_width_ratio)
-            self.attn_norm = nn.LayerNorm(max_dim)
+            # Use width-flexible normalization  
+            self.attn_norm = None
             
             self.ffn = nn.Sequential(
                 SlimmableLinear(max_dim, self.max_ffn_dim, min_width_ratio),
                 nn.GELU(),
                 SlimmableLinear(self.max_ffn_dim, max_dim, min_width_ratio)
             )
-            self.ffn_norm = nn.LayerNorm(max_dim)
+            # Use width-flexible normalization
+            self.ffn_norm = None
             
         elif expert_type == "mlp":
             # MLP-based expert
@@ -175,7 +177,8 @@ class SlimmableExpert(nn.Module):
                 nn.GELU(),
                 SlimmableLinear(self.max_ffn_dim, max_dim, min_width_ratio)
             )
-            self.norm = nn.LayerNorm(max_dim)
+            # Use RMSNorm-like normalization for width flexibility
+            self.norm = None  # Will handle normalization manually
         
         self.current_width = max_dim
         self.usage_count = 0
@@ -226,19 +229,19 @@ class SlimmableExpert(nn.Module):
         if self.expert_type == "transformer":
             # Self-attention
             attn_out, _ = self.attention(x_sliced, width, attention_mask)
-            x_sliced = self.attn_norm(x_sliced + attn_out[..., :width])
+            x_sliced = self._layer_norm(x_sliced + attn_out[..., :width], width)
             
             # Feed-forward
             ffn_out = self.ffn[0](x_sliced, width, self.max_ffn_dim)  # First linear
             ffn_out = self.ffn[1](ffn_out)  # GELU
             ffn_out = self.ffn[2](ffn_out, self.max_ffn_dim, width)  # Second linear
-            x_sliced = self.ffn_norm(x_sliced + ffn_out)
+            x_sliced = self._layer_norm(x_sliced + ffn_out, width)
             
         elif self.expert_type == "mlp":
             net_out = self.network[0](x_sliced, width, self.max_ffn_dim)  # First linear
             net_out = self.network[1](net_out)  # GELU
             net_out = self.network[2](net_out, self.max_ffn_dim, width)  # Second linear
-            x_sliced = self.norm(x_sliced + net_out)
+            x_sliced = self._layer_norm(x_sliced + net_out, width)
         
         # Pad back to original width if needed
         if x_sliced.shape[-1] < x.shape[-1]:
@@ -249,6 +252,23 @@ class SlimmableExpert(nn.Module):
             x_sliced = torch.cat([x_sliced, padding], dim=-1)
         
         return x_sliced
+    
+    def _layer_norm(self, x: torch.Tensor, width: int) -> torch.Tensor:
+        """Apply layer normalization for given width."""
+        # Simple RMS normalization for width flexibility
+        x_sliced = x[..., :width]
+        variance = x_sliced.pow(2).mean(dim=-1, keepdim=True)
+        x_norm = x_sliced / torch.sqrt(variance + 1e-6)
+        
+        # Pad back if needed
+        if x_norm.shape[-1] < x.shape[-1]:
+            padding = torch.zeros(
+                *x.shape[:-1], x.shape[-1] - x_norm.shape[-1],
+                device=x.device, dtype=x.dtype
+            )
+            x_norm = torch.cat([x_norm, padding], dim=-1)
+        
+        return x_norm
     
     def _find_closest_width(self, target_width: int) -> str:
         """Find closest available width embedding."""

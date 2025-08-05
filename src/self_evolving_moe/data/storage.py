@@ -365,7 +365,11 @@ class ModelStorage:
             'fitness_history': topology.fitness_history
         }
         
-        data = torch.save(state, buffer=True)
+        # Serialize topology to bytes
+        import io
+        buffer = io.BytesIO()
+        torch.save(state, buffer)
+        data = buffer.getvalue()
         
         # Save to storage
         key = f"topologies/{model_id}.pt"
@@ -410,7 +414,10 @@ class ModelStorage:
             return None
         
         try:
-            state = torch.load(data, map_location=device)
+            # Load from bytes
+            import io
+            buffer = io.BytesIO(data)
+            state = torch.load(buffer, map_location=device, weights_only=False)
             
             topology = TopologyGenome(
                 num_tokens=state['num_tokens'],

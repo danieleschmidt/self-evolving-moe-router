@@ -390,7 +390,7 @@ class TopologyGenome:
     @classmethod
     def load_topology(cls, filepath: str, device: str = "cpu") -> 'TopologyGenome':
         """Load topology from file."""
-        state = torch.load(filepath, map_location=device)
+        state = torch.load(filepath, map_location=device, weights_only=False)
         
         topology = cls(
             num_tokens=state['num_tokens'],

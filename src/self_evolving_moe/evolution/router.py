@@ -348,11 +348,11 @@ class EvolvingMoERouter:
         self.no_improvement_count = 0
         self.last_best_fitness = float('-inf')
         
+        # Setup logging (before population initialization)
+        self.logger = logging.getLogger(__name__)
+        
         # Initialize population
         self._initialize_population()
-        
-        # Setup logging
-        self.logger = logging.getLogger(__name__)
     
     def _initialize_population(self):
         """Initialize random population of routing topologies."""
@@ -601,7 +601,7 @@ class EvolvingMoERouter:
         device: str = "cpu"
     ) -> 'EvolvingMoERouter':
         """Load evolution state from file."""
-        state = torch.load(filepath, map_location=device)
+        state = torch.load(filepath, map_location=device, weights_only=False)
         
         # Create router
         router = cls(
