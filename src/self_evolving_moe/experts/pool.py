@@ -92,7 +92,8 @@ class MLPExpert(nn.Module):
         ffn_dim: int,
         num_layers: int = 2,
         dropout: float = 0.1,
-        activation: str = "gelu"
+        activation: str = "gelu",
+        device: str = "cpu"
     ):
         super().__init__()
         self.hidden_dim = hidden_dim
@@ -103,7 +104,7 @@ class MLPExpert(nn.Module):
             input_dim = hidden_dim if i == 0 else ffn_dim
             output_dim = hidden_dim if i == num_layers - 1 else ffn_dim
             
-            layers.append(nn.Linear(input_dim, output_dim))
+            layers.append(nn.Linear(input_dim, output_dim, bias=True, device=device))
             
             if i < num_layers - 1:  # No activation on last layer
                 if activation == "gelu":
@@ -113,7 +114,7 @@ class MLPExpert(nn.Module):
                 layers.append(nn.Dropout(dropout))
         
         self.network = nn.Sequential(*layers)
-        self.norm = nn.LayerNorm(hidden_dim)
+        self.norm = nn.LayerNorm(hidden_dim, device=device)
         
         # Track expert utilization
         self.usage_count = 0
@@ -171,14 +172,14 @@ class ExpertPool:
         self.device = device
         self.expert_config = expert_config or {}
         
-        # Create experts
-        self.experts = nn.ModuleList()
-        self._create_experts()
-        
-        # Expert management
+        # Expert management (initialize before calling _create_experts)
         self.expert_specializations: Dict[int, str] = {}
         self.expert_performance: Dict[int, float] = {}
         self.active_experts: List[int] = list(range(num_experts))
+        
+        # Create experts
+        self.experts = nn.ModuleList()
+        self._create_experts()
         
         # Resource management
         self.max_active_experts = num_experts
@@ -201,7 +202,8 @@ class ExpertPool:
                     ffn_dim=self.ffn_dim,
                     num_layers=self.expert_config.get("num_layers", 2),
                     dropout=self.expert_config.get("dropout", 0.1),
-                    activation=self.expert_config.get("activation", "gelu")
+                    activation=self.expert_config.get("activation", "gelu"),
+                    device=self.device
                 )
             else:
                 raise ValueError(f"Unknown expert type: {self.expert_type}")
