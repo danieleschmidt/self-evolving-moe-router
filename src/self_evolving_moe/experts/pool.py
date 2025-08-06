@@ -171,14 +171,14 @@ class ExpertPool:
         self.device = device
         self.expert_config = expert_config or {}
         
-        # Create experts
-        self.experts = nn.ModuleList()
-        self._create_experts()
-        
         # Expert management
         self.expert_specializations: Dict[int, str] = {}
         self.expert_performance: Dict[int, float] = {}
         self.active_experts: List[int] = list(range(num_experts))
+        
+        # Create experts
+        self.experts = nn.ModuleList()
+        self._create_experts()
         
         # Resource management
         self.max_active_experts = num_experts

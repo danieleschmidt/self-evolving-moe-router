@@ -190,6 +190,27 @@ class EvolutionLogger:
             'fitness_improvement': self.fitness_history[-1] - self.fitness_history[0] if len(self.fitness_history) > 1 else 0,
             'convergence_rate': len([f for f in self.fitness_history if f == self.best_fitness]) / len(self.fitness_history) if self.fitness_history else 0
         }
+    
+    # Delegate standard logging methods to internal logger
+    def debug(self, message, *args, **kwargs):
+        """Log debug message."""
+        self.logger.debug(message, *args, **kwargs)
+        
+    def info(self, message, *args, **kwargs):
+        """Log info message."""
+        self.logger.info(message, *args, **kwargs)
+        
+    def warning(self, message, *args, **kwargs):
+        """Log warning message."""
+        self.logger.warning(message, *args, **kwargs)
+        
+    def error(self, message, *args, **kwargs):
+        """Log error message."""
+        self.logger.error(message, *args, **kwargs)
+        
+    def critical(self, message, *args, **kwargs):
+        """Log critical message."""
+        self.logger.critical(message, *args, **kwargs)
 
 
 def setup_logging(

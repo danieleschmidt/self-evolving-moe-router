@@ -18,10 +18,21 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, TensorDataset
 
-from .evolution.router import EvolvingMoERouter, EvolutionConfig
-from .experts.pool import ExpertPool
-from .experts.slimmable import SlimmableMoE
-from .routing.topology import TopologyGenome
+try:
+    # Try relative imports first
+    from .evolution.router import EvolvingMoERouter, EvolutionConfig
+    from .experts.pool import ExpertPool
+    from .experts.slimmable import SlimmableMoE
+    from .routing.topology import TopologyGenome
+except ImportError:
+    # Fall back to absolute imports for direct execution
+    import sys
+    from pathlib import Path
+    sys.path.append(str(Path(__file__).parent.parent))
+    from self_evolving_moe.evolution.router import EvolvingMoERouter, EvolutionConfig
+    from self_evolving_moe.experts.pool import ExpertPool
+    from self_evolving_moe.experts.slimmable import SlimmableMoE
+    from self_evolving_moe.routing.topology import TopologyGenome
 
 
 def setup_logging(level: str = "INFO"):
