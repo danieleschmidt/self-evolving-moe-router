@@ -1,0 +1,110 @@
+# Multi-stage production Dockerfile for Self-Evolving MoE-Router
+# Optimized for production deployment with minimal image size and maximum performance
+
+# Build stage - Install dependencies and build optimizations
+FROM python:3.11-slim as builder
+
+# Install system dependencies for building
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    cmake \
+    git \
+    curl \
+    pkg-config \
+    libblas-dev \
+    liblapack-dev \
+    gfortran \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create non-root user
+RUN useradd --create-home --shell /bin/bash moe
+
+# Set working directory
+WORKDIR /app
+
+# Copy requirements first for better Docker layer caching
+COPY pyproject.toml README.md ./
+COPY src/ ./src/
+
+# Install Python dependencies
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir build && \
+    pip install --no-cache-dir -e . && \
+    pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+
+# Install production optimizations
+RUN pip install --no-cache-dir \
+    gunicorn \
+    uvicorn[standard] \
+    fastapi \
+    prometheus-client \
+    structlog \
+    orjson
+
+# Runtime stage - Minimal production image
+FROM python:3.11-slim as runtime
+
+# Install minimal runtime dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    libblas3 \
+    liblapack3 \
+    libgomp1 \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
+# Create non-root user
+RUN useradd --create-home --shell /bin/bash --uid 1000 moe
+
+# Create application directories
+RUN mkdir -p /app/logs /app/checkpoints /app/data /app/config && \
+    chown -R moe:moe /app
+
+# Copy Python environment from builder
+COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
+COPY --from=builder /usr/local/bin /usr/local/bin
+
+# Copy application code
+COPY --chown=moe:moe src/ /app/src/
+COPY --chown=moe:moe configs/ /app/configs/
+COPY --chown=moe:moe scripts/ /app/scripts/
+COPY --chown=moe:moe pyproject.toml /app/
+
+# Copy production configuration
+COPY --chown=moe:moe docker/config/production.yaml /app/config/
+COPY --chown=moe:moe docker/scripts/entrypoint.sh /app/
+COPY --chown=moe:moe docker/scripts/healthcheck.py /app/
+
+# Make scripts executable
+RUN chmod +x /app/entrypoint.sh /app/healthcheck.py
+
+# Switch to non-root user
+USER moe
+
+# Set working directory
+WORKDIR /app
+
+# Environment variables
+ENV PYTHONPATH=/app/src \
+    PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    MOE_ENV=production \
+    MOE_LOG_LEVEL=INFO \
+    MOE_CONFIG_PATH=/app/config/production.yaml
+
+# Expose ports
+EXPOSE 8000 8080 9090
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD python /app/healthcheck.py
+
+# Labels for metadata
+LABEL maintainer="Terragon Labs <contact@terragonlabs.com>" \
+      version="0.1.0" \
+      description="Self-Evolving MoE-Router Production Container" \
+      org.opencontainers.image.source="https://github.com/terragon-labs/self-evolving-moe-router"
+
+# Entrypoint
+ENTRYPOINT ["/app/entrypoint.sh"]
+CMD ["serve"]

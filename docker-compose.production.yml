@@ -1,0 +1,243 @@
+# Production Docker Compose configuration for Self-Evolving MoE-Router
+# Includes all production services: API, evolution service, monitoring, and database
+
+version: '3.8'
+
+services:
+  # Main MoE-Router API service
+  moe-api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.production
+      target: runtime
+    image: terragon/self-evolving-moe-router:latest
+    container_name: moe-api
+    restart: unless-stopped
+    command: ["serve"]
+    
+    ports:
+      - "8000:8000"  # API port
+      - "9090:9090"  # Metrics port
+    
+    environment:
+      - MOE_ENV=production
+      - MOE_LOG_LEVEL=INFO
+      - MOE_WORKERS=4
+      - MOE_CONFIG_PATH=/app/config/production.yaml
+      - MOE_DATABASE_URL=postgresql://moe_user:moe_password@postgres:5432/moe_db
+      - MOE_REDIS_URL=redis://redis:6379/0
+    
+    volumes:
+      - moe-checkpoints:/app/checkpoints
+      - moe-logs:/app/logs
+      - moe-data:/app/data
+      - ./configs:/app/configs:ro
+    
+    networks:
+      - moe-network
+    
+    depends_on:
+      - postgres
+      - redis
+    
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+        reservations:
+          cpus: '1.0'
+          memory: 2G
+    
+    healthcheck:
+      test: ["CMD", "python", "/app/healthcheck.py", "--quick"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # Evolution service (background processing)
+  moe-evolution:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.production
+      target: runtime
+    image: terragon/self-evolving-moe-router:latest
+    container_name: moe-evolution
+    restart: unless-stopped
+    command: ["evolve"]
+    
+    environment:
+      - MOE_ENV=production
+      - MOE_LOG_LEVEL=INFO
+      - MOE_CONFIG_PATH=/app/config/production.yaml
+      - MOE_DATABASE_URL=postgresql://moe_user:moe_password@postgres:5432/moe_db
+      - MOE_REDIS_URL=redis://redis:6379/0
+    
+    volumes:
+      - moe-checkpoints:/app/checkpoints
+      - moe-logs:/app/logs
+      - moe-data:/app/data
+      - ./configs:/app/configs:ro
+    
+    networks:
+      - moe-network
+    
+    depends_on:
+      - postgres
+      - redis
+    
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 8G
+        reservations:
+          cpus: '2.0'
+          memory: 4G
+
+  # PostgreSQL database for persistent storage
+  postgres:
+    image: postgres:15-alpine
+    container_name: moe-postgres
+    restart: unless-stopped
+    
+    environment:
+      - POSTGRES_DB=moe_db
+      - POSTGRES_USER=moe_user
+      - POSTGRES_PASSWORD=moe_password
+      - POSTGRES_INITDB_ARGS=--auth-host=scram-sha-256
+    
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./docker/init-db:/docker-entrypoint-initdb.d:ro
+    
+    networks:
+      - moe-network
+    
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U moe_user -d moe_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis for caching and message queuing
+  redis:
+    image: redis:7-alpine
+    container_name: moe-redis
+    restart: unless-stopped
+    
+    command: redis-server --appendonly yes --maxmemory 1gb --maxmemory-policy allkeys-lru
+    
+    volumes:
+      - redis-data:/data
+    
+    networks:
+      - moe-network
+    
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  # Prometheus monitoring
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: moe-prometheus
+    restart: unless-stopped
+    
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=30d'
+      - '--web.enable-lifecycle'
+    
+    ports:
+      - "9091:9090"
+    
+    volumes:
+      - prometheus-data:/prometheus
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./monitoring/alerts:/etc/prometheus/alerts:ro
+    
+    networks:
+      - moe-network
+    
+    depends_on:
+      - moe-api
+
+  # Grafana dashboards
+  grafana:
+    image: grafana/grafana:latest
+    container_name: moe-grafana
+    restart: unless-stopped
+    
+    ports:
+      - "3000:3000"
+    
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_INSTALL_PLUGINS=grafana-piechart-panel,grafana-worldmap-panel
+    
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+    
+    networks:
+      - moe-network
+    
+    depends_on:
+      - prometheus
+
+  # NGINX reverse proxy and load balancer
+  nginx:
+    image: nginx:alpine
+    container_name: moe-nginx
+    restart: unless-stopped
+    
+    ports:
+      - "80:80"
+      - "443:443"
+    
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./docker/nginx/ssl:/etc/nginx/ssl:ro
+      - nginx-logs:/var/log/nginx
+    
+    networks:
+      - moe-network
+    
+    depends_on:
+      - moe-api
+
+# Named volumes for persistent data
+volumes:
+  moe-checkpoints:
+    driver: local
+  moe-logs:
+    driver: local
+  moe-data:
+    driver: local
+  postgres-data:
+    driver: local
+  redis-data:
+    driver: local
+  prometheus-data:
+    driver: local
+  grafana-data:
+    driver: local
+  nginx-logs:
+    driver: local
+
+# Custom network for service communication
+networks:
+  moe-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
