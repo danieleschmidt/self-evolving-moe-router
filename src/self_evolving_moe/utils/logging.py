@@ -234,9 +234,12 @@ def setup_logging(
         Configured root logger
     """
     # Convert string level to logging constant
-    numeric_level = getattr(logging, level.upper(), None)
-    if not isinstance(numeric_level, int):
-        raise ValueError(f'Invalid log level: {level}')
+    if isinstance(level, str):
+        numeric_level = getattr(logging, level.upper(), None)
+        if not isinstance(numeric_level, int):
+            raise ValueError(f'Invalid log level: {level}')
+    else:
+        numeric_level = level  # Already a numeric level
     
     # Create root logger
     root_logger = logging.getLogger()

@@ -7,11 +7,14 @@ adapt their capacity based on available computational resources.
 
 import torch
 import torch.nn as nn
-from typing import Dict, List, Optional, Tuple, Union, Any
+from typing import Dict, List, Optional, Tuple, Union, Any, TYPE_CHECKING, ForwardRef
+
+if TYPE_CHECKING:
+    from .pool import ExpertPool
 import math
 from pathlib import Path
 
-from .pool import ExpertPool
+# from .pool import ExpertPool  # Removed to avoid circular import
 from ..routing.topology import TopologyGenome
 
 
@@ -91,11 +94,18 @@ class SlimmableMultiHeadAttention(nn.Module):
     
     def forward(
         self,
-        x: torch.Tensor,
-        width: Optional[int] = None,
-        attention_mask: Optional[torch.Tensor] = None
+        query: torch.Tensor,
+        key: Optional[torch.Tensor] = None,
+        value: Optional[torch.Tensor] = None,
+        attention_mask: Optional[torch.Tensor] = None,
+        width: Optional[int] = None
     ) -> Tuple[torch.Tensor, torch.Tensor]:
         """Forward pass with specified width."""
+        # Handle default arguments
+        if key is None:
+            key = query
+        if value is None:
+            value = query
         if width is None:
             width = self.current_embed_dim
             
@@ -107,12 +117,12 @@ class SlimmableMultiHeadAttention(nn.Module):
         num_heads = max(1, (width * self.max_num_heads) // self.max_embed_dim)
         head_dim = width // num_heads
         
-        batch_size, seq_len, _ = x.shape
+        batch_size, seq_len, _ = query.shape
         
         # Project to Q, K, V
-        q = self.q_proj(x, width, width)
-        k = self.k_proj(x, width, width)
-        v = self.v_proj(x, width, width)
+        q = self.q_proj(query, width, width)
+        k = self.k_proj(key, width, width)
+        v = self.v_proj(value, width, width)
         
         # Reshape for multi-head attention
         q = q.view(batch_size, seq_len, num_heads, head_dim).transpose(1, 2)
@@ -301,7 +311,7 @@ class SlimmableMoE(nn.Module):
     
     def __init__(
         self,
-        expert_pool: ExpertPool,
+        expert_pool: 'ExpertPool',
         routing_topology: Optional[TopologyGenome] = None,
         width_configs: Optional[List[int]] = None,
         default_width: Optional[int] = None
@@ -579,6 +589,7 @@ class SlimmableMoE(nn.Module):
         checkpoint = torch.load(model_path, map_location=device)
         
         # Reconstruct expert pool
+        from .pool import ExpertPool  # Import here to avoid circular import
         expert_pool = ExpertPool.load_experts(
             checkpoint['expert_pool_path'], device=device
         )
