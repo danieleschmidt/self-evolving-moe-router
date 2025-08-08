@@ -406,3 +406,68 @@ class TopologyGenome:
         topology.fitness_history = state.get('fitness_history', [])
         
         return topology
+    
+    def to_dict(self) -> Dict[str, Any]:
+        """Convert topology to dictionary for serialization."""
+        return {
+            'routing_matrix': self.routing_matrix.cpu().numpy().tolist(),
+            'expert_graph': self.expert_graph.cpu().numpy().tolist(),
+            'routing_params': {
+                'temperature': self.routing_params.temperature,
+                'top_k': self.routing_params.top_k,
+                'load_balancing_weight': self.routing_params.load_balancing_weight,
+                'diversity_weight': self.routing_params.diversity_weight,
+                'sparsity_target': self.routing_params.sparsity_target
+            },
+            'num_tokens': self.num_tokens,
+            'num_experts': self.num_experts,
+            'sparsity': self.sparsity,
+            'generation': self.generation,
+            'fitness_history': self.fitness_history,
+            'device': str(self.device)
+        }
+    
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any], device: str = "cpu") -> 'TopologyGenome':
+        """Create topology from dictionary."""
+        import numpy as np
+        
+        routing_params = RoutingParams(**data['routing_params'])
+        
+        topology = cls(
+            num_tokens=data['num_tokens'],
+            num_experts=data['num_experts'],
+            sparsity=data['sparsity'],
+            routing_params=routing_params,
+            device=device
+        )
+        
+        # Load matrices
+        topology.routing_matrix = torch.tensor(data['routing_matrix'], dtype=torch.float32, device=device)
+        topology.expert_graph = torch.tensor(data['expert_graph'], dtype=torch.float32, device=device)
+        topology.generation = data.get('generation', 0)
+        topology.fitness_history = data.get('fitness_history', [])
+        
+        return topology
+    
+    def get_routing_mask(self, seq_len: int) -> torch.Tensor:
+        """
+        Get routing mask for the given sequence length.
+        
+        Args:
+            seq_len: Target sequence length
+            
+        Returns:
+            Routing mask tensor [seq_len, num_experts]
+        """
+        if seq_len == self.num_tokens:
+            # Exact match - return routing matrix directly
+            return self.routing_matrix.clone()
+        elif seq_len < self.num_tokens:
+            # Truncate routing matrix
+            return self.routing_matrix[:seq_len, :].clone()
+        else:
+            # Extend routing matrix by repeating patterns
+            # Use modular indexing to repeat the pattern
+            indices = torch.arange(seq_len, device=self.device) % self.num_tokens
+            return self.routing_matrix[indices, :].clone()

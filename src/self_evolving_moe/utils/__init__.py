@@ -7,7 +7,7 @@ error handling, and system monitoring.
 
 from .validation import validate_config, validate_topology, validate_expert_pool
 from .logging import setup_logging, get_logger
-from .monitoring import SystemMonitor, PerformanceTracker
+# from .monitoring import SystemMonitor, PerformanceTracker  # Commented out to avoid missing dependencies
 from .exceptions import (
     MoEValidationError,
     EvolutionError, 
@@ -21,8 +21,8 @@ __all__ = [
     "validate_expert_pool",
     "setup_logging",
     "get_logger",
-    "SystemMonitor",
-    "PerformanceTracker",
+    # "SystemMonitor",
+    # "PerformanceTracker",
     "MoEValidationError",
     "EvolutionError",
     "TopologyError", 
