@@ -1,0 +1,216 @@
+# TERRAGON Alert Rules
+# Self-Evolving MoE-Router Production Monitoring Alerts
+
+groups:
+- name: terragon.critical
+  rules:
+  # High Priority - System Down
+  - alert: TERRAGONServiceDown
+    expr: up{job="terragon-moe-router"} == 0
+    for: 1m
+    labels:
+      severity: critical
+      component: terragon
+      service: moe-router
+    annotations:
+      summary: "TERRAGON MoE-Router service is down"
+      description: "TERRAGON Self-Evolving MoE-Router has been down for more than 1 minute."
+      runbook_url: "https://docs.terragon.ai/runbooks/service-down"
+
+  # High Priority - API Response Time
+  - alert: TERRAGONHighLatency
+    expr: histogram_quantile(0.95, rate(http_request_duration_seconds_bucket{job="terragon-moe-router"}[5m])) > 0.2
+    for: 3m
+    labels:
+      severity: critical
+      component: terragon
+      service: api
+    annotations:
+      summary: "TERRAGON API response time is too high"
+      description: "95th percentile latency is {{ $value }}s, exceeding 200ms SLA requirement."
+      runbook_url: "https://docs.terragon.ai/runbooks/high-latency"
+
+  # Evolution System Failures
+  - alert: TERRAGONEvolutionFailure
+    expr: increase(terragon_evolution_failures_total[10m]) > 5
+    for: 2m
+    labels:
+      severity: critical
+      component: terragon
+      service: evolution
+    annotations:
+      summary: "TERRAGON evolution system experiencing failures"
+      description: "{{ $value }} evolution failures in the last 10 minutes."
+      runbook_url: "https://docs.terragon.ai/runbooks/evolution-failure"
+
+- name: terragon.warning
+  rules:
+  # Medium Priority - Performance Degradation
+  - alert: TERRAGONHighCPU
+    expr: rate(container_cpu_usage_seconds_total{pod=~"terragon-moe-router-.*"}[5m]) > 0.8
+    for: 5m
+    labels:
+      severity: warning
+      component: terragon
+      service: moe-router
+    annotations:
+      summary: "TERRAGON pod has high CPU usage"
+      description: "Pod {{ $labels.pod }} CPU usage is {{ $value | humanizePercentage }}."
+
+  - alert: TERRAGONHighMemory
+    expr: container_memory_usage_bytes{pod=~"terragon-moe-router-.*"} / container_spec_memory_limit_bytes > 0.85
+    for: 5m
+    labels:
+      severity: warning
+      component: terragon
+      service: moe-router
+    annotations:
+      summary: "TERRAGON pod has high memory usage"
+      description: "Pod {{ $labels.pod }} memory usage is {{ $value | humanizePercentage }}."
+
+  # Routing Performance
+  - alert: TERRAGONRoutingLatency
+    expr: histogram_quantile(0.90, rate(terragon_routing_duration_seconds_bucket[5m])) > 0.1
+    for: 3m
+    labels:
+      severity: warning
+      component: terragon
+      service: routing
+    annotations:
+      summary: "TERRAGON routing latency is elevated"
+      description: "90th percentile routing latency is {{ $value }}s."
+
+  # Cache Performance
+  - alert: TERRAGONLowCacheHitRate
+    expr: rate(terragon_cache_hits_total[10m]) / rate(terragon_cache_requests_total[10m]) < 0.7
+    for: 5m
+    labels:
+      severity: warning
+      component: terragon
+      service: cache
+    annotations:
+      summary: "TERRAGON cache hit rate is low"
+      description: "Cache hit rate is {{ $value | humanizePercentage }} over the last 10 minutes."
+
+  # Evolution Quality
+  - alert: TERRAGONEvolutionStagnation
+    expr: increase(terragon_best_fitness[30m]) == 0 and terragon_evolution_active == 1
+    for: 15m
+    labels:
+      severity: warning
+      component: terragon
+      service: evolution
+    annotations:
+      summary: "TERRAGON evolution showing no fitness improvement"
+      description: "No fitness improvement detected in the last 30 minutes during active evolution."
+
+- name: terragon.info
+  rules:
+  # Informational - Scaling Events
+  - alert: TERRAGONScalingUp
+    expr: increase(kube_deployment_status_replicas{deployment="terragon-moe-router"}[5m]) > 0
+    for: 1m
+    labels:
+      severity: info
+      component: terragon
+      service: autoscaling
+    annotations:
+      summary: "TERRAGON deployment scaling up"
+      description: "Deployment scaled to {{ $value }} replicas."
+
+  - alert: TERRAGONScalingDown
+    expr: increase(kube_deployment_status_replicas{deployment="terragon-moe-router"}[5m]) < 0
+    for: 1m
+    labels:
+      severity: info
+      component: terragon
+      service: autoscaling
+    annotations:
+      summary: "TERRAGON deployment scaling down"
+      description: "Deployment scaled to {{ $value }} replicas."
+
+  # Research Execution
+  - alert: TERRAGONResearchCompletion
+    expr: increase(terragon_research_experiments_completed_total[1h]) > 0
+    labels:
+      severity: info
+      component: terragon
+      service: research
+    annotations:
+      summary: "TERRAGON research experiment completed"
+      description: "{{ $value }} research experiments completed in the last hour."
+
+- name: terragon.sla
+  rules:
+  # SLA Monitoring
+  - alert: TERRAGONSLAViolation
+    expr: (
+        (
+          sum(rate(http_requests_total{job="terragon-moe-router", code=~"2.."}[30m])) /
+          sum(rate(http_requests_total{job="terragon-moe-router"}[30m]))
+        ) < 0.999
+      ) or (
+        histogram_quantile(0.99, rate(http_request_duration_seconds_bucket{job="terragon-moe-router"}[30m])) > 0.2
+      )
+    for: 5m
+    labels:
+      severity: critical
+      component: terragon
+      service: sla
+    annotations:
+      summary: "TERRAGON SLA violation detected"
+      description: "SLA requirements not met - either availability < 99.9% or latency > 200ms."
+      runbook_url: "https://docs.terragon.ai/runbooks/sla-violation"
+
+- name: terragon.capacity
+  rules:
+  # Capacity Planning
+  - alert: TERRAGONHighRequestRate
+    expr: rate(http_requests_total{job="terragon-moe-router"}[5m]) > 1000
+    for: 10m
+    labels:
+      severity: warning
+      component: terragon
+      service: capacity
+    annotations:
+      summary: "TERRAGON experiencing high request rate"
+      description: "Request rate is {{ $value }} requests/second over the last 5 minutes."
+
+  - alert: TERRAGONExpertUtilization
+    expr: avg(terragon_expert_utilization_ratio) > 0.9
+    for: 5m
+    labels:
+      severity: warning
+      component: terragon
+      service: experts
+    annotations:
+      summary: "TERRAGON expert utilization is high"
+      description: "Average expert utilization is {{ $value | humanizePercentage }}."
+
+- name: terragon.security
+  rules:
+  # Security Monitoring
+  - alert: TERRAGONHighErrorRate
+    expr: (
+        sum(rate(http_requests_total{job="terragon-moe-router", code=~"4..|5.."}[5m])) /
+        sum(rate(http_requests_total{job="terragon-moe-router"}[5m]))
+      ) > 0.05
+    for: 3m
+    labels:
+      severity: warning
+      component: terragon
+      service: security
+    annotations:
+      summary: "TERRAGON experiencing high error rate"
+      description: "Error rate is {{ $value | humanizePercentage }} over the last 5 minutes."
+
+  - alert: TERRAGONRateLimitingActive
+    expr: increase(terragon_rate_limit_exceeded_total[5m]) > 10
+    for: 2m
+    labels:
+      severity: info
+      component: terragon
+      service: security
+    annotations:
+      summary: "TERRAGON rate limiting is active"
+      description: "{{ $value }} requests were rate limited in the last 5 minutes."

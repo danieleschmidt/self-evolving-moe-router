@@ -1,0 +1,15 @@
+# TERRAGON Kubernetes Namespace
+# Self-Evolving MoE-Router Production Namespace
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: terragon
+  labels:
+    app: terragon
+    component: self-evolving-moe-router
+    environment: production
+    version: "1.0.0"
+  annotations:
+    description: "TERRAGON Self-Evolving MoE-Router Production Environment"
+    maintainer: "TERRAGON Labs"
