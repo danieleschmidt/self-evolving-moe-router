@@ -1,0 +1,53 @@
+# TERRAGON Kubernetes Service
+# Self-Evolving MoE-Router Production Service
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: terragon-moe-router-service
+  namespace: terragon
+  labels:
+    app: terragon
+    component: moe-router
+    tier: backend
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: nlb
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+    protocol: TCP
+    name: http
+  - port: 443
+    targetPort: 8080
+    protocol: TCP
+    name: https
+  selector:
+    app: terragon
+    component: moe-router
+  sessionAffinity: None
+
+---
+# Internal Service for cluster communication
+apiVersion: v1
+kind: Service
+metadata:
+  name: terragon-moe-router-internal
+  namespace: terragon
+  labels:
+    app: terragon
+    component: moe-router
+    tier: backend
+    scope: internal
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
+    name: http
+  selector:
+    app: terragon
+    component: moe-router

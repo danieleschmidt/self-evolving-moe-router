@@ -1,0 +1,117 @@
+# TERRAGON Prometheus Configuration
+# Self-Evolving MoE-Router Production Monitoring
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    cluster: 'terragon-production'
+    environment: 'production'
+
+rule_files:
+  - "terragon-alerts.yml"
+
+scrape_configs:
+  # TERRAGON Self-Evolving MoE-Router
+  - job_name: 'terragon-moe-router'
+    kubernetes_sd_configs:
+    - role: pod
+      namespaces:
+        names:
+        - terragon
+    relabel_configs:
+    - source_labels: [__meta_kubernetes_pod_label_app]
+      action: keep
+      regex: terragon
+    - source_labels: [__meta_kubernetes_pod_label_component]
+      action: keep
+      regex: moe-router
+    - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
+      action: keep
+      regex: true
+    - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_path]
+      action: replace
+      target_label: __metrics_path__
+      regex: (.+)
+    - source_labels: [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
+      action: replace
+      regex: ([^:]+)(?::\d+)?;(\d+)
+      replacement: $1:$2
+      target_label: __address__
+    - action: labelmap
+      regex: __meta_kubernetes_pod_label_(.+)
+    - source_labels: [__meta_kubernetes_namespace]
+      action: replace
+      target_label: kubernetes_namespace
+    - source_labels: [__meta_kubernetes_pod_name]
+      action: replace
+      target_label: kubernetes_pod_name
+    metrics_path: '/metrics'
+    scrape_interval: 10s
+    
+  # TERRAGON Evolution Metrics
+  - job_name: 'terragon-evolution-metrics'
+    kubernetes_sd_configs:
+    - role: pod
+      namespaces:
+        names:
+        - terragon
+    relabel_configs:
+    - source_labels: [__meta_kubernetes_pod_label_app]
+      action: keep
+      regex: terragon
+    - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape_evolution]
+      action: keep
+      regex: true
+    metrics_path: '/evolution/metrics'
+    scrape_interval: 30s
+
+  # TERRAGON Router Performance
+  - job_name: 'terragon-routing-metrics' 
+    kubernetes_sd_configs:
+    - role: pod
+      namespaces:
+        names:
+        - terragon
+    relabel_configs:
+    - source_labels: [__meta_kubernetes_pod_label_app]
+      action: keep
+      regex: terragon
+    - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape_routing]
+      action: keep
+      regex: true
+    metrics_path: '/routing/metrics'
+    scrape_interval: 5s
+
+  # Kubernetes cluster metrics
+  - job_name: 'kubernetes-apiservers'
+    kubernetes_sd_configs:
+    - role: endpoints
+    scheme: https
+    tls_config:
+      ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+      insecure_skip_verify: true
+    bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+    relabel_configs:
+    - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
+      action: keep
+      regex: default;kubernetes;https
+
+  # Node metrics
+  - job_name: 'kubernetes-nodes'
+    kubernetes_sd_configs:
+    - role: node
+    scheme: https
+    tls_config:
+      ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+      insecure_skip_verify: true
+    bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+    relabel_configs:
+    - action: labelmap
+      regex: __meta_kubernetes_node_label_(.+)
+
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      - alertmanager:9093
