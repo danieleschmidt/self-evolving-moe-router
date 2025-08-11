@@ -1,0 +1,119 @@
+{
+  "timestamp": 1754915440.9585433,
+  "overall_score": 73.21428571428571,
+  "overall_status": "FAIL",
+  "gates_passed": 5,
+  "total_gates": 7,
+  "pass_rate": 71.42857142857143,
+  "results": [
+    {
+      "name": "Code Structure",
+      "passed": true,
+      "score": 100.0,
+      "errors": [],
+      "warnings": [],
+      "recommendations": [],
+      "details": {
+        "python_files_count": 72,
+        "lines_of_code": 26761
+      }
+    },
+    {
+      "name": "Import Dependencies",
+      "passed": true,
+      "score": 100.0,
+      "errors": [],
+      "warnings": [],
+      "recommendations": [],
+      "details": {
+        "analyzed_files": 32,
+        "syntax_errors": 0
+      }
+    },
+    {
+      "name": "Configuration Validation",
+      "passed": true,
+      "score": 100.0,
+      "errors": [],
+      "warnings": [],
+      "recommendations": [],
+      "details": {
+        "missing_configurations": []
+      }
+    },
+    {
+      "name": "Security Scanning",
+      "passed": false,
+      "score": 10.0,
+      "errors": [
+        "/root/repo/advanced_evolution_demo.py:659 - Use of eval() function",
+        "/root/repo/create_comprehensive_tests.py:91 - Use of eval() function",
+        "/root/repo/demo_complete_system.py:178 - Use of eval() function",
+        "/root/repo/demo_working_system.py:178 - Use of eval() function",
+        "/root/repo/demo_working_system.py:373 - Use of eval() function",
+        "/root/repo/quality_gates.py:659 - Use of eval() function",
+        "/root/repo/quality_gates_improved.py:48 - Use of eval() function",
+        "/root/repo/run_evolution.py:204 - Use of eval() function",
+        "/root/repo/test_comprehensive_suite.py:77 - Use of eval() function",
+        "/root/repo/simple_quality_gates.py:224 - Use of eval() function",
+        "/root/repo/simple_quality_gates.py:225 - Use of exec() function",
+        "/root/repo/simple_quality_gates.py:226 - Use of os.system()",
+        "/root/repo/deployment/healthcheck.py:160 - Use of exec() function",
+        "/root/repo/examples/basic_evolution.py:156 - Use of eval() function",
+        "/root/repo/src/self_evolving_moe/evolution/multi_objective_fitness.py:122 - Use of eval() function",
+        "/root/repo/src/self_evolving_moe/evolution/router.py:100 - Use of eval() function",
+        "/root/repo/src/self_evolving_moe/experts/slimmable.py:510 - Use of eval() function",
+        "/root/repo/src/self_evolving_moe/optimization/profiling.py:98 - Use of eval() function",
+        "/root/repo/src/self_evolving_moe/optimization/profiling.py:280 - Use of eval() function"
+      ],
+      "warnings": [],
+      "recommendations": [],
+      "details": {
+        "security_issues": 19,
+        "files_scanned": 72
+      }
+    },
+    {
+      "name": "Documentation",
+      "passed": true,
+      "score": 85.0,
+      "errors": [],
+      "warnings": [],
+      "recommendations": [],
+      "details": {
+        "readme_length": 24789,
+        "docstring_coverage": 82.10116731517509,
+        "total_functions": 514,
+        "functions_with_docstrings": 422
+      }
+    },
+    {
+      "name": "Test Coverage",
+      "passed": false,
+      "score": 32.5,
+      "errors": [
+        "Low test coverage estimated: 40.6%"
+      ],
+      "warnings": [],
+      "recommendations": [],
+      "details": {
+        "test_files": 13,
+        "source_files": 32,
+        "estimated_coverage": 40.625
+      }
+    },
+    {
+      "name": "Production Readiness",
+      "passed": true,
+      "score": 85.0,
+      "errors": [],
+      "warnings": [],
+      "recommendations": [],
+      "details": {
+        "missing_deployment": [],
+        "missing_monitoring": [],
+        "missing_security": []
+      }
+    }
+  ]
+}
