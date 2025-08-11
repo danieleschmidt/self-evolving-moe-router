@@ -311,7 +311,7 @@ class SlimmableMoE(nn.Module):
     
     def __init__(
         self,
-        expert_pool: 'ExpertPool',
+        expert_pool,
         routing_topology: Optional[TopologyGenome] = None,
         width_configs: Optional[List[int]] = None,
         default_width: Optional[int] = None
@@ -323,7 +323,7 @@ class SlimmableMoE(nn.Module):
         # Width configurations
         if width_configs is None:
             # Default width configurations (25%, 50%, 75%, 100%)
-            max_width = expert_pool.expert_dim
+            max_width = getattr(expert_pool, 'expert_dim', expert_pool.expert_config.hidden_dim)
             self.width_configs = [
                 max_width // 4,
                 max_width // 2,
@@ -356,9 +356,11 @@ class SlimmableMoE(nn.Module):
                 new_experts.append(expert)
             else:
                 # Create slimmable version
+                max_dim = getattr(self.expert_pool, 'expert_dim', self.expert_pool.expert_config.hidden_dim)
+                max_ffn_dim = getattr(self.expert_pool, 'ffn_dim', self.expert_pool.expert_config.intermediate_dim)
                 slimmable_expert = SlimmableExpert(
-                    max_dim=self.expert_pool.expert_dim,
-                    max_ffn_dim=self.expert_pool.ffn_dim,
+                    max_dim=max_dim,
+                    max_ffn_dim=max_ffn_dim,
                     expert_type="transformer" if hasattr(expert, 'attention') else "mlp"
                 )
                 slimmable_expert.expert_id = expert.expert_id
@@ -393,7 +395,7 @@ class SlimmableMoE(nn.Module):
         if width is None:
             width = self.current_width
         if num_experts is None:
-            num_experts = len(self.expert_pool.active_experts)
+            num_experts = getattr(self.expert_pool, 'num_experts', len(self.expert_pool.experts))
         
         # Ensure width is in available configurations
         width = min(self.width_configs, key=lambda w: abs(w - width))
@@ -426,8 +428,9 @@ class SlimmableMoE(nn.Module):
         # Route through experts
         output = torch.zeros_like(x_sliced)
         
-        for expert_idx in range(self.expert_pool.num_experts):
-            if expert_idx not in self.expert_pool.active_experts:
+        for expert_idx in range(len(self.expert_pool.experts)):
+            # Skip if expert pool has active_experts attribute and this expert is not active
+            if hasattr(self.expert_pool, 'active_experts') and expert_idx not in self.expert_pool.active_experts:
                 continue
             
             # Check if this expert is selected
@@ -480,7 +483,7 @@ class SlimmableMoE(nn.Module):
         elif target_latency < 20:  # Medium
             return self.width_configs[2], 8
         else:  # Full capacity
-            return self.width_configs[-1], len(self.expert_pool.active_experts)
+            return self.width_configs[-1], getattr(self.expert_pool, 'num_experts', len(self.expert_pool.experts))
     
     def set_routing_topology(self, topology: TopologyGenome):
         """Set routing topology for expert selection."""
@@ -577,10 +580,10 @@ class SlimmableMoE(nn.Module):
             'current_width': self.current_width,
             'width_latency': self.width_latency,
             'width_performance': self.width_performance,
-            'active_experts': self.expert_pool.active_experts,
-            'total_experts': self.expert_pool.num_experts,
-            'expert_utilization': self.expert_pool.get_expert_usage(),
-            'memory_usage': self.expert_pool.get_memory_usage()
+            'active_experts': getattr(self.expert_pool, 'active_experts', list(range(len(self.expert_pool.experts)))),
+            'total_experts': len(self.expert_pool.experts),
+            'expert_utilization': getattr(self.expert_pool, 'get_expert_utilization', lambda: {})(),
+            'memory_usage': sum(expert.get_memory_usage() if hasattr(expert, 'get_memory_usage') else 0 for expert in self.expert_pool.experts)
         }
     
     @classmethod
@@ -588,11 +591,21 @@ class SlimmableMoE(nn.Module):
         """Load pre-trained slimmable MoE model."""
         checkpoint = torch.load(model_path, map_location=device)
         
-        # Reconstruct expert pool
-        from .pool import ExpertPool  # Import here to avoid circular import
-        expert_pool = ExpertPool.load_experts(
-            checkpoint['expert_pool_path'], device=device
+        # Reconstruct expert pool (simplified for basic functionality)
+        from .pool import ExpertPool, ExpertConfig  # Import here to avoid circular import
+        
+        # Create a basic expert pool for loading
+        expert_config = ExpertConfig()
+        expert_pool = ExpertPool(
+            num_experts=checkpoint.get('num_experts', 8),
+            expert_config=expert_config
         )
+        
+        # Load expert states if available
+        if 'expert_states' in checkpoint:
+            for i, state in enumerate(checkpoint['expert_states']):
+                if i < len(expert_pool.experts):
+                    expert_pool.experts[i].load_state_dict(state)
         
         # Reconstruct topology if available
         topology = None
@@ -623,7 +636,11 @@ class SlimmableMoE(nn.Module):
         
         # Save expert pool
         expert_pool_path = save_dir / "expert_pool"
-        self.expert_pool.save_experts(str(expert_pool_path))
+        if hasattr(self.expert_pool, 'save_experts'):
+            self.expert_pool.save_experts(str(expert_pool_path))
+        else:
+            # Manual save for compatibility
+            expert_states = [expert.state_dict() for expert in self.expert_pool.experts]
         
         # Save topology if available
         topology_path = None
@@ -633,12 +650,21 @@ class SlimmableMoE(nn.Module):
         
         # Save model state
         model_path = save_dir / "model.pt"
-        torch.save({
+        save_dict = {
             'router_state': self.router.state_dict(),
             'width_configs': self.width_configs,
             'default_width': self.default_width,
             'width_performance': self.width_performance,
             'width_latency': self.width_latency,
-            'expert_pool_path': str(expert_pool_path),
+            'num_experts': len(self.expert_pool.experts),
             'topology_path': str(topology_path) if topology_path else None
-        }, model_path)
+        }
+        
+        # Add expert states if not saved elsewhere
+        if not hasattr(self.expert_pool, 'save_experts'):
+            save_dict['expert_states'] = [expert.state_dict() for expert in self.expert_pool.experts]
+            save_dict['expert_config'] = self.expert_pool.expert_config.__dict__
+        else:
+            save_dict['expert_pool_path'] = str(expert_pool_path)
+        
+        torch.save(save_dict, model_path)
