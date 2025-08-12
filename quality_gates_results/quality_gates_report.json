@@ -1,125 +1,139 @@
 {
+  "timestamp": "2025-08-12 23:44:34",
   "overall_passed": false,
-  "total_score": 41.25,
-  "execution_summary": {
-    "total_gates": 4,
-    "passed_gates": 1,
-    "failed_gates": 3,
-    "overall_score": 41.25,
-    "execution_time": 0.49063968658447266
-  },
-  "recommendations": [
-    "Review and fix security vulnerabilities before deployment",
-    "Increase test coverage to meet 85% minimum requirement",
-    "Improve code documentation and reduce complexity"
-  ],
-  "individual_results": [
+  "overall_score": 0.6030081925243216,
+  "results": [
     {
-      "name": "Security Vulnerability Scan",
+      "name": "Code Quality",
+      "passed": true,
+      "score": 1.0,
+      "details": {
+        "total_score": 420.0,
+        "max_score": 420.0,
+        "final_score": 1.0,
+        "issues": [],
+        "docstring_ratio": 1.0,
+        "python_files_count": 32
+      },
+      "duration": 0.02206873893737793,
+      "error_message": null
+    },
+    {
+      "name": "Security Analysis",
       "passed": false,
       "score": 0.0,
-      "execution_time": 0.28474950790405273,
       "details": {
-        "high_severity_vulnerabilities": 14,
-        "total_vulnerabilities": 14,
-        "scanned_files": 65,
-        "sample_vulnerabilities": [
-          {
-            "file": "/root/repo/demo_complete_system.py",
-            "line": 178,
-            "pattern": "eval\\s*\\(",
-            "content": "model.eval()",
-            "severity": "HIGH"
-          },
-          {
-            "file": "/root/repo/advanced_evolution_demo.py",
-            "line": 659,
-            "pattern": "eval\\s*\\(",
-            "content": "model.eval()",
-            "severity": "HIGH"
-          },
-          {
-            "file": "/root/repo/demo_working_system.py",
-            "line": 178,
-            "pattern": "eval\\s*\\(",
-            "content": "model.eval()",
-            "severity": "HIGH"
-          },
-          {
-            "file": "/root/repo/demo_working_system.py",
-            "line": 373,
-            "pattern": "eval\\s*\\(",
-            "content": "model.eval()",
-            "severity": "HIGH"
-          },
-          {
-            "file": "/root/repo/run_evolution.py",
-            "line": 204,
-            "pattern": "eval\\s*\\(",
-            "content": "model.eval()",
-            "severity": "HIGH"
-          }
-        ]
-      }
+        "security_issues": [
+          "advanced_evolution_demo.py: Use of eval() function detected",
+          "create_comprehensive_tests.py: Use of eval() function detected",
+          "demo_complete_system.py: Use of eval() function detected",
+          "demo_working_system.py: Use of eval() function detected",
+          "quality_gates.py: Use of eval() function detected",
+          "quality_gates_improved.py: Use of eval() function detected",
+          "run_evolution.py: Use of eval() function detected",
+          "simple_quality_gates.py: Use of eval() function detected",
+          "simple_quality_gates.py: Use of exec() function detected",
+          "simple_quality_gates.py: Use of os.system() detected",
+          "test_comprehensive_suite.py: Use of eval() function detected",
+          "comprehensive_quality_gates.py: Use of eval() function detected",
+          "comprehensive_quality_gates.py: Use of exec() function detected",
+          "comprehensive_quality_gates.py: Use of os.system() detected",
+          "comprehensive_quality_gates.py: Direct subprocess.call() usage",
+          "comprehensive_quality_gates.py: Raw input() usage detected",
+          "comprehensive_quality_gates.py: Unsafe pickle.loads() usage",
+          "comprehensive_quality_gates.py: Unsafe yaml.load() usage",
+          "working_evolution_demo.py: Use of eval() function detected",
+          "deployment/healthcheck.py: Use of exec() function detected",
+          "examples/basic_evolution.py: Use of eval() function detected",
+          "src/self_evolving_moe/distributed/distributed_evolution.py: Unsafe pickle.loads() usage",
+          "src/self_evolving_moe/evolution/multi_objective_fitness.py: Use of eval() function detected",
+          "src/self_evolving_moe/evolution/router.py: Use of eval() function detected",
+          "src/self_evolving_moe/experts/slimmable.py: Use of eval() function detected",
+          "src/self_evolving_moe/optimization/profiling.py: Use of eval() function detected"
+        ],
+        "pattern_violations": 26,
+        "secret_violations": 0,
+        "permission_issues": 0,
+        "total_score": -30.0,
+        "final_score": 0.0,
+        "scanned_files": 78
+      },
+      "duration": 0.28384828567504883,
+      "error_message": null
     },
     {
       "name": "Test Coverage",
       "passed": false,
-      "score": 75.0,
-      "execution_time": 0.15329265594482422,
+      "score": 0.2,
       "details": {
-        "coverage_percentage": 75.0,
-        "tests_run": 6,
-        "tests_passed": 6,
-        "tests_failed": 0,
-        "structural_tests": [
-          {
-            "test": "Class EvolvingMoERouter exists",
-            "passed": true
-          },
-          {
-            "test": "Class ExpertPool exists",
-            "passed": true
-          },
-          {
-            "test": "Class TopologyGenome exists",
-            "passed": true
-          }
-        ]
-      }
+        "test_files_count": 26,
+        "coverage_percentage": 0.2,
+        "tests_passed": false,
+        "test_output": "",
+        "test_errors": "ImportError while loading conftest '/root/repo/tests/conftest.py'.\ntests/conftest.py:13: in <module>\n    import yaml\nE   ModuleNotFoundError: No module named 'yaml'\n"
+      },
+      "duration": 6.007025480270386,
+      "error_message": null
     },
     {
       "name": "Performance Benchmarks",
       "passed": true,
-      "score": 50.0,
-      "execution_time": 0.042195796966552734,
+      "score": 0.9375,
       "details": {
-        "estimated_latency_ms": 50.0,
-        "meets_latency_requirement": true,
-        "estimated_memory_mb": 287.7,
-        "complexity_analysis": {
-          "total_files": 65,
-          "total_lines": 28770,
-          "total_functions": 1196,
-          "total_classes": 258,
-          "avg_function_length": 19.86705685618729,
-          "max_function_length": 365,
-          "complexity_score": 80.26588628762542
-        }
-      }
+        "benchmarks": {
+          "simple_demo": {
+            "duration": 0.07108473777770996,
+            "result": {
+              "best_fitness": -0.5849388071752757
+            },
+            "passed": true
+          },
+          "memory_efficiency": {
+            "error": "psutil not available",
+            "passed": true
+          },
+          "numerical_stability": {
+            "duration": 0.0035715103149414062,
+            "has_nan": false,
+            "has_inf": false,
+            "passed": true
+          }
+        },
+        "total_score": 75.0,
+        "max_score": 80.0,
+        "final_score": 0.9375
+      },
+      "duration": 0.07879900932312012,
+      "error_message": null
     },
     {
-      "name": "Code Quality Analysis",
-      "passed": false,
-      "score": 40.0,
-      "execution_time": 0.010401725769042969,
+      "name": "Documentation Quality",
+      "passed": true,
+      "score": 1.152073732718894,
       "details": {
-        "total_files": 65,
-        "python_files": 65,
-        "total_lines": 28774,
-        "documentation_coverage": 100.0,
-        "docstring_files": 65
-      }
+        "readme_exists": true,
+        "doc_files_count": 21,
+        "docstring_ratio": 0.8402457757296466,
+        "total_functions": 1953,
+        "docstring_count": 1641,
+        "issues": [],
+        "doc_score": 115.2073732718894,
+        "max_score": 100.0,
+        "final_score": 1.152073732718894
+      },
+      "duration": 0.015835285186767578,
+      "error_message": null
     }
-  ]
+  ],
+  "summary": {
+    "total_gates": 5,
+    "gates_run": 5,
+    "required_gates": 4,
+    "required_passed": 2,
+    "optional_gates": 1,
+    "optional_passed": 1,
+    "total_duration": 6.40864109992981,
+    "avg_duration": 1.2817282199859619,
+    "strict_mode": false
+  }
 }
