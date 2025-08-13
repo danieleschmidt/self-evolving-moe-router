@@ -1,0 +1,296 @@
+{
+  "config": {
+    "input_dim": 64,
+    "num_experts": 8,
+    "hidden_dim": 128,
+    "num_tokens": 16,
+    "population_size": 24,
+    "generations": 25,
+    "batch_size": 8,
+    "seq_len": 16
+  },
+  "evolution_stats": [
+    {
+      "generation": 0,
+      "best_fitness": -0.3893407792363233,
+      "avg_fitness": -0.3966100205786558,
+      "population_size": 24,
+      "cache_hit_rate": 0.0
+    },
+    {
+      "generation": 1,
+      "best_fitness": -0.3874989624669138,
+      "avg_fitness": -0.39294269043946567,
+      "population_size": 24,
+      "cache_hit_rate": 0.125
+    },
+    {
+      "generation": 2,
+      "best_fitness": -0.38578501062927917,
+      "avg_fitness": -0.3920312615284078,
+      "population_size": 24,
+      "cache_hit_rate": 0.2222222222222222
+    },
+    {
+      "generation": 3,
+      "best_fitness": -0.3833807383500217,
+      "avg_fitness": -0.3916233441918757,
+      "population_size": 24,
+      "cache_hit_rate": 0.21875
+    },
+    {
+      "generation": 4,
+      "best_fitness": -0.3833807383500217,
+      "avg_fitness": -0.3897911646385619,
+      "population_size": 24,
+      "cache_hit_rate": 0.225
+    },
+    {
+      "generation": 5,
+      "best_fitness": -0.3833807383500217,
+      "avg_fitness": -0.38749811014244395,
+      "population_size": 24,
+      "cache_hit_rate": 0.22916666666666666
+    },
+    {
+      "generation": 6,
+      "best_fitness": -0.38154192295435524,
+      "avg_fitness": -0.3863771069222251,
+      "population_size": 24,
+      "cache_hit_rate": 0.2261904761904762
+    },
+    {
+      "generation": 7,
+      "best_fitness": -0.3803474124070974,
+      "avg_fitness": -0.3838263861553057,
+      "population_size": 24,
+      "cache_hit_rate": 0.22395833333333334
+    },
+    {
+      "generation": 8,
+      "best_fitness": -0.37951054763818476,
+      "avg_fitness": -0.3832340655519422,
+      "population_size": 24,
+      "cache_hit_rate": 0.2175925925925926
+    },
+    {
+      "generation": 9,
+      "best_fitness": -0.3778725199752987,
+      "avg_fitness": -0.38106884967131577,
+      "population_size": 24,
+      "cache_hit_rate": 0.21666666666666667
+    },
+    {
+      "generation": 10,
+      "best_fitness": -0.3775117669732414,
+      "avg_fitness": -0.380170034079182,
+      "population_size": 24,
+      "cache_hit_rate": 0.2196969696969697
+    },
+    {
+      "generation": 11,
+      "best_fitness": -0.37649965597670026,
+      "avg_fitness": -0.37951017334340503,
+      "population_size": 24,
+      "cache_hit_rate": 0.2222222222222222
+    },
+    {
+      "generation": 12,
+      "best_fitness": -0.3746239611432299,
+      "avg_fitness": -0.37819628987363146,
+      "population_size": 24,
+      "cache_hit_rate": 0.22756410256410256
+    },
+    {
+      "generation": 13,
+      "best_fitness": -0.37247627031646463,
+      "avg_fitness": -0.37738117658150205,
+      "population_size": 24,
+      "cache_hit_rate": 0.22916666666666666
+    },
+    {
+      "generation": 14,
+      "best_fitness": -0.37166303809790285,
+      "avg_fitness": -0.3766349780300226,
+      "population_size": 24,
+      "cache_hit_rate": 0.22777777777777777
+    },
+    {
+      "generation": 15,
+      "best_fitness": -0.37166303809790285,
+      "avg_fitness": -0.37546708088291264,
+      "population_size": 24,
+      "cache_hit_rate": 0.23177083333333334
+    },
+    {
+      "generation": 16,
+      "best_fitness": -0.37166303809790285,
+      "avg_fitness": -0.3739653753059012,
+      "population_size": 24,
+      "cache_hit_rate": 0.23039215686274508
+    }
+  ],
+  "final_fitness": -0.37166303809790285,
+  "total_generations": 17,
+  "total_time": 1.3512749671936035,
+  "best_topology_sparsity": 0.3828125,
+  "performance_metrics": {
+    "avg_generation_time": 0.07948676277609433,
+    "avg_inference_time_ms": 1.6048296000008122,
+    "throughput_samples_per_sec": 9969.905839219256,
+    "model_performance": {
+      "inference_count": 995,
+      "avg_inference_time_ms": 1.2974572613092135,
+      "total_time": 1.2909699750026675,
+      "throughput_inferences_per_sec": 770.738296990946
+    },
+    "cache_stats": {
+      "hits": 94,
+      "misses": 314,
+      "hit_rate": 0.23039215686274508,
+      "size": 314,
+      "max_size": 1000
+    },
+    "profiler_report": {
+      "population_init": {
+        "total_time": 0.0023742719999972905,
+        "avg_time": 0.0023742719999972905,
+        "min_time": 0.0023742719999972905,
+        "max_time": 0.0023742719999972905,
+        "call_count": 1
+      },
+      "fitness_eval": {
+        "total_time": 1.2802672300005042,
+        "avg_time": 0.004077284171976128,
+        "min_time": 0.0038807020000604098,
+        "max_time": 0.005580010000016955,
+        "call_count": 314
+      },
+      "generation_0": {
+        "total_time": 0.10321576399996957,
+        "avg_time": 0.10321576399996957,
+        "min_time": 0.10321576399996957,
+        "max_time": 0.10321576399996957,
+        "call_count": 1
+      },
+      "generation_1": {
+        "total_time": 0.07661728599998696,
+        "avg_time": 0.07661728599998696,
+        "min_time": 0.07661728599998696,
+        "max_time": 0.07661728599998696,
+        "call_count": 1
+      },
+      "generation_2": {
+        "total_time": 0.06090166199999203,
+        "avg_time": 0.06090166199999203,
+        "min_time": 0.06090166199999203,
+        "max_time": 0.06090166199999203,
+        "call_count": 1
+      },
+      "generation_3": {
+        "total_time": 0.08000577200004955,
+        "avg_time": 0.08000577200004955,
+        "min_time": 0.08000577200004955,
+        "max_time": 0.08000577200004955,
+        "call_count": 1
+      },
+      "generation_4": {
+        "total_time": 0.07636380400003873,
+        "avg_time": 0.07636380400003873,
+        "min_time": 0.07636380400003873,
+        "max_time": 0.07636380400003873,
+        "call_count": 1
+      },
+      "generation_5": {
+        "total_time": 0.07896888499999477,
+        "avg_time": 0.07896888499999477,
+        "min_time": 0.07896888499999477,
+        "max_time": 0.07896888499999477,
+        "call_count": 1
+      },
+      "generation_6": {
+        "total_time": 0.0822892009999805,
+        "avg_time": 0.0822892009999805,
+        "min_time": 0.0822892009999805,
+        "max_time": 0.0822892009999805,
+        "call_count": 1
+      },
+      "generation_7": {
+        "total_time": 0.08223408900005325,
+        "avg_time": 0.08223408900005325,
+        "min_time": 0.08223408900005325,
+        "max_time": 0.08223408900005325,
+        "call_count": 1
+      },
+      "generation_8": {
+        "total_time": 0.08799974299995483,
+        "avg_time": 0.08799974299995483,
+        "min_time": 0.08799974299995483,
+        "max_time": 0.08799974299995483,
+        "call_count": 1
+      },
+      "generation_9": {
+        "total_time": 0.08016528600001038,
+        "avg_time": 0.08016528600001038,
+        "min_time": 0.08016528600001038,
+        "max_time": 0.08016528600001038,
+        "call_count": 1
+      },
+      "generation_10": {
+        "total_time": 0.07755412999995315,
+        "avg_time": 0.07755412999995315,
+        "min_time": 0.07755412999995315,
+        "max_time": 0.07755412999995315,
+        "call_count": 1
+      },
+      "generation_11": {
+        "total_time": 0.07587511200006247,
+        "avg_time": 0.07587511200006247,
+        "min_time": 0.07587511200006247,
+        "max_time": 0.07587511200006247,
+        "call_count": 1
+      },
+      "generation_12": {
+        "total_time": 0.07230121899999631,
+        "avg_time": 0.07230121899999631,
+        "min_time": 0.07230121899999631,
+        "max_time": 0.07230121899999631,
+        "call_count": 1
+      },
+      "generation_13": {
+        "total_time": 0.07801265900002363,
+        "avg_time": 0.07801265900002363,
+        "min_time": 0.07801265900002363,
+        "max_time": 0.07801265900002363,
+        "call_count": 1
+      },
+      "generation_14": {
+        "total_time": 0.08211834799999451,
+        "avg_time": 0.08211834799999451,
+        "min_time": 0.08211834799999451,
+        "max_time": 0.08211834799999451,
+        "call_count": 1
+      },
+      "generation_15": {
+        "total_time": 0.07317565099992862,
+        "avg_time": 0.07317565099992862,
+        "min_time": 0.07317565099992862,
+        "max_time": 0.07317565099992862,
+        "call_count": 1
+      },
+      "generation_16": {
+        "total_time": 0.07883044199991218,
+        "avg_time": 0.07883044199991218,
+        "min_time": 0.07883044199991218,
+        "max_time": 0.07883044199991218,
+        "call_count": 1
+      }
+    }
+  },
+  "optimization_features": {
+    "vectorized_operations": true,
+    "fitness_caching": true,
+    "fast_data_types": true,
+    "optimized_algorithms": true
+  }
+}

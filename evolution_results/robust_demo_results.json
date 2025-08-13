@@ -1,0 +1,225 @@
+{
+  "config": {
+    "input_dim": 64,
+    "num_experts": 8,
+    "hidden_dim": 128,
+    "num_tokens": 16,
+    "population_size": 12,
+    "generations": 20,
+    "batch_size": 4,
+    "seq_len": 16
+  },
+  "evolution_stats": [
+    {
+      "generation": 0,
+      "best_fitness": -0.3839264981189436,
+      "avg_fitness": -0.39169225213515596,
+      "worst_fitness": -0.40141052252678183,
+      "successful_evaluations": 12,
+      "health_status": "warning"
+    },
+    {
+      "generation": 1,
+      "best_fitness": -0.37871158577577596,
+      "avg_fitness": -0.3871400718730176,
+      "worst_fitness": -0.4090826903473853,
+      "successful_evaluations": 12,
+      "health_status": "failed"
+    },
+    {
+      "generation": 2,
+      "best_fitness": -0.3769974244458364,
+      "avg_fitness": -0.381609067763022,
+      "worst_fitness": -0.3889643301002128,
+      "successful_evaluations": 12,
+      "health_status": "failed"
+    },
+    {
+      "generation": 3,
+      "best_fitness": -0.37604922690711945,
+      "avg_fitness": -0.3789560951724636,
+      "worst_fitness": -0.38869614725980645,
+      "successful_evaluations": 12,
+      "health_status": "failed"
+    },
+    {
+      "generation": 4,
+      "best_fitness": -0.37493856249771434,
+      "avg_fitness": -0.37657012397308903,
+      "worst_fitness": -0.37823133229973116,
+      "successful_evaluations": 12,
+      "health_status": "failed"
+    },
+    {
+      "generation": 5,
+      "best_fitness": -0.37268896030721005,
+      "avg_fitness": -0.37557647599173366,
+      "worst_fitness": -0.37806561095768404,
+      "successful_evaluations": 12,
+      "health_status": "failed"
+    },
+    {
+      "generation": 6,
+      "best_fitness": -0.3725901552699858,
+      "avg_fitness": -0.3739440838967893,
+      "worst_fitness": -0.37578173309958507,
+      "successful_evaluations": 12,
+      "health_status": "failed"
+    },
+    {
+      "generation": 7,
+      "best_fitness": -0.3725901552699858,
+      "avg_fitness": -0.37368444856410915,
+      "worst_fitness": -0.3770194029465785,
+      "successful_evaluations": 12,
+      "health_status": "failed"
+    },
+    {
+      "generation": 8,
+      "best_fitness": -0.3724776343685997,
+      "avg_fitness": -0.37293315941035593,
+      "worst_fitness": -0.37470472883734973,
+      "successful_evaluations": 12,
+      "health_status": "failed"
+    },
+    {
+      "generation": 9,
+      "best_fitness": -0.3716649164786739,
+      "avg_fitness": -0.3727620768639639,
+      "worst_fitness": -0.3753157436507115,
+      "successful_evaluations": 12,
+      "health_status": "failed"
+    },
+    {
+      "generation": 10,
+      "best_fitness": -0.3716649164786739,
+      "avg_fitness": -0.37247081357523665,
+      "worst_fitness": -0.37386992333383223,
+      "successful_evaluations": 12,
+      "health_status": "failed"
+    },
+    {
+      "generation": 11,
+      "best_fitness": -0.37095124120149975,
+      "avg_fitness": -0.3718224731114243,
+      "worst_fitness": -0.3725119309284019,
+      "successful_evaluations": 12,
+      "health_status": "failed"
+    },
+    {
+      "generation": 12,
+      "best_fitness": -0.37095124120149975,
+      "avg_fitness": -0.37134838135744247,
+      "worst_fitness": -0.372991083402714,
+      "successful_evaluations": 12,
+      "health_status": "failed"
+    },
+    {
+      "generation": 13,
+      "best_fitness": -0.36999641053143145,
+      "avg_fitness": -0.37103377756719663,
+      "worst_fitness": -0.3719690160343944,
+      "successful_evaluations": 12,
+      "health_status": "failed"
+    },
+    {
+      "generation": 14,
+      "best_fitness": -0.36999641053143145,
+      "avg_fitness": -0.3708354780788963,
+      "worst_fitness": -0.37210853739416255,
+      "successful_evaluations": 12,
+      "health_status": "failed"
+    },
+    {
+      "generation": 15,
+      "best_fitness": -0.36999641053143145,
+      "avg_fitness": -0.37028800602429257,
+      "worst_fitness": -0.37164427916481735,
+      "successful_evaluations": 12,
+      "health_status": "failed"
+    },
+    {
+      "generation": 16,
+      "best_fitness": -0.36999641053143145,
+      "avg_fitness": -0.370029964235902,
+      "worst_fitness": -0.370399054985078,
+      "successful_evaluations": 12,
+      "health_status": "failed"
+    },
+    {
+      "generation": 17,
+      "best_fitness": -0.36999641053143145,
+      "avg_fitness": -0.3703869033136941,
+      "worst_fitness": -0.3723210767648693,
+      "successful_evaluations": 12,
+      "health_status": "failed"
+    },
+    {
+      "generation": 18,
+      "best_fitness": -0.36999641053143145,
+      "avg_fitness": -0.36999641053143145,
+      "worst_fitness": -0.36999641053143145,
+      "successful_evaluations": 12,
+      "health_status": "failed"
+    },
+    {
+      "generation": 19,
+      "best_fitness": -0.36999641053143145,
+      "avg_fitness": -0.37048758606161875,
+      "worst_fitness": -0.3732626141064207,
+      "successful_evaluations": 12,
+      "health_status": "failed"
+    }
+  ],
+  "final_fitness": -0.36999641053143145,
+  "total_generations": 20,
+  "computation_time": 3.839170217514038,
+  "best_topology_sparsity": 0.34375,
+  "model_performance": {
+    "inference_count": 721,
+    "total_inference_time": 3.384618043899536,
+    "avg_inference_time": 0.004694338479749704,
+    "error_count": 0,
+    "error_rate": 0.0,
+    "last_expert_usage": [
+      2.0498507294699,
+      1.7611065341642895,
+      1.735451854583002,
+      4.3859442669787185,
+      1.9286246613373605,
+      3.6013412814145522,
+      3.067668100663846,
+      2.2527565682219723
+    ]
+  },
+  "health_report": {
+    "current_status": "warning",
+    "metrics": {
+      "status": "warning",
+      "fitness_trend": 0.0,
+      "convergence_rate": 0.0,
+      "diversity_score": 0.3527462121212121,
+      "expert_utilization": 0.0,
+      "memory_usage": 0.0,
+      "computation_time": 0.04674363136291504,
+      "error_count": 0,
+      "warning_count": 0,
+      "last_check": 1755041733.7505908
+    },
+    "trends": {
+      "fitness_trend": [
+        0.0
+      ],
+      "diversity_trend": [
+        0.3527462121212121
+      ],
+      "memory_trend": [
+        0.0
+      ]
+    },
+    "total_errors": 19,
+    "total_warnings": 0,
+    "uptime": 3.890592336654663
+  },
+  "success": true
+}
