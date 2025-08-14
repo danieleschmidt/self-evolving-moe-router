@@ -12,193 +12,221 @@
   "evolution_stats": [
     {
       "generation": 0,
-      "best_fitness": -0.3844071263856679,
-      "avg_fitness": -0.3958995300131818,
+      "best_fitness": -0.3633878661863144,
+      "avg_fitness": -0.37773922230582685,
       "population_size": 24,
       "cache_hit_rate": 0.0
     },
     {
       "generation": 1,
-      "best_fitness": -0.38246104047236934,
-      "avg_fitness": -0.3908533073390103,
+      "best_fitness": -0.3633878661863144,
+      "avg_fitness": -0.3742406299403571,
       "population_size": 24,
-      "cache_hit_rate": 0.08333333333333333
+      "cache_hit_rate": 0.10416666666666667
     },
     {
       "generation": 2,
-      "best_fitness": -0.3797480912296605,
-      "avg_fitness": -0.3895007962843573,
+      "best_fitness": -0.3628830288960815,
+      "avg_fitness": -0.3731495439743269,
       "population_size": 24,
-      "cache_hit_rate": 0.125
+      "cache_hit_rate": 0.1527777777777778
     },
     {
       "generation": 3,
-      "best_fitness": -0.378569809263774,
-      "avg_fitness": -0.38515462129143074,
+      "best_fitness": -0.36158263924390727,
+      "avg_fitness": -0.36782100876808355,
       "population_size": 24,
-      "cache_hit_rate": 0.14583333333333334
+      "cache_hit_rate": 0.17708333333333334
     },
     {
       "generation": 4,
-      "best_fitness": -0.378569809263774,
-      "avg_fitness": -0.382222568238451,
+      "best_fitness": -0.36158263924390727,
+      "avg_fitness": -0.3651297822658656,
       "population_size": 24,
-      "cache_hit_rate": 0.18333333333333332
+      "cache_hit_rate": 0.20833333333333334
     },
     {
       "generation": 5,
-      "best_fitness": -0.377833278768565,
-      "avg_fitness": -0.3806735362771501,
+      "best_fitness": -0.360349676996876,
+      "avg_fitness": -0.3628403377186807,
       "population_size": 24,
-      "cache_hit_rate": 0.1875
+      "cache_hit_rate": 0.22916666666666666
     },
     {
       "generation": 6,
-      "best_fitness": -0.376242053514991,
-      "avg_fitness": -0.3792994202837637,
+      "best_fitness": -0.35990118025255247,
+      "avg_fitness": -0.3616821115384113,
       "population_size": 24,
-      "cache_hit_rate": 0.20833333333333334
+      "cache_hit_rate": 0.22023809523809523
     },
     {
       "generation": 7,
-      "best_fitness": -0.376242053514991,
-      "avg_fitness": -0.3783591844205174,
+      "best_fitness": -0.35776094215925675,
+      "avg_fitness": -0.3604854439224389,
       "population_size": 24,
-      "cache_hit_rate": 0.20833333333333334
+      "cache_hit_rate": 0.21875
     },
     {
       "generation": 8,
-      "best_fitness": -0.37578749152102786,
-      "avg_fitness": -0.37735069238035207,
+      "best_fitness": -0.35641301405724857,
+      "avg_fitness": -0.3591912169657047,
       "population_size": 24,
-      "cache_hit_rate": 0.20833333333333334
+      "cache_hit_rate": 0.22685185185185186
     },
     {
       "generation": 9,
-      "best_fitness": -0.374529635994465,
-      "avg_fitness": -0.37706861531456254,
+      "best_fitness": -0.3562690392273385,
+      "avg_fitness": -0.3579680728549044,
       "population_size": 24,
-      "cache_hit_rate": 0.20833333333333334
+      "cache_hit_rate": 0.2375
     },
     {
       "generation": 10,
-      "best_fitness": -0.374529635994465,
-      "avg_fitness": -0.37656080851413326,
+      "best_fitness": -0.3544509648648612,
+      "avg_fitness": -0.35721002610134994,
       "population_size": 24,
-      "cache_hit_rate": 0.21212121212121213
+      "cache_hit_rate": 0.25
+    },
+    {
+      "generation": 11,
+      "best_fitness": -0.3544509648648612,
+      "avg_fitness": -0.3562794586672382,
+      "population_size": 24,
+      "cache_hit_rate": 0.2777777777777778
+    },
+    {
+      "generation": 12,
+      "best_fitness": -0.35388655523132667,
+      "avg_fitness": -0.35529779221026697,
+      "population_size": 24,
+      "cache_hit_rate": 0.2980769230769231
     }
   ],
-  "final_fitness": -0.374529635994465,
-  "total_generations": 11,
-  "total_time": 0.9756009578704834,
-  "best_topology_sparsity": 0.3984375,
+  "final_fitness": -0.35388655523132667,
+  "total_generations": 13,
+  "total_time": 1.1299164295196533,
+  "best_topology_sparsity": 0.3671875,
   "performance_metrics": {
-    "avg_generation_time": 0.08869099617004395,
-    "avg_inference_time_ms": 1.7329769800016948,
-    "throughput_samples_per_sec": 9232.667360638774,
+    "avg_generation_time": 0.08691664842458871,
+    "avg_inference_time_ms": 1.672888040000089,
+    "throughput_samples_per_sec": 9564.298158291065,
     "model_performance": {
-      "inference_count": 677,
-      "avg_inference_time_ms": 1.4214423013240447,
-      "total_time": 0.9623164379963782,
-      "throughput_inferences_per_sec": 703.5107925721081
+      "inference_count": 710,
+      "avg_inference_time_ms": 1.536540687323741,
+      "total_time": 1.090943887999856,
+      "throughput_inferences_per_sec": 650.8125741478041
     },
     "cache_stats": {
-      "hits": 56,
-      "misses": 208,
-      "hit_rate": 0.21212121212121213,
-      "size": 208,
+      "hits": 93,
+      "misses": 219,
+      "hit_rate": 0.2980769230769231,
+      "size": 219,
       "max_size": 1000
     },
     "profiler_report": {
       "population_init": {
-        "total_time": 0.0016700090000085765,
-        "avg_time": 0.0016700090000085765,
-        "min_time": 0.0016700090000085765,
-        "max_time": 0.0016700090000085765,
+        "total_time": 0.0019453939999607428,
+        "avg_time": 0.0019453939999607428,
+        "min_time": 0.0019453939999607428,
+        "max_time": 0.0019453939999607428,
         "call_count": 1
       },
       "fitness_eval": {
-        "total_time": 0.9255012340008761,
-        "avg_time": 0.004449525163465751,
-        "min_time": 0.00355042000001049,
-        "max_time": 0.008984897000118508,
-        "call_count": 208
+        "total_time": 1.0697087150005586,
+        "avg_time": 0.0048845146803678475,
+        "min_time": 0.003913006999994195,
+        "max_time": 0.025661927000044216,
+        "call_count": 219
       },
       "generation_0": {
-        "total_time": 0.10827485999993769,
-        "avg_time": 0.10827485999993769,
-        "min_time": 0.10827485999993769,
-        "max_time": 0.10827485999993769,
+        "total_time": 0.10707931399997506,
+        "avg_time": 0.10707931399997506,
+        "min_time": 0.10707931399997506,
+        "max_time": 0.10707931399997506,
         "call_count": 1
       },
       "generation_1": {
-        "total_time": 0.09633528699987437,
-        "avg_time": 0.09633528699987437,
-        "min_time": 0.09633528699987437,
-        "max_time": 0.09633528699987437,
+        "total_time": 0.08560207299996136,
+        "avg_time": 0.08560207299996136,
+        "min_time": 0.08560207299996136,
+        "max_time": 0.08560207299996136,
         "call_count": 1
       },
       "generation_2": {
-        "total_time": 0.09339070700002594,
-        "avg_time": 0.09339070700002594,
-        "min_time": 0.09339070700002594,
-        "max_time": 0.09339070700002594,
+        "total_time": 0.07889561799999001,
+        "avg_time": 0.07889561799999001,
+        "min_time": 0.07889561799999001,
+        "max_time": 0.07889561799999001,
         "call_count": 1
       },
       "generation_3": {
-        "total_time": 0.08777043899999626,
-        "avg_time": 0.08777043899999626,
-        "min_time": 0.08777043899999626,
-        "max_time": 0.08777043899999626,
+        "total_time": 0.08528381999997237,
+        "avg_time": 0.08528381999997237,
+        "min_time": 0.08528381999997237,
+        "max_time": 0.08528381999997237,
         "call_count": 1
       },
       "generation_4": {
-        "total_time": 0.07889454499991189,
-        "avg_time": 0.07889454499991189,
-        "min_time": 0.07889454499991189,
-        "max_time": 0.07889454499991189,
+        "total_time": 0.16262776399997847,
+        "avg_time": 0.16262776399997847,
+        "min_time": 0.16262776399997847,
+        "max_time": 0.16262776399997847,
         "call_count": 1
       },
       "generation_5": {
-        "total_time": 0.08822378399986519,
-        "avg_time": 0.08822378399986519,
-        "min_time": 0.08822378399986519,
-        "max_time": 0.08822378399986519,
+        "total_time": 0.07244207500002631,
+        "avg_time": 0.07244207500002631,
+        "min_time": 0.07244207500002631,
+        "max_time": 0.07244207500002631,
         "call_count": 1
       },
       "generation_6": {
-        "total_time": 0.07400038200012204,
-        "avg_time": 0.07400038200012204,
-        "min_time": 0.07400038200012204,
-        "max_time": 0.07400038200012204,
+        "total_time": 0.09938024799998857,
+        "avg_time": 0.09938024799998857,
+        "min_time": 0.09938024799998857,
+        "max_time": 0.09938024799998857,
         "call_count": 1
       },
       "generation_7": {
-        "total_time": 0.0848574589999771,
-        "avg_time": 0.0848574589999771,
-        "min_time": 0.0848574589999771,
-        "max_time": 0.0848574589999771,
+        "total_time": 0.10222600700001294,
+        "avg_time": 0.10222600700001294,
+        "min_time": 0.10222600700001294,
+        "max_time": 0.10222600700001294,
         "call_count": 1
       },
       "generation_8": {
-        "total_time": 0.0838059540001268,
-        "avg_time": 0.0838059540001268,
-        "min_time": 0.0838059540001268,
-        "max_time": 0.0838059540001268,
+        "total_time": 0.10247759900005349,
+        "avg_time": 0.10247759900005349,
+        "min_time": 0.10247759900005349,
+        "max_time": 0.10247759900005349,
         "call_count": 1
       },
       "generation_9": {
-        "total_time": 0.08875999300016701,
-        "avg_time": 0.08875999300016701,
-        "min_time": 0.08875999300016701,
-        "max_time": 0.08875999300016701,
+        "total_time": 0.06979467599995814,
+        "avg_time": 0.06979467599995814,
+        "min_time": 0.06979467599995814,
+        "max_time": 0.06979467599995814,
         "call_count": 1
       },
       "generation_10": {
-        "total_time": 0.08812767999984317,
-        "avg_time": 0.08812767999984317,
-        "min_time": 0.08812767999984317,
-        "max_time": 0.08812767999984317,
+        "total_time": 0.06556459000000814,
+        "avg_time": 0.06556459000000814,
+        "min_time": 0.06556459000000814,
+        "max_time": 0.06556459000000814,
+        "call_count": 1
+      },
+      "generation_11": {
+        "total_time": 0.04518980099999226,
+        "avg_time": 0.04518980099999226,
+        "min_time": 0.04518980099999226,
+        "max_time": 0.04518980099999226,
+        "call_count": 1
+      },
+      "generation_12": {
+        "total_time": 0.049021647000017765,
+        "avg_time": 0.049021647000017765,
+        "min_time": 0.049021647000017765,
+        "max_time": 0.049021647000017765,
         "call_count": 1
       }
     }
