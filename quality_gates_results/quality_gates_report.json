@@ -1,7 +1,7 @@
 {
-  "timestamp": "2025-08-12 23:44:34",
+  "timestamp": "2025-08-14 03:44:23",
   "overall_passed": false,
-  "overall_score": 0.6030081925243216,
+  "overall_score": 0.58815618231792,
   "results": [
     {
       "name": "Code Quality",
@@ -15,7 +15,7 @@
         "docstring_ratio": 1.0,
         "python_files_count": 32
       },
-      "duration": 0.02206873893737793,
+      "duration": 0.0035867691040039062,
       "error_message": null
     },
     {
@@ -25,6 +25,13 @@
       "details": {
         "security_issues": [
           "advanced_evolution_demo.py: Use of eval() function detected",
+          "comprehensive_quality_gates.py: Use of eval() function detected",
+          "comprehensive_quality_gates.py: Use of exec() function detected",
+          "comprehensive_quality_gates.py: Use of os.system() detected",
+          "comprehensive_quality_gates.py: Direct subprocess.call() usage",
+          "comprehensive_quality_gates.py: Raw input() usage detected",
+          "comprehensive_quality_gates.py: Unsafe pickle.loads() usage",
+          "comprehensive_quality_gates.py: Unsafe yaml.load() usage",
           "create_comprehensive_tests.py: Use of eval() function detected",
           "demo_complete_system.py: Use of eval() function detected",
           "demo_working_system.py: Use of eval() function detected",
@@ -35,13 +42,6 @@
           "simple_quality_gates.py: Use of exec() function detected",
           "simple_quality_gates.py: Use of os.system() detected",
           "test_comprehensive_suite.py: Use of eval() function detected",
-          "comprehensive_quality_gates.py: Use of eval() function detected",
-          "comprehensive_quality_gates.py: Use of exec() function detected",
-          "comprehensive_quality_gates.py: Use of os.system() detected",
-          "comprehensive_quality_gates.py: Direct subprocess.call() usage",
-          "comprehensive_quality_gates.py: Raw input() usage detected",
-          "comprehensive_quality_gates.py: Unsafe pickle.loads() usage",
-          "comprehensive_quality_gates.py: Unsafe yaml.load() usage",
           "working_evolution_demo.py: Use of eval() function detected",
           "deployment/healthcheck.py: Use of exec() function detected",
           "examples/basic_evolution.py: Use of eval() function detected",
@@ -49,16 +49,107 @@
           "src/self_evolving_moe/evolution/multi_objective_fitness.py: Use of eval() function detected",
           "src/self_evolving_moe/evolution/router.py: Use of eval() function detected",
           "src/self_evolving_moe/experts/slimmable.py: Use of eval() function detected",
-          "src/self_evolving_moe/optimization/profiling.py: Use of eval() function detected"
+          "src/self_evolving_moe/optimization/profiling.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/typing_extensions.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/typing_extensions.py: Use of exec() function detected",
+          "venv/lib/python3.12/site-packages/typing_extensions.py: Raw input() usage detected",
+          "venv/lib/python3.12/site-packages/click/_termui_impl.py: Direct subprocess.call() usage",
+          "venv/lib/python3.12/site-packages/typing_inspection/typing_objects.py: Use of exec() function detected",
+          "venv/lib/python3.12/site-packages/anyio/to_interpreter.py: Use of exec() function detected",
+          "venv/lib/python3.12/site-packages/anyio/to_interpreter.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/anyio/to_process.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/pygments/lexer.py: Raw input() usage detected",
+          "venv/lib/python3.12/site-packages/_pytest/capture.py: Use of os.system() detected",
+          "venv/lib/python3.12/site-packages/_pytest/pytester.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/_pytest/skipping.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/pip/_vendor/six.py: Use of exec() function detected",
+          "venv/lib/python3.12/site-packages/pip/_vendor/typing_extensions.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/pip/_vendor/typing_extensions.py: Use of exec() function detected",
+          "venv/lib/python3.12/site-packages/pip/_vendor/typing_extensions.py: Raw input() usage detected",
+          "venv/lib/python3.12/site-packages/pip/_internal/utils/misc.py: Raw input() usage detected",
+          "venv/lib/python3.12/site-packages/pip/_internal/utils/setuptools_build.py: Use of exec() function detected",
+          "venv/lib/python3.12/site-packages/pip/_vendor/pkg_resources/__init__.py: Use of exec() function detected",
+          "venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexer.py: Raw input() usage detected",
+          "venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/results.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py: Raw input() usage detected",
+          "venv/lib/python3.12/site-packages/pip/_vendor/rich/prompt.py: Raw input() usage detected",
+          "venv/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/__init__.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/__init__.py: Use of exec() function detected",
+          "venv/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/html.py: Raw input() usage detected",
+          "venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/__init__.py: Use of exec() function detected",
+          "venv/lib/python3.12/site-packages/pip/_vendor/urllib3/packages/six.py: Use of exec() function detected",
+          "venv/lib/python3.12/site-packages/numpy/_core/arrayprint.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/numpy/_core/multiarray.py: Raw input() usage detected",
+          "venv/lib/python3.12/site-packages/numpy/_core/records.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/numpy/f2py/auxfuncs.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/numpy/f2py/capi_maps.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/numpy/f2py/crackfortran.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/numpy/fft/__init__.py: Raw input() usage detected",
+          "venv/lib/python3.12/site-packages/numpy/lib/_scimath_impl.py: Raw input() usage detected",
+          "venv/lib/python3.12/site-packages/numpy/lib/recfunctions.py: Raw input() usage detected",
+          "venv/lib/python3.12/site-packages/numpy/tests/test_public_api.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/numpy/tests/test_reloading.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/numpy/_core/tests/test__exceptions.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/numpy/_core/tests/test_arrayprint.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/numpy/_core/tests/test_custom_dtypes.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/numpy/_core/tests/test_datetime.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/numpy/_core/tests/test_dtype.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/numpy/_core/tests/test_dtype.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/numpy/_core/tests/test_multiarray.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/numpy/_core/tests/test_multiarray.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/numpy/_core/tests/test_overrides.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/numpy/_core/tests/test_records.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/numpy/_core/tests/test_records.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/numpy/_core/tests/test_regression.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/numpy/_core/tests/test_scalarmath.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/numpy/_core/tests/test_simd.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/numpy/_core/tests/test_ufunc.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/numpy/_core/tests/test_umath.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/numpy/_core/tests/test_umath_accuracy.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/numpy/ma/tests/test_core.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/numpy/ma/tests/test_mrecords.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/numpy/ma/tests/test_old_ma.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/numpy/matrixlib/tests/test_masked_matrix.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/numpy/polynomial/tests/test_polynomial.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/numpy/random/tests/test_direct.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/numpy/random/tests/test_generator_mt19937.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/numpy/random/tests/test_randomstate.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/numpy/random/tests/test_smoke.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/numpy/testing/_private/utils.py: Use of exec() function detected",
+          "venv/lib/python3.12/site-packages/pydantic/_internal/_namespace_utils.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/pydantic/_internal/_typing_extra.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/pydantic/_internal/_typing_extra.py: Use of exec() function detected",
+          "venv/lib/python3.12/site-packages/pydantic/deprecated/parse.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/pydantic/v1/parse.py: Unsafe pickle.loads() usage",
+          "venv/lib/python3.12/site-packages/pydantic/v1/utils.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/pygments/formatters/__init__.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/pygments/formatters/__init__.py: Use of exec() function detected",
+          "venv/lib/python3.12/site-packages/pygments/formatters/html.py: Raw input() usage detected",
+          "venv/lib/python3.12/site-packages/pygments/formatters/rtf.py: Raw input() usage detected",
+          "venv/lib/python3.12/site-packages/pygments/lexers/__init__.py: Use of exec() function detected",
+          "venv/lib/python3.12/site-packages/pygments/lexers/_julia_builtins.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/pygments/lexers/asm.py: Raw input() usage detected",
+          "venv/lib/python3.12/site-packages/pygments/lexers/configs.py: Raw input() usage detected",
+          "venv/lib/python3.12/site-packages/pygments/lexers/hdl.py: Raw input() usage detected",
+          "venv/lib/python3.12/site-packages/packaging/licenses/__init__.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/_pytest/_code/code.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/_pytest/_code/code.py: Use of exec() function detected",
+          "venv/lib/python3.12/site-packages/_pytest/_py/path.py: Use of exec() function detected",
+          "venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py: Use of exec() function detected",
+          "venv/lib/python3.12/site-packages/_pytest/mark/__init__.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/_pytest/mark/expression.py: Use of eval() function detected",
+          "venv/lib/python3.12/site-packages/starlette/datastructures.py: Potential hardcoded secret",
+          "venv/lib/python3.12/site-packages/pydantic/types.py: Potential hardcoded secret",
+          "venv/lib/python3.12/site-packages/pip/_internal/utils/misc.py: Potential hardcoded secret"
         ],
-        "pattern_violations": 26,
-        "secret_violations": 0,
+        "pattern_violations": 114,
+        "secret_violations": 3,
         "permission_issues": 0,
-        "total_score": -30.0,
+        "total_score": -500.0,
         "final_score": 0.0,
-        "scanned_files": 78
+        "scanned_files": 1731
       },
-      "duration": 0.28384828567504883,
+      "duration": 4.4006712436676025,
       "error_message": null
     },
     {
@@ -66,13 +157,13 @@
       "passed": false,
       "score": 0.2,
       "details": {
-        "test_files_count": 26,
+        "test_files_count": 205,
         "coverage_percentage": 0.2,
         "tests_passed": false,
         "test_output": "",
-        "test_errors": "ImportError while loading conftest '/root/repo/tests/conftest.py'.\ntests/conftest.py:13: in <module>\n    import yaml\nE   ModuleNotFoundError: No module named 'yaml'\n"
+        "test_errors": "ImportError while loading conftest '/root/repo/tests/conftest.py'.\ntests/conftest.py:11: in <module>\n    import torch\nE   ModuleNotFoundError: No module named 'torch'\n"
       },
-      "duration": 6.007025480270386,
+      "duration": 0.7459204196929932,
       "error_message": null
     },
     {
@@ -82,9 +173,9 @@
       "details": {
         "benchmarks": {
           "simple_demo": {
-            "duration": 0.07108473777770996,
+            "duration": 0.08410501480102539,
             "result": {
-              "best_fitness": -0.5849388071752757
+              "best_fitness": -0.5729418967853974
             },
             "passed": true
           },
@@ -93,7 +184,7 @@
             "passed": true
           },
           "numerical_stability": {
-            "duration": 0.0035715103149414062,
+            "duration": 0.003287076950073242,
             "has_nan": false,
             "has_inf": false,
             "passed": true
@@ -103,25 +194,25 @@
         "max_score": 80.0,
         "final_score": 0.9375
       },
-      "duration": 0.07879900932312012,
+      "duration": 0.0923612117767334,
       "error_message": null
     },
     {
       "name": "Documentation Quality",
       "passed": true,
-      "score": 1.152073732718894,
+      "score": 1.0184056408612803,
       "details": {
         "readme_exists": true,
         "doc_files_count": 21,
-        "docstring_ratio": 0.8402457757296466,
-        "total_functions": 1953,
-        "docstring_count": 1641,
+        "docstring_ratio": 0.39468546953760086,
+        "total_functions": 34321,
+        "docstring_count": 13546,
         "issues": [],
-        "doc_score": 115.2073732718894,
+        "doc_score": 101.84056408612803,
         "max_score": 100.0,
-        "final_score": 1.152073732718894
+        "final_score": 1.0184056408612803
       },
-      "duration": 0.015835285186767578,
+      "duration": 0.2951788902282715,
       "error_message": null
     }
   ],
@@ -132,8 +223,8 @@
     "required_passed": 2,
     "optional_gates": 1,
     "optional_passed": 1,
-    "total_duration": 6.40864109992981,
-    "avg_duration": 1.2817282199859619,
+    "total_duration": 5.538977384567261,
+    "avg_duration": 1.1077954769134521,
     "strict_mode": false
   }
 }
