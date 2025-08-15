@@ -1,0 +1,31 @@
+global_config:
+  cdn: enabled
+  data_replication: eventual_consistency
+  disaster_recovery: cross_region
+  load_balancer: global
+  monitoring: centralized
+regions:
+  ap-southeast-1:
+    compliance:
+    - PDPA
+    - SOC2
+    data_residency: APAC
+    kubernetes_cluster: terragon-ap-southeast-1
+    provider: aws
+    replicas: 3
+  eu-west-1:
+    compliance:
+    - GDPR
+    - SOC2
+    data_residency: EU
+    kubernetes_cluster: terragon-eu-west-1
+    provider: aws
+    replicas: 3
+  us-east-1:
+    compliance:
+    - SOC2
+    - HIPAA
+    data_residency: US
+    kubernetes_cluster: terragon-us-east-1
+    provider: aws
+    replicas: 5
