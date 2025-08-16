@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    app: terragon-moe-router
+    version: v4.0
+  name: terragon-moe

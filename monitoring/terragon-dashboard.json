@@ -1,0 +1,46 @@
+{
+  "dashboard": {
+    "title": "TERRAGON MoE Router Dashboard",
+    "tags": [
+      "terragon",
+      "moe",
+      "machine-learning"
+    ],
+    "timezone": "UTC",
+    "panels": [
+      {
+        "title": "Evolution Performance",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "terragon_evolution_fitness_score"
+          },
+          {
+            "expr": "terragon_evolution_generation_time"
+          }
+        ]
+      },
+      {
+        "title": "API Metrics",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "terragon_api_request_duration_seconds"
+          },
+          {
+            "expr": "terragon_api_requests_total"
+          }
+        ]
+      },
+      {
+        "title": "System Health",
+        "type": "singlestat",
+        "targets": [
+          {
+            "expr": "up{job=\"terragon-moe\"}"
+          }
+        ]
+      }
+    ]
+  }
+}

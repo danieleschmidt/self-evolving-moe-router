@@ -12,92 +12,64 @@
   "evolution_stats": [
     {
       "generation": 0,
-      "best_fitness": -0.3890306328967986,
-      "avg_fitness": -0.41269327631928626,
-      "worst_fitness": -0.4597842646870482,
-      "std_fitness": 0.018072315645364056
+      "best_fitness": -0.37479963962426366,
+      "avg_fitness": -0.3975221711577103,
+      "worst_fitness": -0.41752824260303517,
+      "std_fitness": 0.01080150411365425
     },
     {
       "generation": 1,
-      "best_fitness": -0.3890306328967986,
-      "avg_fitness": -0.40270487823423534,
-      "worst_fitness": -0.42434161390368247,
-      "std_fitness": 0.010903161795849995
+      "best_fitness": -0.37479963962426366,
+      "avg_fitness": -0.3858849867213656,
+      "worst_fitness": -0.3934403723085886,
+      "std_fitness": 0.006319432793574224
     },
     {
       "generation": 2,
-      "best_fitness": -0.38669509817376185,
-      "avg_fitness": -0.39636803267918547,
-      "worst_fitness": -0.41761673084094036,
-      "std_fitness": 0.008540048044037981
+      "best_fitness": -0.37457825100869135,
+      "avg_fitness": -0.3810715349118218,
+      "worst_fitness": -0.39192786676258035,
+      "std_fitness": 0.0053694774774801345
     },
     {
       "generation": 3,
-      "best_fitness": -0.38322241338636165,
-      "avg_fitness": -0.3948683711873908,
-      "worst_fitness": -0.41455770787237667,
-      "std_fitness": 0.00980428210635674
+      "best_fitness": -0.3741273895100422,
+      "avg_fitness": -0.3779814010884097,
+      "worst_fitness": -0.39006791160919246,
+      "std_fitness": 0.0042338111776759856
     },
     {
       "generation": 4,
-      "best_fitness": -0.37952876995317253,
-      "avg_fitness": -0.3879396112436981,
-      "worst_fitness": -0.4012637796290145,
-      "std_fitness": 0.0056749631911927525
+      "best_fitness": -0.37262415158385803,
+      "avg_fitness": -0.37473611330673495,
+      "worst_fitness": -0.3826736355798966,
+      "std_fitness": 0.002294672863029423
     },
     {
       "generation": 5,
-      "best_fitness": -0.37891305590498453,
-      "avg_fitness": -0.3855509664926816,
-      "worst_fitness": -0.40286155768438325,
-      "std_fitness": 0.00617300049341631
+      "best_fitness": -0.3715284297049012,
+      "avg_fitness": -0.37367984703878243,
+      "worst_fitness": -0.37600211304882214,
+      "std_fitness": 0.0010878391951969558
     },
     {
       "generation": 6,
-      "best_fitness": -0.37891305590498453,
-      "avg_fitness": -0.38214254359809124,
-      "worst_fitness": -0.38909255444838364,
-      "std_fitness": 0.002654816497921957
+      "best_fitness": -0.3715284297049012,
+      "avg_fitness": -0.37251141375309704,
+      "worst_fitness": -0.3751239555077251,
+      "std_fitness": 0.0010029875929808685
     },
     {
       "generation": 7,
-      "best_fitness": -0.37776407652956556,
-      "avg_fitness": -0.37991108866219153,
-      "worst_fitness": -0.38197649072691864,
-      "std_fitness": 0.0011434409066828457
-    },
-    {
-      "generation": 8,
-      "best_fitness": -0.37776407652956556,
-      "avg_fitness": -0.3798270544162753,
-      "worst_fitness": -0.38258415417151787,
-      "std_fitness": 0.001294748253708361
-    },
-    {
-      "generation": 9,
-      "best_fitness": -0.3771086416036879,
-      "avg_fitness": -0.37877587632823484,
-      "worst_fitness": -0.3806217827950173,
-      "std_fitness": 0.0008297448768375807
-    },
-    {
-      "generation": 10,
-      "best_fitness": -0.37601950949872587,
-      "avg_fitness": -0.3781011811555367,
-      "worst_fitness": -0.38050860142932386,
-      "std_fitness": 0.0011639873868261555
-    },
-    {
-      "generation": 11,
-      "best_fitness": -0.37601950949872587,
-      "avg_fitness": -0.37735691633713636,
-      "worst_fitness": -0.3786585155212506,
-      "std_fitness": 0.0006596588260696533
+      "best_fitness": -0.37045888851536274,
+      "avg_fitness": -0.371785213548835,
+      "worst_fitness": -0.37333429989800565,
+      "std_fitness": 0.000697273691738759
     }
   ],
-  "final_fitness": -0.37601950949872587,
-  "total_generations": 12,
-  "computation_time": 1.281318187713623,
-  "best_topology_sparsity": 0.375,
-  "convergence_generation": 12
+  "final_fitness": -0.37045888851536274,
+  "total_generations": 8,
+  "computation_time": 1.3374853134155273,
+  "best_topology_sparsity": 0.4453125,
+  "convergence_generation": 8
 }

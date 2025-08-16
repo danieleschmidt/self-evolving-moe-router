@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  HOST: 0.0.0.0
+  LOG_LEVEL: INFO
+  PORT: '8000'
+  WORKERS: '4'
+kind: ConfigMap
+metadata:
+  name: terragon-config
+  namespace: terragon-moe
