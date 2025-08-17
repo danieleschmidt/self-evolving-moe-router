@@ -1,5 +1,5 @@
 # TERRAGON Production Dependencies
-# Self-Evolving MoE-Router Production Requirements
+# Self-Evolving MoE-Router Production Requirements with Next-Gen Features
 
 # Core Framework
 fastapi==0.104.1
@@ -14,6 +14,7 @@ aiofiles==23.2.1
 # Data Processing
 numpy==1.24.3
 pandas==2.1.4
+scipy==1.11.4
 
 # Machine Learning (Core dependencies for MoE evolution)
 torch==2.0.1
@@ -46,6 +47,7 @@ bcrypt==4.1.2
 pytest==7.4.3
 pytest-asyncio==0.21.1
 pytest-cov==4.1.0
+pytest-mock==3.12.0
 black==23.11.0
 isort==5.12.0
 flake8==6.1.0
@@ -59,3 +61,17 @@ psutil==5.9.6
 
 # Production Server
 gunicorn==21.2.0
+
+# Next-Gen Features Dependencies
+# Quantum-inspired computing
+# (Note: These are for mathematical quantum-inspired algorithms, not actual quantum computing)
+matplotlib==3.8.2
+seaborn==0.13.0
+
+# Distributed consensus and networking
+aiohttp==3.9.1
+websockets==12.0
+
+# Advanced statistics and optimization
+statistics>=1.0.3.5
+concurrent-futures>=3.1.1 if python_version < '3.2'
