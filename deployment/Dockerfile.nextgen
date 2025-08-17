@@ -1,0 +1,60 @@
+FROM python:3.11-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy source code
+COPY src/ ./src/
+COPY next_gen_production_server.py .
+COPY production_ready_server.py .
+COPY comprehensive_quality_gates.py .
+
+# Copy configuration files
+COPY configs/ ./configs/
+COPY deployment/entrypoint.sh ./entrypoint.sh
+COPY deployment/healthcheck.py ./healthcheck.py
+
+# Copy evolution results and quality gates directories
+COPY evolution_results/ ./evolution_results/
+COPY quality_gates_results/ ./quality_gates_results/
+
+# Create logs directory
+RUN mkdir -p logs
+
+# Make entrypoint executable
+RUN chmod +x entrypoint.sh
+
+# Set Python path
+ENV PYTHONPATH=/app/src:/app
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+    CMD python healthcheck.py
+
+# Expose ports
+EXPOSE 8000 8001
+
+# Default environment variables
+ENV LOG_LEVEL=info
+ENV MONITORING_ENABLED=true
+ENV QUANTUM_ENABLED=true
+ENV DISTRIBUTED_ENABLED=false
+ENV ADAPTIVE_MUTATIONS_ENABLED=true
+ENV AUTO_TUNING_ENABLED=true
+ENV MAX_WORKERS=4
+ENV CACHE_SIZE=1000
+
+# Run the application
+ENTRYPOINT ["./entrypoint.sh"]
+CMD ["python", "next_gen_production_server.py", "--host", "0.0.0.0", "--port", "8000"]
