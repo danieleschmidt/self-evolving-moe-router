@@ -1,21 +1,21 @@
 {
-  "timestamp": "2025-08-15 23:27:05",
+  "timestamp": "2025-08-18 14:05:33",
   "overall_passed": false,
-  "overall_score": 0.603131021194605,
+  "overall_score": 0.6033623308478321,
   "results": [
     {
       "name": "Code Quality",
       "passed": true,
       "score": 1.0,
       "details": {
-        "total_score": 420.0,
-        "max_score": 420.0,
+        "total_score": 460.0,
+        "max_score": 460.0,
         "final_score": 1.0,
         "issues": [],
         "docstring_ratio": 1.0,
-        "python_files_count": 32
+        "python_files_count": 36
       },
-      "duration": 0.0035631656646728516,
+      "duration": 0.00429081916809082,
       "error_message": null
     },
     {
@@ -56,9 +56,9 @@
         "permission_issues": 0,
         "total_score": -30.0,
         "final_score": 0.0,
-        "scanned_files": 82
+        "scanned_files": 93
       },
-      "duration": 0.27561020851135254,
+      "duration": 0.33573293685913086,
       "error_message": null
     },
     {
@@ -66,13 +66,13 @@
       "passed": false,
       "score": 0.2,
       "details": {
-        "test_files_count": 26,
+        "test_files_count": 28,
         "coverage_percentage": 0.2,
         "tests_passed": false,
         "test_output": "",
-        "test_errors": "ImportError while loading conftest '/root/repo/tests/conftest.py'.\ntests/conftest.py:11: in <module>\n    import torch\nE   ModuleNotFoundError: No module named 'torch'\n"
+        "test_errors": "/usr/bin/python3: No module named pytest\n"
       },
-      "duration": 0.5439426898956299,
+      "duration": 0.03542757034301758,
       "error_message": null
     },
     {
@@ -82,9 +82,9 @@
       "details": {
         "benchmarks": {
           "simple_demo": {
-            "duration": 0.052040815353393555,
+            "duration": 0.05004549026489258,
             "result": {
-              "best_fitness": -0.6686769014189348
+              "best_fitness": -0.6629474028603215
             },
             "passed": true
           },
@@ -93,7 +93,7 @@
             "passed": true
           },
           "numerical_stability": {
-            "duration": 0.0037643909454345703,
+            "duration": 0.0035173892974853516,
             "has_nan": false,
             "has_inf": false,
             "passed": true
@@ -103,25 +103,25 @@
         "max_score": 80.0,
         "final_score": 0.9375
       },
-      "duration": 0.06052994728088379,
+      "duration": 0.05790567398071289,
       "error_message": null
     },
     {
       "name": "Documentation Quality",
       "passed": true,
-      "score": 1.1531791907514453,
+      "score": 1.1552609776304887,
       "details": {
         "readme_exists": true,
-        "doc_files_count": 22,
-        "docstring_ratio": 0.8439306358381503,
-        "total_functions": 2076,
-        "docstring_count": 1752,
+        "doc_files_count": 24,
+        "docstring_ratio": 0.8508699254349628,
+        "total_functions": 2414,
+        "docstring_count": 2054,
         "issues": [],
-        "doc_score": 115.31791907514452,
+        "doc_score": 115.52609776304888,
         "max_score": 100.0,
-        "final_score": 1.1531791907514453
+        "final_score": 1.1552609776304887
       },
-      "duration": 0.016627788543701172,
+      "duration": 0.018691539764404297,
       "error_message": null
     }
   ],
@@ -132,8 +132,8 @@
     "required_passed": 2,
     "optional_gates": 1,
     "optional_passed": 1,
-    "total_duration": 0.9012031555175781,
-    "avg_duration": 0.18024063110351562,
+    "total_duration": 0.45294713973999023,
+    "avg_duration": 0.09058942794799804,
     "strict_mode": false
   }
 }
