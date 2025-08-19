@@ -1,0 +1,2287 @@
+{
+  "experiment_id": "7c1a1b3f-2578-4251-89f1-25c6fbc9ab36",
+  "start_time": 1755638447.2730255,
+  "parameters": {
+    "n_nodes": 8,
+    "byzantine_tolerance": 2,
+    "num_rounds": 25
+  },
+  "consensus_rounds": [
+    {
+      "round_id": "3e6cf301-2a37-4cac-9f7d-e7f05cc875c7",
+      "proposal_value": "proposal_0_563",
+      "consensus_value": 1,
+      "votes": {
+        "node_0": 1,
+        "node_1": 2,
+        "node_2": 3,
+        "node_3": 1,
+        "node_4": 2,
+        "node_5": 1,
+        "node_6": 3,
+        "node_7": 1
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 1,
+          "trust_score": 0.1,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 2,
+          "trust_score": 0.1,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 1,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 2,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 1,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 1,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 0.8421052631578947,
+      "byzantine_detected": [
+        "node_1"
+      ],
+      "confidence": 0.5,
+      "round_time": 0.00028443336486816406,
+      "timestamp": 1755638447.2733755
+    },
+    {
+      "round_id": "e3f449d6-7caa-494d-b213-bfc06338c490",
+      "proposal_value": "proposal_1_943",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 0,
+        "node_1": 1,
+        "node_2": 2,
+        "node_3": 0,
+        "node_4": 3,
+        "node_5": 3,
+        "node_6": 3,
+        "node_7": 3
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 0,
+          "trust_score": 0.2,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 1,
+          "trust_score": 0.05,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 2,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 0,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 3,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 0.4851485148514851,
+      "byzantine_detected": [
+        "node_0",
+        "node_1"
+      ],
+      "confidence": 0.6393442622950819,
+      "round_time": 0.0001385211944580078,
+      "timestamp": 1755638447.2736056
+    },
+    {
+      "round_id": "dd303af8-dadb-40e1-9683-848886fca9e2",
+      "proposal_value": "proposal_2_327",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 0,
+        "node_1": 2,
+        "node_2": 3,
+        "node_3": 3,
+        "node_4": 3,
+        "node_5": 1,
+        "node_6": 3,
+        "node_7": 1
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 0,
+          "trust_score": 0.15000000000000002,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 2,
+          "trust_score": 0.0,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 3,
+          "trust_score": 0.8999999999999999,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 3,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 1,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 1,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 0.5,
+      "byzantine_detected": [
+        "node_0",
+        "node_1"
+      ],
+      "confidence": 0.6416666666666666,
+      "round_time": 0.00022792816162109375,
+      "timestamp": 1755638447.2739298
+    },
+    {
+      "round_id": "bbc7ff7b-8692-48b8-9cd2-769884b85fec",
+      "proposal_value": "proposal_3_162",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 2,
+        "node_1": 0,
+        "node_2": 3,
+        "node_3": 3,
+        "node_4": 3,
+        "node_5": 2,
+        "node_6": 3,
+        "node_7": 0
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 2,
+          "trust_score": 0.10000000000000002,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 0,
+          "trust_score": 0.0,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 3,
+          "trust_score": 0.9999999999999999,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 2,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 0,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 0.8780487804878049,
+      "byzantine_detected": [
+        "node_0",
+        "node_1"
+      ],
+      "confidence": 0.6666666666666666,
+      "round_time": 0.00019598007202148438,
+      "timestamp": 1755638447.2742226
+    },
+    {
+      "round_id": "255258ce-50db-4355-b3c5-9f9a7ac2d75b",
+      "proposal_value": "proposal_4_268",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 2,
+        "node_1": 3,
+        "node_2": 3,
+        "node_3": 3,
+        "node_4": 2,
+        "node_5": 1,
+        "node_6": 3,
+        "node_7": 3
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 2,
+          "trust_score": 0.05000000000000002,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 3,
+          "trust_score": 0.0,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 2,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 1,
+          "trust_score": 0.8999999999999999,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 3,
+          "trust_score": 0.8999999999999999,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 0.6533333333333333,
+      "byzantine_detected": [
+        "node_0"
+      ],
+      "confidence": 0.6666666666666667,
+      "round_time": 0.00016760826110839844,
+      "timestamp": 1755638447.2744772
+    },
+    {
+      "round_id": "091f5d64-f7b0-4266-923c-fb4768f4d15f",
+      "proposal_value": "proposal_5_777",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 0,
+        "node_1": 2,
+        "node_2": 3,
+        "node_3": 0,
+        "node_4": 3,
+        "node_5": 1,
+        "node_6": 3,
+        "node_7": 3
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 0,
+          "trust_score": 1.3877787807814457e-17,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 2,
+          "trust_score": 0.1,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 0,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 3,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 1,
+          "trust_score": 0.8499999999999999,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 3,
+          "trust_score": 0.9999999999999999,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 1.0,
+      "byzantine_detected": [
+        "node_0",
+        "node_1"
+      ],
+      "confidence": 0.6694915254237289,
+      "round_time": 0.00030422210693359375,
+      "timestamp": 1755638447.274912
+    },
+    {
+      "round_id": "ef6e1964-9bb5-4a87-8709-47e62f3f0485",
+      "proposal_value": "proposal_6_741",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 0,
+        "node_1": 3,
+        "node_2": 3,
+        "node_3": 3,
+        "node_4": 3,
+        "node_5": 1,
+        "node_6": 3,
+        "node_7": 3
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 0,
+          "trust_score": 0.0,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 3,
+          "trust_score": 0.05,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 3,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 1,
+          "trust_score": 0.7999999999999998,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 0.6533333333333333,
+      "byzantine_detected": [
+        "node_0"
+      ],
+      "confidence": 0.8620689655172414,
+      "round_time": 0.0001857280731201172,
+      "timestamp": 1755638447.2751997
+    },
+    {
+      "round_id": "738b31fd-4d40-47ac-83ad-92873e58224e",
+      "proposal_value": "proposal_7_251",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 3,
+        "node_1": 3,
+        "node_2": 2,
+        "node_3": 3,
+        "node_4": 3,
+        "node_5": 2,
+        "node_6": 3,
+        "node_7": 3
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 3,
+          "trust_score": 0.0,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 3,
+          "trust_score": 0.15000000000000002,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 2,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 2,
+          "trust_score": 0.7499999999999998,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 0.8421052631578947,
+      "byzantine_detected": [],
+      "confidence": 0.7033898305084747,
+      "round_time": 0.000247955322265625,
+      "timestamp": 1755638447.275525
+    },
+    {
+      "round_id": "62ab4f3d-79e2-4861-b45d-f38052f35f37",
+      "proposal_value": "proposal_8_695",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 3,
+        "node_1": 3,
+        "node_2": 3,
+        "node_3": 3,
+        "node_4": 3,
+        "node_5": 0,
+        "node_6": 3,
+        "node_7": 3
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 3,
+          "trust_score": 0.1,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 3,
+          "trust_score": 0.25,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 3,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 0,
+          "trust_score": 0.6999999999999997,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 0.6533333333333333,
+      "byzantine_detected": [],
+      "confidence": 0.8833333333333333,
+      "round_time": 0.0001938343048095703,
+      "timestamp": 1755638447.2757814
+    },
+    {
+      "round_id": "438f20d6-e39c-448a-a6aa-d98aafd16d86",
+      "proposal_value": "proposal_9_109",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 3,
+        "node_1": 2,
+        "node_2": 3,
+        "node_3": 3,
+        "node_4": 2,
+        "node_5": 1,
+        "node_6": 3,
+        "node_7": 3
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 3,
+          "trust_score": 0.2,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 2,
+          "trust_score": 0.35,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 2,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 1,
+          "trust_score": 0.6499999999999997,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 1.0,
+      "byzantine_detected": [
+        "node_1"
+      ],
+      "confidence": 0.6774193548387097,
+      "round_time": 0.00019860267639160156,
+      "timestamp": 1755638447.2760694
+    },
+    {
+      "round_id": "a416e75d-47e7-4d90-9378-ded56d57cfff",
+      "proposal_value": "proposal_10_248",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 2,
+        "node_1": 3,
+        "node_2": 3,
+        "node_3": 2,
+        "node_4": 3,
+        "node_5": 2,
+        "node_6": 3,
+        "node_7": 3
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 2,
+          "trust_score": 0.30000000000000004,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 3,
+          "trust_score": 0.3,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 2,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 3,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 2,
+          "trust_score": 0.5999999999999996,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 1.0,
+      "byzantine_detected": [
+        "node_0"
+      ],
+      "confidence": 0.6910569105691058,
+      "round_time": 0.0001342296600341797,
+      "timestamp": 1755638447.2763019
+    },
+    {
+      "round_id": "a3941b2a-f171-4952-8acd-1b06b9635f41",
+      "proposal_value": "proposal_11_535",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 2,
+        "node_1": 2,
+        "node_2": 3,
+        "node_3": 3,
+        "node_4": 3,
+        "node_5": 3,
+        "node_6": 3,
+        "node_7": 3
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 2,
+          "trust_score": 0.25000000000000006,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 2,
+          "trust_score": 0.4,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 3,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 3,
+          "trust_score": 0.5499999999999996,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 0.8305084745762712,
+      "byzantine_detected": [
+        "node_0",
+        "node_1"
+      ],
+      "confidence": 0.894308943089431,
+      "round_time": 0.00012159347534179688,
+      "timestamp": 1755638447.276481
+    },
+    {
+      "round_id": "3681f968-1bf8-47c9-b238-658af39c2b01",
+      "proposal_value": "proposal_12_475",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 3,
+        "node_1": 3,
+        "node_2": 2,
+        "node_3": 3,
+        "node_4": 3,
+        "node_5": 3,
+        "node_6": 3,
+        "node_7": 3
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 3,
+          "trust_score": 0.20000000000000007,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 3,
+          "trust_score": 0.35000000000000003,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 2,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 3,
+          "trust_score": 0.6499999999999996,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 0.6428571428571428,
+      "byzantine_detected": [],
+      "confidence": 0.8387096774193549,
+      "round_time": 0.00015783309936523438,
+      "timestamp": 1755638447.276696
+    },
+    {
+      "round_id": "ad144eb1-c36a-4d60-8398-b869f42a588c",
+      "proposal_value": "proposal_13_877",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 0,
+        "node_1": 3,
+        "node_2": 3,
+        "node_3": 1,
+        "node_4": 3,
+        "node_5": 1,
+        "node_6": 3,
+        "node_7": 3
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 0,
+          "trust_score": 0.30000000000000004,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 3,
+          "trust_score": 0.45000000000000007,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 3,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 1,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 1,
+          "trust_score": 0.7499999999999996,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 0.5632183908045977,
+      "byzantine_detected": [
+        "node_0"
+      ],
+      "confidence": 0.682170542635659,
+      "round_time": 0.00012755393981933594,
+      "timestamp": 1755638447.2768865
+    },
+    {
+      "round_id": "5fd20a70-4355-4831-9c67-2a10ba917299",
+      "proposal_value": "proposal_14_836",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 2,
+        "node_1": 2,
+        "node_2": 2,
+        "node_3": 3,
+        "node_4": 1,
+        "node_5": 3,
+        "node_6": 3,
+        "node_7": 3
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 2,
+          "trust_score": 0.25000000000000006,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 2,
+          "trust_score": 0.55,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 2,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 3,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 1,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 3,
+          "trust_score": 0.6999999999999995,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 0.631578947368421,
+      "byzantine_detected": [
+        "node_0"
+      ],
+      "confidence": 0.5658914728682171,
+      "round_time": 0.00016880035400390625,
+      "timestamp": 1755638447.2771058
+    },
+    {
+      "round_id": "eceb403a-0044-45aa-bae8-67696b9e6e83",
+      "proposal_value": "proposal_15_218",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 3,
+        "node_1": 0,
+        "node_2": 3,
+        "node_3": 1,
+        "node_4": 3,
+        "node_5": 3,
+        "node_6": 3,
+        "node_7": 1
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 3,
+          "trust_score": 0.20000000000000007,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 0,
+          "trust_score": 0.5,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 3,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 1,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 3,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 3,
+          "trust_score": 0.7999999999999995,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 1,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 0.5039370078740157,
+      "byzantine_detected": [],
+      "confidence": 0.6093749999999999,
+      "round_time": 0.00023603439331054688,
+      "timestamp": 1755638447.2774825
+    },
+    {
+      "round_id": "78ef51f7-312a-4a51-9121-29d5fb91d314",
+      "proposal_value": "proposal_16_161",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 0,
+        "node_1": 3,
+        "node_2": 3,
+        "node_3": 3,
+        "node_4": 3,
+        "node_5": 3,
+        "node_6": 3,
+        "node_7": 3
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 0,
+          "trust_score": 0.30000000000000004,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 3,
+          "trust_score": 0.45,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 3,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 3,
+          "trust_score": 0.8999999999999995,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 3,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 0.550561797752809,
+      "byzantine_detected": [
+        "node_0"
+      ],
+      "confidence": 0.9541984732824427,
+      "round_time": 0.00025272369384765625,
+      "timestamp": 1755638447.2778149
+    },
+    {
+      "round_id": "2a418651-bb70-447a-92ca-9248111223e6",
+      "proposal_value": "proposal_17_460",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 1,
+        "node_1": 3,
+        "node_2": 3,
+        "node_3": 3,
+        "node_4": 3,
+        "node_5": 3,
+        "node_6": 3,
+        "node_7": 2
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 1,
+          "trust_score": 0.25000000000000006,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 3,
+          "trust_score": 0.55,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 3,
+          "trust_score": 0.9999999999999994,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 2,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 0.47572815533980584,
+      "byzantine_detected": [
+        "node_0"
+      ],
+      "confidence": 0.8161764705882353,
+      "round_time": 0.00019741058349609375,
+      "timestamp": 1755638447.2780883
+    },
+    {
+      "round_id": "92f753eb-2768-4e90-81b1-d60d8d388fc0",
+      "proposal_value": "proposal_18_768",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 3,
+        "node_1": 1,
+        "node_2": 3,
+        "node_3": 0,
+        "node_4": 3,
+        "node_5": 3,
+        "node_6": 2,
+        "node_7": 3
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 3,
+          "trust_score": 0.20000000000000007,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 1,
+          "trust_score": 0.65,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 0,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 2,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 3,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 0.6533333333333333,
+      "byzantine_detected": [],
+      "confidence": 0.6102941176470589,
+      "round_time": 0.0002014636993408203,
+      "timestamp": 1755638447.2783654
+    },
+    {
+      "round_id": "af70da65-a844-4894-a1d1-1db0fe480659",
+      "proposal_value": "proposal_19_305",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 0,
+        "node_1": 3,
+        "node_2": 3,
+        "node_3": 3,
+        "node_4": 0,
+        "node_5": 3,
+        "node_6": 2,
+        "node_7": 1
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 0,
+          "trust_score": 0.30000000000000004,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 3,
+          "trust_score": 0.6,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 3,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 0,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 2,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 1,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 0.6533333333333333,
+      "byzantine_detected": [
+        "node_0"
+      ],
+      "confidence": 0.5220588235294118,
+      "round_time": 0.00013780593872070312,
+      "timestamp": 1755638447.2785616
+    },
+    {
+      "round_id": "3a57133a-c92a-401f-aabb-8c1a5abe2a6c",
+      "proposal_value": "proposal_20_998",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 3,
+        "node_1": 3,
+        "node_2": 3,
+        "node_3": 3,
+        "node_4": 3,
+        "node_5": 1,
+        "node_6": 3,
+        "node_7": 3
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 3,
+          "trust_score": 0.25000000000000006,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 3,
+          "trust_score": 0.7,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 3,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 1,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 0.8999999999999999,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 3,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 0.4444444444444444,
+      "byzantine_detected": [],
+      "confidence": 0.8518518518518519,
+      "round_time": 0.00019121170043945312,
+      "timestamp": 1755638447.2789
+    },
+    {
+      "round_id": "91ff986d-344d-4449-b0a3-ffdd5e86071c",
+      "proposal_value": "proposal_21_407",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 1,
+        "node_1": 1,
+        "node_2": 3,
+        "node_3": 3,
+        "node_4": 3,
+        "node_5": 3,
+        "node_6": 3,
+        "node_7": 3
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 1,
+          "trust_score": 0.3500000000000001,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 1,
+          "trust_score": 0.7999999999999999,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 3,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 0.9999999999999999,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 0.631578947368421,
+      "byzantine_detected": [
+        "node_0"
+      ],
+      "confidence": 0.8380281690140845,
+      "round_time": 0.00016736984252929688,
+      "timestamp": 1755638447.279126
+    },
+    {
+      "round_id": "822e0d3f-01c0-4a82-9fe9-21ade4a622c3",
+      "proposal_value": "proposal_22_238",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 2,
+        "node_1": 2,
+        "node_2": 3,
+        "node_3": 0,
+        "node_4": 3,
+        "node_5": 3,
+        "node_6": 3,
+        "node_7": 3
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 2,
+          "trust_score": 0.3000000000000001,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 2,
+          "trust_score": 0.7499999999999999,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 0,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 0.6533333333333333,
+      "byzantine_detected": [
+        "node_0"
+      ],
+      "confidence": 0.7092198581560284,
+      "round_time": 0.00011515617370605469,
+      "timestamp": 1755638447.2792923
+    },
+    {
+      "round_id": "a921eeec-88f2-44c6-97a6-39a37ae410d8",
+      "proposal_value": "proposal_23_523",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 1,
+        "node_1": 3,
+        "node_2": 3,
+        "node_3": 3,
+        "node_4": 3,
+        "node_5": 3,
+        "node_6": 3,
+        "node_7": 2
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 1,
+          "trust_score": 0.2500000000000001,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 3,
+          "trust_score": 0.6999999999999998,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 3,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 2,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 0.6533333333333333,
+      "byzantine_detected": [
+        "node_0"
+      ],
+      "confidence": 0.8188405797101448,
+      "round_time": 0.00012636184692382812,
+      "timestamp": 1755638447.2794652
+    },
+    {
+      "round_id": "2e8de021-a558-4d4a-aa49-2f95dc38a401",
+      "proposal_value": "proposal_24_868",
+      "consensus_value": 3,
+      "votes": {
+        "node_0": 3,
+        "node_1": 1,
+        "node_2": 2,
+        "node_3": 3,
+        "node_4": 3,
+        "node_5": 3,
+        "node_6": 3,
+        "node_7": 3
+      },
+      "measurement_statistics": [
+        {
+          "node_id": "node_0",
+          "vote": 3,
+          "trust_score": 0.20000000000000012,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_1",
+          "vote": 1,
+          "trust_score": 0.7999999999999998,
+          "entanglement_degree": 4,
+          "is_byzantine": true
+        },
+        {
+          "node_id": "node_2",
+          "vote": 2,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_3",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_4",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_5",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_6",
+          "vote": 3,
+          "trust_score": 1.0,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        },
+        {
+          "node_id": "node_7",
+          "vote": 3,
+          "trust_score": 0.95,
+          "entanglement_degree": 4,
+          "is_byzantine": false
+        }
+      ],
+      "coherence": 0.8305084745762712,
+      "byzantine_detected": [],
+      "confidence": 0.7410071942446044,
+      "round_time": 0.00024366378784179688,
+      "timestamp": 1755638447.2797775
+    }
+  ],
+  "performance_metrics": {
+    "total_experiment_time": 0.006850004196166992,
+    "successful_consensus_rate": 0.96,
+    "average_coherence": 0.6890265175180246,
+    "coherence_std": 0.16860526471962872,
+    "average_round_time": 0.00018896102905273436,
+    "byzantine_detection_accuracy": 1.0,
+    "trust_score_evolution": {
+      "node_0": [
+        0.2,
+        0.15000000000000002,
+        0.10000000000000002,
+        0.05000000000000002,
+        1.3877787807814457e-17,
+        0.0,
+        0.0,
+        0.1,
+        0.2,
+        0.30000000000000004,
+        0.25000000000000006,
+        0.20000000000000007,
+        0.30000000000000004,
+        0.25000000000000006,
+        0.20000000000000007,
+        0.30000000000000004,
+        0.25000000000000006,
+        0.20000000000000007,
+        0.30000000000000004,
+        0.25000000000000006,
+        0.3500000000000001,
+        0.3000000000000001,
+        0.2500000000000001,
+        0.20000000000000012,
+        0.30000000000000016
+      ],
+      "node_1": [
+        0.05,
+        0.0,
+        0.0,
+        0.0,
+        0.1,
+        0.05,
+        0.15000000000000002,
+        0.25,
+        0.35,
+        0.3,
+        0.4,
+        0.35000000000000003,
+        0.45000000000000007,
+        0.55,
+        0.5,
+        0.45,
+        0.55,
+        0.65,
+        0.6,
+        0.7,
+        0.7999999999999999,
+        0.7499999999999999,
+        0.6999999999999998,
+        0.7999999999999998,
+        0.7499999999999998
+      ],
+      "node_2": [
+        0.95,
+        0.8999999999999999,
+        0.9999999999999999,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.95,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.95,
+        1.0,
+        0.95,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.95
+      ],
+      "node_3": [
+        1.0,
+        0.95,
+        1.0,
+        1.0,
+        1.0,
+        0.95,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.95,
+        1.0,
+        1.0,
+        0.95,
+        1.0,
+        0.95,
+        1.0,
+        1.0,
+        0.95,
+        1.0,
+        1.0,
+        1.0,
+        0.95,
+        1.0,
+        1.0
+      ],
+      "node_4": [
+        0.95,
+        1.0,
+        1.0,
+        1.0,
+        0.95,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.95,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.95,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.95,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "node_5": [
+        1.0,
+        1.0,
+        0.95,
+        0.8999999999999999,
+        0.8499999999999999,
+        0.7999999999999998,
+        0.7499999999999998,
+        0.6999999999999997,
+        0.6499999999999997,
+        0.5999999999999996,
+        0.5499999999999996,
+        0.6499999999999996,
+        0.7499999999999996,
+        0.6999999999999995,
+        0.7999999999999995,
+        0.8999999999999995,
+        0.9999999999999994,
+        1.0,
+        1.0,
+        1.0,
+        0.95,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "node_6": [
+        0.95,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.95,
+        0.8999999999999999,
+        0.9999999999999999,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "node_7": [
+        1.0,
+        1.0,
+        0.95,
+        0.8999999999999999,
+        0.9999999999999999,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.95,
+        1.0,
+        0.95,
+        1.0,
+        0.95,
+        1.0,
+        1.0,
+        1.0,
+        0.95,
+        1.0
+      ]
+    }
+  },
+  "network_analysis": {
+    "final_trust_scores": {
+      "node_0": 0.30000000000000016,
+      "node_1": 0.7499999999999998,
+      "node_2": 0.95,
+      "node_3": 1.0,
+      "node_4": 1.0,
+      "node_5": 1.0,
+      "node_6": 1.0,
+      "node_7": 1.0
+    },
+    "entanglement_network": {
+      "node_0": [
+        "node_1",
+        "node_2"
+      ],
+      "node_1": [
+        "node_2",
+        "node_3"
+      ],
+      "node_2": [
+        "node_3",
+        "node_4"
+      ],
+      "node_3": [
+        "node_4",
+        "node_5"
+      ],
+      "node_4": [
+        "node_5",
+        "node_6"
+      ],
+      "node_5": [
+        "node_6",
+        "node_7"
+      ],
+      "node_6": [
+        "node_7",
+        "node_0"
+      ],
+      "node_7": [
+        "node_0",
+        "node_1"
+      ]
+    },
+    "consensus_convergence": {
+      "confidence_trend": "improving",
+      "coherence_trend": "declining",
+      "rounds_to_stabilize": 6,
+      "final_network_agreement": 0.7410071942446044
+    },
+    "quantum_network_properties": {
+      "average_connectivity": 2.0,
+      "max_entanglement_degree": 2,
+      "network_size": 8,
+      "measurement_entropy": 1.061278124459133,
+      "entanglement_density": 0.2857142857142857
+    }
+  }
+}

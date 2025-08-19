@@ -1,0 +1,1104 @@
+{
+  "experiment_metadata": {
+    "experiment_id": "9a7c8edf-6d88-4786-a31b-7d5bec6bdf50",
+    "timestamp": "2025-08-19T21:27:27.799044",
+    "base_random_seed": 42,
+    "total_execution_time": 0.994469404220581,
+    "reproducibility_hash": "a074298de0ea2a58a4ba0254dc90a2f3588b14c994af964b42e0f0281d210698"
+  },
+  "experimental_design": {
+    "base_seed": 42,
+    "total_trials": 100,
+    "conditions": [
+      {
+        "condition_id": "genetic_algorithm",
+        "name": "Genetic Algorithm Evolution",
+        "parameters": {
+          "algorithm_type": "genetic",
+          "population_size": 10,
+          "generations": 20,
+          "mutation_rate": 0.2,
+          "selection_method": "tournament"
+        },
+        "description": "Standard genetic algorithm with tournament selection",
+        "expected_outcome": "Good exploration and convergence"
+      },
+      {
+        "condition_id": "hill_climbing",
+        "name": "Hill Climbing Optimization",
+        "parameters": {
+          "algorithm_type": "hill_climbing",
+          "iterations": 200,
+          "neighbor_strategy": "single_flip"
+        },
+        "description": "Local search with hill climbing",
+        "expected_outcome": "Fast convergence, potential local optima"
+      },
+      {
+        "condition_id": "random_baseline",
+        "name": "Random Topology Baseline",
+        "parameters": {
+          "algorithm_type": "random",
+          "trials": 10
+        },
+        "description": "Random topology generation baseline",
+        "expected_outcome": "Poor performance, high variance"
+      },
+      {
+        "condition_id": "round_robin",
+        "name": "Round-Robin Assignment",
+        "parameters": {
+          "algorithm_type": "round_robin"
+        },
+        "description": "Deterministic round-robin expert assignment",
+        "expected_outcome": "Balanced but suboptimal performance"
+      }
+    ],
+    "trial_plan": [
+      {
+        "trial_id": "e9884cd7-f514-4325-a1b7-b82e5a62fe6d",
+        "condition_id": "hill_climbing",
+        "run_number": 5,
+        "random_seed": 1373158607,
+        "execution_order": 0
+      },
+      {
+        "trial_id": "fac0ddbe-cdab-4dd0-82a0-8137d77c2087",
+        "condition_id": "random_baseline",
+        "run_number": 11,
+        "random_seed": 239081664,
+        "execution_order": 1
+      },
+      {
+        "trial_id": "0ec7d530-23d6-4212-969a-6043bc1689e9",
+        "condition_id": "genetic_algorithm",
+        "run_number": 6,
+        "random_seed": 53710185,
+        "execution_order": 2
+      },
+      {
+        "trial_id": "f327a5c3-6f2a-4a35-8480-6dab4bba21a5",
+        "condition_id": "round_robin",
+        "run_number": 9,
+        "random_seed": 1592467582,
+        "execution_order": 3
+      },
+      {
+        "trial_id": "c8d56b8b-7b9f-4134-aebf-18f8c4a5d3b2",
+        "condition_id": "genetic_algorithm",
+        "run_number": 11,
+        "random_seed": 590620972,
+        "execution_order": 4
+      },
+      {
+        "trial_id": "4d4d47dd-eda0-449b-b5bd-f88f00c780f5",
+        "condition_id": "random_baseline",
+        "run_number": 2,
+        "random_seed": 525901257,
+        "execution_order": 5
+      },
+      {
+        "trial_id": "889f8f82-1426-4ba7-a65e-e2e9f9ef0e88",
+        "condition_id": "random_baseline",
+        "run_number": 6,
+        "random_seed": 479341424,
+        "execution_order": 6
+      },
+      {
+        "trial_id": "635cdd20-b801-4675-ba0a-e21cb45e58dc",
+        "condition_id": "genetic_algorithm",
+        "run_number": 2,
+        "random_seed": 299655413,
+        "execution_order": 7
+      },
+      {
+        "trial_id": "e24b7d7e-0903-40b0-9326-062d1bdf4b13",
+        "condition_id": "genetic_algorithm",
+        "run_number": 22,
+        "random_seed": 1581559893,
+        "execution_order": 8
+      },
+      {
+        "trial_id": "81f2bde5-273d-43b3-9fc1-a266144606a1",
+        "condition_id": "random_baseline",
+        "run_number": 14,
+        "random_seed": 220106708,
+        "execution_order": 9
+      },
+      {
+        "trial_id": "e2e6cd02-bf71-4b88-b2fc-61f4335ffdf1",
+        "condition_id": "genetic_algorithm",
+        "run_number": 12,
+        "random_seed": 1453201079,
+        "execution_order": 10
+      },
+      {
+        "trial_id": "77bbe612-63ea-47cd-a549-0d18d8810762",
+        "condition_id": "hill_climbing",
+        "run_number": 14,
+        "random_seed": 1590571866,
+        "execution_order": 11
+      },
+      {
+        "trial_id": "708a3e02-f7e2-4661-8f97-a1a50c78d3e7",
+        "condition_id": "random_baseline",
+        "run_number": 23,
+        "random_seed": 1915941033,
+        "execution_order": 12
+      },
+      {
+        "trial_id": "53819e9c-20f5-4f85-9334-14dd85f5fd29",
+        "condition_id": "genetic_algorithm",
+        "run_number": 1,
+        "random_seed": 1171165723,
+        "execution_order": 13
+      },
+      {
+        "trial_id": "7ec87b55-6fec-471b-9083-bb03e417eb69",
+        "condition_id": "random_baseline",
+        "run_number": 15,
+        "random_seed": 186699714,
+        "execution_order": 14
+      },
+      {
+        "trial_id": "115e7184-e735-4ff6-bb82-0a0c3b589f67",
+        "condition_id": "genetic_algorithm",
+        "run_number": 19,
+        "random_seed": 1268073013,
+        "execution_order": 15
+      },
+      {
+        "trial_id": "5441a52b-651d-4081-8142-00cd925bb121",
+        "condition_id": "round_robin",
+        "run_number": 22,
+        "random_seed": 906070221,
+        "execution_order": 16
+      },
+      {
+        "trial_id": "34c721b1-e830-42f0-af81-02c3d24e2b91",
+        "condition_id": "round_robin",
+        "run_number": 8,
+        "random_seed": 68252794,
+        "execution_order": 17
+      },
+      {
+        "trial_id": "c5610c76-19b4-4250-84bb-7f6e9d6ecd46",
+        "condition_id": "random_baseline",
+        "run_number": 16,
+        "random_seed": 63989048,
+        "execution_order": 18
+      },
+      {
+        "trial_id": "72066726-afa7-4fa4-9cbd-effc5129eac7",
+        "condition_id": "hill_climbing",
+        "run_number": 21,
+        "random_seed": 201209006,
+        "execution_order": 19
+      },
+      {
+        "trial_id": "3a12a1af-388a-45b4-8b2f-4c89e33c6da4",
+        "condition_id": "genetic_algorithm",
+        "run_number": 13,
+        "random_seed": 469521478,
+        "execution_order": 20
+      },
+      {
+        "trial_id": "755d94e4-6975-44b6-a978-5c178232670f",
+        "condition_id": "hill_climbing",
+        "run_number": 18,
+        "random_seed": 499635469,
+        "execution_order": 21
+      },
+      {
+        "trial_id": "8ff94ad6-4904-4b45-aa9a-146217810406",
+        "condition_id": "round_robin",
+        "run_number": 23,
+        "random_seed": 1085242217,
+        "execution_order": 22
+      },
+      {
+        "trial_id": "c8b28ef3-ec3b-48d6-a169-75701c535875",
+        "condition_id": "round_robin",
+        "run_number": 3,
+        "random_seed": 1292825379,
+        "execution_order": 23
+      },
+      {
+        "trial_id": "25026776-25d2-4eba-9e8d-e9f2135bffb6",
+        "condition_id": "round_robin",
+        "run_number": 21,
+        "random_seed": 56985562,
+        "execution_order": 24
+      },
+      {
+        "trial_id": "e91d8365-7207-4716-839f-1e8929bc5d92",
+        "condition_id": "hill_climbing",
+        "run_number": 17,
+        "random_seed": 1205264596,
+        "execution_order": 25
+      },
+      {
+        "trial_id": "20fbe32a-fd3d-4b1c-a181-81aea16af2b9",
+        "condition_id": "hill_climbing",
+        "run_number": 24,
+        "random_seed": 427000597,
+        "execution_order": 26
+      },
+      {
+        "trial_id": "7f16aae8-7f6c-4ba4-b5fd-a8232cb13ce2",
+        "condition_id": "hill_climbing",
+        "run_number": 11,
+        "random_seed": 1537640409,
+        "execution_order": 27
+      },
+      {
+        "trial_id": "087c4c8b-18f7-4104-8977-08af1e6787c7",
+        "condition_id": "genetic_algorithm",
+        "run_number": 17,
+        "random_seed": 1395616197,
+        "execution_order": 28
+      },
+      {
+        "trial_id": "d3b60058-9cb3-45fe-88b6-9601207aaa7d",
+        "condition_id": "round_robin",
+        "run_number": 4,
+        "random_seed": 1506083911,
+        "execution_order": 29
+      },
+      {
+        "trial_id": "1eab4653-650d-4772-a185-822ae282e1bb",
+        "condition_id": "round_robin",
+        "run_number": 13,
+        "random_seed": 1170252924,
+        "execution_order": 30
+      },
+      {
+        "trial_id": "8686cc56-91f5-45b9-90cf-116061c79f65",
+        "condition_id": "hill_climbing",
+        "run_number": 19,
+        "random_seed": 900911955,
+        "execution_order": 31
+      },
+      {
+        "trial_id": "32827a2f-f2be-4238-9389-1db6aae25617",
+        "condition_id": "genetic_algorithm",
+        "run_number": 0,
+        "random_seed": 473392625,
+        "execution_order": 32
+      },
+      {
+        "trial_id": "ef48579e-bc80-466f-9be8-d718736c018f",
+        "condition_id": "random_baseline",
+        "run_number": 7,
+        "random_seed": 964669078,
+        "execution_order": 33
+      },
+      {
+        "trial_id": "4264ff83-3940-45b2-8055-f48afe795e97",
+        "condition_id": "random_baseline",
+        "run_number": 17,
+        "random_seed": 1265438423,
+        "execution_order": 34
+      },
+      {
+        "trial_id": "1f9a7447-660a-4228-9bdf-664ac5666fc6",
+        "condition_id": "round_robin",
+        "run_number": 1,
+        "random_seed": 597409993,
+        "execution_order": 35
+      },
+      {
+        "trial_id": "b0116a11-5b78-48ce-8d54-55903f10402a",
+        "condition_id": "random_baseline",
+        "run_number": 3,
+        "random_seed": 1738238662,
+        "execution_order": 36
+      },
+      {
+        "trial_id": "96a38230-f377-4102-a7b6-4dcd739ea06e",
+        "condition_id": "genetic_algorithm",
+        "run_number": 24,
+        "random_seed": 1866808230,
+        "execution_order": 37
+      },
+      {
+        "trial_id": "99d2d4ab-2ea8-4474-b852-ad9ecb00af80",
+        "condition_id": "round_robin",
+        "run_number": 0,
+        "random_seed": 13955984,
+        "execution_order": 38
+      },
+      {
+        "trial_id": "f21ef58b-1b1f-49ed-93c1-8653be343237",
+        "condition_id": "hill_climbing",
+        "run_number": 13,
+        "random_seed": 1629526406,
+        "execution_order": 39
+      },
+      {
+        "trial_id": "87d7ce6e-989f-4199-b77f-4bba71b7b52a",
+        "condition_id": "random_baseline",
+        "run_number": 4,
+        "random_seed": 1730483679,
+        "execution_order": 40
+      },
+      {
+        "trial_id": "2e69c3fd-3d1a-4022-bd5b-b4ba81db11a0",
+        "condition_id": "genetic_algorithm",
+        "run_number": 10,
+        "random_seed": 342865763,
+        "execution_order": 41
+      },
+      {
+        "trial_id": "0dfcf795-3fd4-4f3e-ac41-7a5d5aa3c3c6",
+        "condition_id": "random_baseline",
+        "run_number": 19,
+        "random_seed": 1499242942,
+        "execution_order": 42
+      },
+      {
+        "trial_id": "aafac4f2-d0ea-42e2-b439-14b1984261cf",
+        "condition_id": "round_robin",
+        "run_number": 16,
+        "random_seed": 907557513,
+        "execution_order": 43
+      },
+      {
+        "trial_id": "0dc9e786-af2a-4ef0-bf93-1f9039095fe8",
+        "condition_id": "round_robin",
+        "run_number": 15,
+        "random_seed": 730682428,
+        "execution_order": 44
+      },
+      {
+        "trial_id": "e3bdcc20-670e-412c-b39a-127bdccf61d3",
+        "condition_id": "genetic_algorithm",
+        "run_number": 3,
+        "random_seed": 596724165,
+        "execution_order": 45
+      },
+      {
+        "trial_id": "30763811-71c9-435e-8cb7-ba98076348a8",
+        "condition_id": "genetic_algorithm",
+        "run_number": 5,
+        "random_seed": 333889689,
+        "execution_order": 46
+      },
+      {
+        "trial_id": "91988105-bca5-4253-bc7a-e9a80a8ffba6",
+        "condition_id": "round_robin",
+        "run_number": 11,
+        "random_seed": 462382782,
+        "execution_order": 47
+      },
+      {
+        "trial_id": "955cc44f-e41a-4e04-b125-a3a414aa1aad",
+        "condition_id": "hill_climbing",
+        "run_number": 7,
+        "random_seed": 2055599410,
+        "execution_order": 48
+      },
+      {
+        "trial_id": "a9ea0d83-b25d-4c4a-9be1-f0d14ba08ff3",
+        "condition_id": "random_baseline",
+        "run_number": 12,
+        "random_seed": 1639591160,
+        "execution_order": 49
+      },
+      {
+        "trial_id": "6e112f13-7680-405a-a394-b7b092efb082",
+        "condition_id": "genetic_algorithm",
+        "run_number": 14,
+        "random_seed": 722831293,
+        "execution_order": 50
+      },
+      {
+        "trial_id": "9ac96056-cf80-43cb-98b1-f6a1e2d4bc3f",
+        "condition_id": "genetic_algorithm",
+        "run_number": 23,
+        "random_seed": 219494903,
+        "execution_order": 51
+      },
+      {
+        "trial_id": "712f4f3b-2bc3-4664-a3b4-f09e6d42f83c",
+        "condition_id": "hill_climbing",
+        "run_number": 0,
+        "random_seed": 199170185,
+        "execution_order": 52
+      },
+      {
+        "trial_id": "0d51c82e-add5-4dcf-a5e8-8dd3025a2a7a",
+        "condition_id": "random_baseline",
+        "run_number": 5,
+        "random_seed": 815887679,
+        "execution_order": 53
+      },
+      {
+        "trial_id": "ee021332-c44a-40a3-b4d3-2e2a7b1d1274",
+        "condition_id": "round_robin",
+        "run_number": 18,
+        "random_seed": 207696844,
+        "execution_order": 54
+      },
+      {
+        "trial_id": "f966ffdc-9554-402c-b27f-322994d3b997",
+        "condition_id": "hill_climbing",
+        "run_number": 12,
+        "random_seed": 770902344,
+        "execution_order": 55
+      },
+      {
+        "trial_id": "440be8f0-8e89-487d-a85e-001f6310bfeb",
+        "condition_id": "random_baseline",
+        "run_number": 10,
+        "random_seed": 1819980298,
+        "execution_order": 56
+      },
+      {
+        "trial_id": "cd48de26-dcf3-410a-a41b-2df78f102ac8",
+        "condition_id": "genetic_algorithm",
+        "run_number": 16,
+        "random_seed": 738639289,
+        "execution_order": 57
+      },
+      {
+        "trial_id": "197ca426-080b-4fed-b80d-6cc47212453a",
+        "condition_id": "random_baseline",
+        "run_number": 22,
+        "random_seed": 1296491778,
+        "execution_order": 58
+      },
+      {
+        "trial_id": "f8a22bc3-efb3-48b6-a9ab-9fd19179ae77",
+        "condition_id": "hill_climbing",
+        "run_number": 10,
+        "random_seed": 568054228,
+        "execution_order": 59
+      },
+      {
+        "trial_id": "98de4362-e0f1-4aa4-b062-a4ade5d0e8b4",
+        "condition_id": "round_robin",
+        "run_number": 24,
+        "random_seed": 1733294784,
+        "execution_order": 60
+      },
+      {
+        "trial_id": "9f333614-feda-402d-bbbc-f804f123465c",
+        "condition_id": "genetic_algorithm",
+        "run_number": 15,
+        "random_seed": 93309106,
+        "execution_order": 61
+      },
+      {
+        "trial_id": "eeb572dc-03f3-480d-97f5-79383b6316ac",
+        "condition_id": "round_robin",
+        "run_number": 5,
+        "random_seed": 1567087081,
+        "execution_order": 62
+      },
+      {
+        "trial_id": "9b63f4a1-bc41-4343-bfb4-59130e687766",
+        "condition_id": "hill_climbing",
+        "run_number": 8,
+        "random_seed": 986607412,
+        "execution_order": 63
+      },
+      {
+        "trial_id": "ed3c2ff9-f353-48da-9ce1-da1686806a83",
+        "condition_id": "genetic_algorithm",
+        "run_number": 18,
+        "random_seed": 1151541059,
+        "execution_order": 64
+      },
+      {
+        "trial_id": "3165e710-bf33-4a42-abbf-1d44469d7e6a",
+        "condition_id": "random_baseline",
+        "run_number": 8,
+        "random_seed": 268062141,
+        "execution_order": 65
+      },
+      {
+        "trial_id": "7ea21e35-4a71-47c8-b60a-5220e30978cc",
+        "condition_id": "random_baseline",
+        "run_number": 0,
+        "random_seed": 2089750183,
+        "execution_order": 66
+      },
+      {
+        "trial_id": "10260b31-acc7-45b5-b750-1de699af1d57",
+        "condition_id": "random_baseline",
+        "run_number": 13,
+        "random_seed": 1980614225,
+        "execution_order": 67
+      },
+      {
+        "trial_id": "cebf2d3e-77f4-4442-9726-5af8adc31af7",
+        "condition_id": "random_baseline",
+        "run_number": 20,
+        "random_seed": 812896394,
+        "execution_order": 68
+      },
+      {
+        "trial_id": "33de8b2f-9dca-4976-88a8-6c135783390a",
+        "condition_id": "random_baseline",
+        "run_number": 24,
+        "random_seed": 169222133,
+        "execution_order": 69
+      },
+      {
+        "trial_id": "09ab43f4-d771-4253-8b6e-2c1f5318fbf2",
+        "condition_id": "hill_climbing",
+        "run_number": 2,
+        "random_seed": 1185498233,
+        "execution_order": 70
+      },
+      {
+        "trial_id": "63aff2b1-e242-40e1-bc53-81b44066304f",
+        "condition_id": "genetic_algorithm",
+        "run_number": 8,
+        "random_seed": 629595553,
+        "execution_order": 71
+      },
+      {
+        "trial_id": "07e786a4-18a8-4a10-9a96-fda8c6e5c073",
+        "condition_id": "round_robin",
+        "run_number": 17,
+        "random_seed": 1781132954,
+        "execution_order": 72
+      },
+      {
+        "trial_id": "30cc7cf4-8eba-4a07-a61e-552f1f6c8cdb",
+        "condition_id": "random_baseline",
+        "run_number": 1,
+        "random_seed": 1349993688,
+        "execution_order": 73
+      },
+      {
+        "trial_id": "10f79edb-e5a3-4237-9e48-32b0cfcbd9a6",
+        "condition_id": "hill_climbing",
+        "run_number": 15,
+        "random_seed": 1328261054,
+        "execution_order": 74
+      },
+      {
+        "trial_id": "f58cbe73-ddc0-4d14-9611-589d71eedbd9",
+        "condition_id": "genetic_algorithm",
+        "run_number": 4,
+        "random_seed": 1901493144,
+        "execution_order": 75
+      },
+      {
+        "trial_id": "b2b3e39f-8142-4828-b300-986462102fa3",
+        "condition_id": "hill_climbing",
+        "run_number": 4,
+        "random_seed": 1850501473,
+        "execution_order": 76
+      },
+      {
+        "trial_id": "d25212e8-9260-44d4-95a8-7bb55d819739",
+        "condition_id": "genetic_algorithm",
+        "run_number": 7,
+        "random_seed": 776605305,
+        "execution_order": 77
+      },
+      {
+        "trial_id": "722db0d3-601d-41d1-8436-b80a5e11666b",
+        "condition_id": "hill_climbing",
+        "run_number": 16,
+        "random_seed": 1239854304,
+        "execution_order": 78
+      },
+      {
+        "trial_id": "98969933-a205-4fb4-b30e-f44f2be3592b",
+        "condition_id": "hill_climbing",
+        "run_number": 3,
+        "random_seed": 412936599,
+        "execution_order": 79
+      },
+      {
+        "trial_id": "da1c1d81-dbaf-4897-a877-f9c8e291eb6c",
+        "condition_id": "random_baseline",
+        "run_number": 21,
+        "random_seed": 1513056505,
+        "execution_order": 80
+      },
+      {
+        "trial_id": "24b62e7d-9df6-40cd-a2ec-c356613b355f",
+        "condition_id": "round_robin",
+        "run_number": 19,
+        "random_seed": 149368554,
+        "execution_order": 81
+      },
+      {
+        "trial_id": "ebea089e-8cc3-4f42-b15b-562acc19fee5",
+        "condition_id": "round_robin",
+        "run_number": 20,
+        "random_seed": 98407117,
+        "execution_order": 82
+      },
+      {
+        "trial_id": "a58aee30-7f46-4878-bdeb-cd9a1c0d41f7",
+        "condition_id": "hill_climbing",
+        "run_number": 23,
+        "random_seed": 1420052173,
+        "execution_order": 83
+      },
+      {
+        "trial_id": "19ab2310-7864-4870-86e7-9cdae7f44486",
+        "condition_id": "random_baseline",
+        "run_number": 9,
+        "random_seed": 489407816,
+        "execution_order": 84
+      },
+      {
+        "trial_id": "76f193af-0922-4fdb-ad61-98bb54e51964",
+        "condition_id": "genetic_algorithm",
+        "run_number": 20,
+        "random_seed": 1660151622,
+        "execution_order": 85
+      },
+      {
+        "trial_id": "7cf66886-999a-4e83-8f84-f577b17d7c92",
+        "condition_id": "hill_climbing",
+        "run_number": 6,
+        "random_seed": 621455911,
+        "execution_order": 86
+      },
+      {
+        "trial_id": "bd1395bb-ec57-43d6-bcb0-377cdd4d0ea8",
+        "condition_id": "random_baseline",
+        "run_number": 18,
+        "random_seed": 2115747111,
+        "execution_order": 87
+      },
+      {
+        "trial_id": "842984e1-5b65-45e5-9db1-20f467529d0f",
+        "condition_id": "genetic_algorithm",
+        "run_number": 21,
+        "random_seed": 171351961,
+        "execution_order": 88
+      },
+      {
+        "trial_id": "7936621b-c84c-4f4a-9367-838137bcbb29",
+        "condition_id": "round_robin",
+        "run_number": 6,
+        "random_seed": 1836780820,
+        "execution_order": 89
+      },
+      {
+        "trial_id": "28e9e6e6-7155-4701-8f7b-0216a47e7f29",
+        "condition_id": "round_robin",
+        "run_number": 2,
+        "random_seed": 499914621,
+        "execution_order": 90
+      },
+      {
+        "trial_id": "4486b90b-32f6-422d-bbbd-7356bcc3cd3f",
+        "condition_id": "genetic_algorithm",
+        "run_number": 9,
+        "random_seed": 1860759514,
+        "execution_order": 91
+      },
+      {
+        "trial_id": "b678d223-4dab-4424-b324-475c2eccad1a",
+        "condition_id": "round_robin",
+        "run_number": 7,
+        "random_seed": 216898921,
+        "execution_order": 92
+      },
+      {
+        "trial_id": "57b07e08-1f90-4d6c-8d1f-91b5fdd66d55",
+        "condition_id": "round_robin",
+        "run_number": 12,
+        "random_seed": 816314860,
+        "execution_order": 93
+      },
+      {
+        "trial_id": "b5bab2f9-f6d0-4ce1-ad89-f3d85ab13c07",
+        "condition_id": "round_robin",
+        "run_number": 14,
+        "random_seed": 596943773,
+        "execution_order": 94
+      },
+      {
+        "trial_id": "702395f3-ca1a-4a10-8ed1-1c625120e0ca",
+        "condition_id": "hill_climbing",
+        "run_number": 9,
+        "random_seed": 973691210,
+        "execution_order": 95
+      },
+      {
+        "trial_id": "db5f3067-aa13-43e9-908c-ca81902ea7af",
+        "condition_id": "round_robin",
+        "run_number": 10,
+        "random_seed": 1365121944,
+        "execution_order": 96
+      },
+      {
+        "trial_id": "e9bb7b1a-ee8a-4b7c-999a-372d13c74372",
+        "condition_id": "hill_climbing",
+        "run_number": 1,
+        "random_seed": 1791238512,
+        "execution_order": 97
+      },
+      {
+        "trial_id": "dad540f0-87c2-4edd-88a5-695cf23f65ff",
+        "condition_id": "hill_climbing",
+        "run_number": 20,
+        "random_seed": 783471137,
+        "execution_order": 98
+      },
+      {
+        "trial_id": "9958fa2e-751d-48cc-8bbd-d27d2efbfab9",
+        "condition_id": "hill_climbing",
+        "run_number": 22,
+        "random_seed": 349297013,
+        "execution_order": 99
+      }
+    ],
+    "design_type": "randomized_complete_block"
+  },
+  "results_summary": {
+    "total_trials_planned": 100,
+    "total_trials_completed": 100,
+    "success_rate": 1.0,
+    "conditions_tested": 4
+  },
+  "statistical_analysis": {
+    "descriptive_statistics": {
+      "random_baseline": {
+        "n_trials": 25,
+        "fitness_stats": {
+          "mean": -0.4026133050552259,
+          "median": -0.4061294060471671,
+          "std": 0.03564768853341491,
+          "min": -0.46150692933039045,
+          "max": -0.2977760524333249,
+          "ci_95": [
+            -0.41524595281313476,
+            -0.38830713479381235
+          ]
+        },
+        "time_stats": {
+          "mean": 0.006187124252319336,
+          "median": 0.0013499259948730469,
+          "std": 0.01390667057443974
+        }
+      },
+      "genetic_algorithm": {
+        "n_trials": 25,
+        "fitness_stats": {
+          "mean": -0.3989131105836279,
+          "median": -0.39489097486285113,
+          "std": 0.029196967043442233,
+          "min": -0.4596374457494107,
+          "max": -0.32965524159467013,
+          "ci_95": [
+            -0.41014296379577786,
+            -0.3874561899544104
+          ]
+        },
+        "time_stats": {
+          "mean": 0.07115317344665527,
+          "median": 0.04743504524230957,
+          "std": 0.058802538131021265
+        }
+      },
+      "round_robin": {
+        "n_trials": 25,
+        "fitness_stats": {
+          "mean": -0.22837402597402595,
+          "median": -0.21,
+          "std": 0.07787531097181517,
+          "min": -0.36666666666666664,
+          "max": -0.06,
+          "ci_95": [
+            -0.25738614718614716,
+            -0.19923030303030304
+          ]
+        },
+        "time_stats": {
+          "mean": 0.0002826976776123047,
+          "median": 6.270408630371094e-05,
+          "std": 0.0010557050898605041
+        }
+      },
+      "hill_climbing": {
+        "n_trials": 25,
+        "fitness_stats": {
+          "mean": -0.28705406503809844,
+          "median": -0.2852455532033676,
+          "std": 0.07207719901732612,
+          "min": -0.44616823114713833,
+          "max": -0.11666666666666667,
+          "ci_95": [
+            -0.31486201761795274,
+            -0.2603903970541566
+          ]
+        },
+        "time_stats": {
+          "mean": 0.039207763671875,
+          "median": 0.022980213165283203,
+          "std": 0.03837865797195075
+        }
+      }
+    },
+    "pairwise_comparisons": [
+      {
+        "condition_a": "random_baseline",
+        "condition_b": "genetic_algorithm",
+        "metric": "best_fitness",
+        "statistical_tests": [
+          {
+            "test_name": "welch_t_test",
+            "statistic": -0.40151058264432,
+            "p_value": 1.0,
+            "effect_size": -0.11356434228238413,
+            "confidence_interval": [
+              -0.022131561571457823,
+              0.014731172628261766
+            ],
+            "significant": false,
+            "interpretation": "No significant difference detected"
+          }
+        ],
+        "practical_significance": false,
+        "recommendation": "No significant difference detected"
+      },
+      {
+        "condition_a": "random_baseline",
+        "condition_b": "round_robin",
+        "metric": "best_fitness",
+        "statistical_tests": [
+          {
+            "test_name": "welch_t_test",
+            "statistic": -10.172003140747634,
+            "p_value": 0.0,
+            "effect_size": -2.877076959629405,
+            "confidence_interval": [
+              -0.2084978762660989,
+              -0.13998068189630103
+            ],
+            "significant": true,
+            "interpretation": "Statistically significant, large effect"
+          }
+        ],
+        "practical_significance": true,
+        "recommendation": "round_robin shows statistically and practically significant improvement"
+      },
+      {
+        "condition_a": "random_baseline",
+        "condition_b": "hill_climbing",
+        "metric": "best_fitness",
+        "statistical_tests": [
+          {
+            "test_name": "welch_t_test",
+            "statistic": -7.185563813086598,
+            "p_value": 5.848654893725325e-12,
+            "effect_size": -2.0323843595528794,
+            "confidence_interval": [
+              -0.14772351912537698,
+              -0.08339496090887796
+            ],
+            "significant": true,
+            "interpretation": "Statistically significant, large effect"
+          }
+        ],
+        "practical_significance": true,
+        "recommendation": "hill_climbing shows statistically and practically significant improvement"
+      },
+      {
+        "condition_a": "genetic_algorithm",
+        "condition_b": "round_robin",
+        "metric": "best_fitness",
+        "statistical_tests": [
+          {
+            "test_name": "welch_t_test",
+            "statistic": -10.252604349708488,
+            "p_value": 0.0,
+            "effect_size": -2.899874424200626,
+            "confidence_interval": [
+              -0.20380655086356908,
+              -0.13727161835563478
+            ],
+            "significant": true,
+            "interpretation": "Statistically significant, large effect"
+          }
+        ],
+        "practical_significance": true,
+        "recommendation": "round_robin shows statistically and practically significant improvement"
+      },
+      {
+        "condition_a": "genetic_algorithm",
+        "condition_b": "hill_climbing",
+        "metric": "best_fitness",
+        "statistical_tests": [
+          {
+            "test_name": "welch_t_test",
+            "statistic": -7.192007059580468,
+            "p_value": 5.579536832556187e-12,
+            "effect_size": -2.0342067848683483,
+            "confidence_interval": [
+              -0.1429655349076393,
+              -0.08075255618341957
+            ],
+            "significant": true,
+            "interpretation": "Statistically significant, large effect"
+          }
+        ],
+        "practical_significance": true,
+        "recommendation": "hill_climbing shows statistically and practically significant improvement"
+      },
+      {
+        "condition_a": "round_robin",
+        "condition_b": "hill_climbing",
+        "metric": "best_fitness",
+        "statistical_tests": [
+          {
+            "test_name": "welch_t_test",
+            "statistic": 2.765013434857726,
+            "p_value": 0.05059667033112181,
+            "effect_size": 0.7820638999439226,
+            "confidence_interval": [
+              0.016235370749401623,
+              0.10112470737874335
+            ],
+            "significant": false,
+            "interpretation": "Statistically significant, large effect"
+          }
+        ],
+        "practical_significance": true,
+        "recommendation": "round_robin shows statistically and practically significant improvement"
+      }
+    ],
+    "multiple_testing_correction": "bonferroni",
+    "total_comparisons": 6
+  },
+  "key_findings": [
+    "Best performing condition: round_robin (mean fitness: -0.2284)",
+    "Found 4 statistically significant differences",
+    "Largest effect size: genetic_algorithm vs round_robin (Cohen's d: -2.900)",
+    "Average performance variability (std): 0.0537"
+  ],
+  "research_conclusions": [
+    "Algorithm Performance Ranking (by mean fitness):",
+    "1. round_robin: -0.2284 (95% CI: [-0.2574, -0.1992])",
+    "2. hill_climbing: -0.2871 (95% CI: [-0.3149, -0.2604])",
+    "3. genetic_algorithm: -0.3989 (95% CI: [-0.4101, -0.3875])",
+    "4. random_baseline: -0.4026 (95% CI: [-0.4152, -0.3883])",
+    "\nStatistical Analysis Summary:",
+    "- Total pairwise comparisons: 6",
+    "- Statistically significant differences: 4",
+    "- Multiple testing correction applied: Bonferroni",
+    "\nPractical Recommendation:",
+    "Based on this analysis, round_robin shows the best overall performance for MoE routing optimization under the tested conditions."
+  ],
+  "reproducibility_information": {
+    "random_seeds_used": [
+      239081664,
+      53710185,
+      525901257,
+      1592467582,
+      1373158607,
+      590620972,
+      479341424,
+      220106708,
+      1453201079,
+      1915941033,
+      1590571866,
+      186699714,
+      1581559893,
+      906070221,
+      68252794,
+      63989048,
+      1171165723,
+      299655413,
+      499635469,
+      1085242217,
+      1292825379,
+      56985562,
+      469521478,
+      427000597,
+      1205264596,
+      1537640409,
+      1506083911,
+      1170252924,
+      1268073013,
+      201209006,
+      1395616197,
+      1265438423,
+      597409993,
+      1738238662,
+      900911955,
+      13955984,
+      473392625,
+      1730483679,
+      964669078,
+      1499242942,
+      907557513,
+      730682428,
+      1629526406,
+      342865763,
+      462382782,
+      333889689,
+      1639591160,
+      2055599410,
+      596724165,
+      219494903,
+      815887679,
+      207696844,
+      199170185,
+      1819980298,
+      770902344,
+      1296491778,
+      1866808230,
+      568054228,
+      1733294784,
+      1567087081,
+      738639289,
+      986607412,
+      268062141,
+      93309106,
+      1980614225,
+      812896394,
+      169222133,
+      722831293,
+      2089750183,
+      1781132954,
+      1349993688,
+      1185498233,
+      1328261054,
+      1901493144,
+      1850501473,
+      1151541059,
+      776605305,
+      1513056505,
+      149368554,
+      98407117,
+      1239854304,
+      489407816,
+      412936599,
+      1660151622,
+      1420052173,
+      2115747111,
+      1836780820,
+      499914621,
+      1860759514,
+      216898921,
+      816314860,
+      596943773,
+      171351961,
+      1365121944,
+      973691210,
+      1791238512,
+      783471137,
+      621455911,
+      629595553,
+      349297013
+    ],
+    "environment_info": {
+      "python_implementation": "CPython",
+      "timestamp": "2025-08-19T21:27:27.799762"
+    }
+  }
+}
