@@ -1,0 +1,726 @@
+{
+  "terragon_version": "9.0_comprehensive_quality_gates",
+  "timestamp": "2025-08-26T04:24:57.224513",
+  "execution_summary": {
+    "total_gates": 5,
+    "passed_gates": 1,
+    "failed_gates": 4,
+    "overall_pass_rate": "20.00%",
+    "execution_time": "0.63s",
+    "quality_status": "NON_COMPLIANT"
+  },
+  "gate_results": {
+    "code_quality_assessment": {
+      "passed": false,
+      "score": "0.549",
+      "threshold": 0.7,
+      "severity": "high",
+      "execution_time": "0.101s",
+      "recommendations_count": 9
+    },
+    "security_compliance_scan": {
+      "passed": true,
+      "score": "1.000",
+      "threshold": 0.9,
+      "severity": "info",
+      "execution_time": "0.453s",
+      "recommendations_count": 5
+    },
+    "performance_standards_validation": {
+      "passed": false,
+      "score": "0.583",
+      "threshold": 0.75,
+      "severity": "medium",
+      "execution_time": "0.024s",
+      "recommendations_count": 2
+    },
+    "documentation_coverage_analysis": {
+      "passed": false,
+      "score": "0.544",
+      "threshold": 0.65,
+      "severity": "medium",
+      "execution_time": "0.046s",
+      "recommendations_count": 6
+    },
+    "overall_compliance_check": {
+      "passed": false,
+      "score": "0.690",
+      "threshold": 0.75,
+      "severity": "high",
+      "execution_time": "0.000s",
+      "recommendations_count": 7
+    }
+  },
+  "quality_metrics": {
+    "code_quality_score": 0.5493986679666146,
+    "security_compliance_score": 1.0,
+    "performance_score": 0.5833333333333334,
+    "documentation_score": 0.54420836007796,
+    "overall_quality_score": 0.6903279390722431
+  },
+  "severity_analysis": {
+    "high": 2,
+    "medium": 2
+  },
+  "recommendations": {
+    "priority_actions": [
+      "Add type hints to improve code clarity and IDE support",
+      "Create installation and setup instructions",
+      "Add inline comments to explain complex logic",
+      "Include usage examples in README",
+      "Reduce function complexity through refactoring"
+    ],
+    "all_recommendations": [
+      "Add type hints to improve code clarity and IDE support",
+      "Create installation and setup instructions",
+      "Add inline comments to explain complex logic",
+      "Include usage examples in README",
+      "Reduce function complexity through refactoring",
+      "Overall code quality is below standards - focus on documentation and error handling",
+      "Add proper validation and error handling",
+      "Include contribution guidelines",
+      "Implement proper exception handling with try-except blocks",
+      "Review usage: Pickle can execute arbitrary code during deserialization",
+      "Add docstrings to functions and classes for better documentation",
+      "Consider refactoring complex functions into smaller, more manageable units",
+      "Add docstrings to functions and classes",
+      "Consider splitting large file into smaller, more focused modules",
+      "Use strong cryptographic algorithms like SHA-256 or AES"
+    ],
+    "total_recommendations": 15
+  },
+  "compliance_status": {
+    "overall_compliant": false,
+    "critical_issues": 0,
+    "high_priority_issues": 2,
+    "medium_priority_issues": 2,
+    "requires_immediate_attention": false
+  },
+  "detailed_results": [
+    {
+      "gate_name": "code_quality_assessment",
+      "timestamp": 1756182296.6935494,
+      "passed": false,
+      "score": 0.5493986679666146,
+      "threshold": 0.7,
+      "details": {
+        "files_analyzed": 25,
+        "average_quality_score": 0.5493986679666146,
+        "file_analyses": [
+          {
+            "file_metrics": {
+              "total_lines": 853,
+              "code_lines": 693,
+              "blank_lines": 160,
+              "file_size_bytes": 35654
+            },
+            "quality_indicators": {
+              "docstrings": {
+                "score": 0.9144196951934349,
+                "matches": 39,
+                "description": "Function and class documentation"
+              },
+              "type_hints": {
+                "score": 1.0,
+                "matches": 104,
+                "description": "Type annotations for better code clarity"
+              },
+              "error_handling": {
+                "score": 0.123094958968347,
+                "matches": 7,
+                "description": "Exception handling and error management"
+              },
+              "logging": {
+                "score": 0.5803048065650644,
+                "matches": 33,
+                "description": "Logging and debugging capabilities"
+              },
+              "comments": {
+                "score": 0.023446658851113716,
+                "matches": 1,
+                "description": "Code comments and inline documentation"
+              },
+              "complexity": {
+                "score": 1.0,
+                "description": "Code complexity and structure"
+              },
+              "naming": {
+                "score": 0.7737397420867527,
+                "matches": 44,
+                "description": "Naming conventions compliance"
+              }
+            },
+            "recommendations": [
+              "Implement proper exception handling with try-except blocks",
+              "Add inline comments to explain complex logic",
+              "Consider splitting large file into smaller, more focused modules"
+            ],
+            "issues": [
+              {
+                "type": "style",
+                "severity": "low",
+                "line": 536,
+                "description": "Line too long (131 characters)",
+                "suggestion": "Keep lines under 120 characters for better readability"
+              },
+              {
+                "type": "error_handling",
+                "severity": "high",
+                "line": 540,
+                "description": "Bare except clause found",
+                "suggestion": "Specify exception types for better error handling"
+              }
+            ],
+            "quality_score": 0.6452520515826495
+          },
+          {
+            "file_metrics": {
+              "total_lines": 1013,
+              "code_lines": 806,
+              "blank_lines": 207,
+              "file_size_bytes": 43377
+            },
+            "quality_indicators": {
+              "docstrings": {
+                "score": 0.7699901283316881,
+                "matches": 39,
+                "description": "Function and class documentation"
+              },
+              "type_hints": {
+                "score": 1.0,
+                "matches": 82,
+                "description": "Type annotations for better code clarity"
+              },
+              "error_handling": {
+                "score": 0.0,
+                "matches": 0,
+                "description": "Exception handling and error management"
+              },
+              "logging": {
+                "score": 0.38499506416584406,
+                "matches": 26,
+                "description": "Logging and debugging capabilities"
+              },
+              "comments": {
+                "score": 0.019743336623889437,
+                "matches": 1,
+                "description": "Code comments and inline documentation"
+              },
+              "complexity": {
+                "score": 1.0,
+                "description": "Code complexity and structure"
+              },
+              "naming": {
+                "score": 0.6367226061204344,
+                "matches": 43,
+                "description": "Naming conventions compliance"
+              }
+            },
+            "recommendations": [
+              "Implement proper exception handling with try-except blocks",
+              "Add inline comments to explain complex logic",
+              "Consider splitting large file into smaller, more focused modules",
+              "Overall code quality is below standards - focus on documentation and error handling"
+            ],
+            "issues": [
+              {
+                "type": "style",
+                "severity": "low",
+                "line": 393,
+                "description": "Line too long (138 characters)",
+                "suggestion": "Keep lines under 120 characters for better readability"
+              },
+              {
+                "type": "style",
+                "severity": "low",
+                "line": 473,
+                "description": "Line too long (130 characters)",
+                "suggestion": "Keep lines under 120 characters for better readability"
+              },
+              {
+                "type": "style",
+                "severity": "low",
+                "line": 474,
+                "description": "Line too long (128 characters)",
+                "suggestion": "Keep lines under 120 characters for better readability"
+              },
+              {
+                "type": "style",
+                "severity": "low",
+                "line": 908,
+                "description": "Line too long (133 characters)",
+                "suggestion": "Keep lines under 120 characters for better readability"
+              }
+            ],
+            "quality_score": 0.5581441263573543
+          },
+          {
+            "file_metrics": {
+              "total_lines": 466,
+              "code_lines": 366,
+              "blank_lines": 100,
+              "file_size_bytes": 16573
+            },
+            "quality_indicators": {
+              "docstrings": {
+                "score": 0.944206008583691,
+                "matches": 22,
+                "description": "Function and class documentation"
+              },
+              "type_hints": {
+                "score": 0.0,
+                "matches": 0,
+                "description": "Type annotations for better code clarity"
+              },
+              "error_handling": {
+                "score": 0.0,
+                "matches": 0,
+                "description": "Exception handling and error management"
+              },
+              "logging": {
+                "score": 0.0,
+                "matches": 0,
+                "description": "Logging and debugging capabilities"
+              },
+              "comments": {
+                "score": 0.04291845493562232,
+                "matches": 1,
+                "description": "Code comments and inline documentation"
+              },
+              "complexity": {
+                "score": 1.0,
+                "description": "Code complexity and structure"
+              },
+              "naming": {
+                "score": 0.8369098712446352,
+                "matches": 26,
+                "description": "Naming conventions compliance"
+              }
+            },
+            "recommendations": [
+              "Add type hints to improve code clarity and IDE support",
+              "Implement proper exception handling with try-except blocks",
+              "Add logging statements for debugging and monitoring",
+              "Add inline comments to explain complex logic",
+              "Overall code quality is below standards - focus on documentation and error handling"
+            ],
+            "issues": [],
+            "quality_score": 0.426824034334764
+          },
+          {
+            "file_metrics": {
+              "total_lines": 790,
+              "code_lines": 634,
+              "blank_lines": 156,
+              "file_size_bytes": 27839
+            },
+            "quality_indicators": {
+              "docstrings": {
+                "score": 1.0,
+                "matches": 45,
+                "description": "Function and class documentation"
+              },
+              "type_hints": {
+                "score": 0.0,
+                "matches": 0,
+                "description": "Type annotations for better code clarity"
+              },
+              "error_handling": {
+                "score": 0.759493670886076,
+                "matches": 40,
+                "description": "Exception handling and error management"
+              },
+              "logging": {
+                "score": 0.17088607594936708,
+                "matches": 9,
+                "description": "Logging and debugging capabilities"
+              },
+              "comments": {
+                "score": 0.02531645569620253,
+                "matches": 1,
+                "description": "Code comments and inline documentation"
+              },
+              "complexity": {
+                "score": 1.0,
+                "description": "Code complexity and structure"
+              },
+              "naming": {
+                "score": 1.0,
+                "matches": 76,
+                "description": "Naming conventions compliance"
+              }
+            },
+            "recommendations": [
+              "Add type hints to improve code clarity and IDE support",
+              "Add logging statements for debugging and monitoring",
+              "Add inline comments to explain complex logic",
+              "Consider splitting large file into smaller, more focused modules"
+            ],
+            "issues": [
+              {
+                "type": "code_smell",
+                "severity": "low",
+                "line": 764,
+                "description": "Print statement found - consider using logging",
+                "suggestion": "Replace print() with logger.info() or appropriate log level"
+              },
+              {
+                "type": "code_smell",
+                "severity": "low",
+                "line": 765,
+                "description": "Print statement found - consider using logging",
+                "suggestion": "Replace print() with logger.info() or appropriate log level"
+              },
+              {
+                "type": "code_smell",
+                "severity": "low",
+                "line": 766,
+                "description": "Print statement found - consider using logging",
+                "suggestion": "Replace print() with logger.info() or appropriate log level"
+              },
+              {
+                "type": "code_smell",
+                "severity": "low",
+                "line": 767,
+                "description": "Print statement found - consider using logging",
+                "suggestion": "Replace print() with logger.info() or appropriate log level"
+              },
+              {
+                "type": "code_smell",
+                "severity": "low",
+                "line": 768,
+                "description": "Print statement found - consider using logging",
+                "suggestion": "Replace print() with logger.info() or appropriate log level"
+              },
+              {
+                "type": "code_smell",
+                "severity": "low",
+                "line": 769,
+                "description": "Print statement found - consider using logging",
+                "suggestion": "Replace print() with logger.info() or appropriate log level"
+              },
+              {
+                "type": "code_smell",
+                "severity": "low",
+                "line": 770,
+                "description": "Print statement found - consider using logging",
+                "suggestion": "Replace print() with logger.info() or appropriate log level"
+              },
+              {
+                "type": "style",
+                "severity": "low",
+                "line": 770,
+                "description": "Line too long (122 characters)",
+                "suggestion": "Keep lines under 120 characters for better readability"
+              },
+              {
+                "type": "code_smell",
+                "severity": "low",
+                "line": 771,
+                "description": "Print statement found - consider using logging",
+                "suggestion": "Replace print() with logger.info() or appropriate log level"
+              },
+              {
+                "type": "code_smell",
+                "severity": "low",
+                "line": 790,
+                "description": "Print statement found - consider using logging",
+                "suggestion": "Replace print() with logger.info() or appropriate log level"
+              }
+            ],
+            "quality_score": 0.6215189873417721
+          },
+          {
+            "file_metrics": {
+              "total_lines": 391,
+              "code_lines": 316,
+              "blank_lines": 75,
+              "file_size_bytes": 16302
+            },
+            "quality_indicators": {
+              "docstrings": {
+                "score": 0.10230179028132992,
+                "matches": 2,
+                "description": "Function and class documentation"
+              },
+              "type_hints": {
+                "score": 0.0,
+                "matches": 0,
+                "description": "Type annotations for better code clarity"
+              },
+              "error_handling": {
+                "score": 0.03836317135549872,
+                "matches": 1,
+                "description": "Exception handling and error management"
+              },
+              "logging": {
+                "score": 1.0,
+                "matches": 85,
+                "description": "Logging and debugging capabilities"
+              },
+              "comments": {
+                "score": 0.05115089514066496,
+                "matches": 1,
+                "description": "Code comments and inline documentation"
+              },
+              "complexity": {
+                "score": 0.9718670076726342,
+                "description": "Code complexity and structure"
+              },
+              "naming": {
+                "score": 0.23017902813299232,
+                "matches": 6,
+                "description": "Naming conventions compliance"
+              }
+            },
+            "recommendations": [
+              "Add docstrings to functions and classes for better documentation",
+              "Add type hints to improve code clarity and IDE support",
+              "Implement proper exception handling with try-except blocks",
+              "Add inline comments to explain complex logic",
+              "Follow Python naming conventions (snake_case for functions, PascalCase for classes)"
+            ],
+            "issues": [
+              {
+                "type": "style",
+                "severity": "low",
+                "line": 337,
+                "description": "Line too long (125 characters)",
+                "suggestion": "Keep lines under 120 characters for better readability"
+              }
+            ],
+            "quality_score": 0.3020460358056266
+          }
+        ],
+        "quality_distribution": {
+          "excellent": 0,
+          "good": 8,
+          "fair": 14,
+          "poor": 3
+        }
+      },
+      "recommendations": [
+        "Implement proper exception handling with try-except blocks",
+        "Add logging statements for debugging and monitoring",
+        "Add type hints to improve code clarity and IDE support",
+        "Follow Python naming conventions (snake_case for functions, PascalCase for classes)",
+        "Add docstrings to functions and classes for better documentation",
+        "Consider refactoring complex functions into smaller, more manageable units",
+        "Add inline comments to explain complex logic",
+        "Overall code quality is below standards - focus on documentation and error handling",
+        "Consider splitting large file into smaller, more focused modules"
+      ],
+      "execution_time": 0.10129857063293457,
+      "severity": "high"
+    },
+    {
+      "gate_name": "security_compliance_scan",
+      "timestamp": 1756182297.147149,
+      "passed": true,
+      "score": 1.0,
+      "threshold": 0.9,
+      "details": {
+        "files_scanned": 20,
+        "total_findings": 81,
+        "critical_findings": 0,
+        "high_findings": 0,
+        "severity_distribution": {
+          "medium": 81
+        },
+        "sample_findings": [
+          {
+            "finding_id": "f52278c6",
+            "severity": "medium",
+            "category": "insecure_random",
+            "file_path": "/root/repo/advanced_test_suite.py",
+            "line_number": 48,
+            "description": "Potential insecure random vulnerability detected",
+            "recommendation": "Use secrets module for cryptographically secure random numbers",
+            "cwe_id": "CWE-338",
+            "confidence": "medium"
+          },
+          {
+            "finding_id": "6def9e16",
+            "severity": "medium",
+            "category": "insecure_random",
+            "file_path": "/root/repo/advanced_test_suite.py",
+            "line_number": 49,
+            "description": "Potential insecure random vulnerability detected",
+            "recommendation": "Use secrets module for cryptographically secure random numbers",
+            "cwe_id": "CWE-338",
+            "confidence": "medium"
+          },
+          {
+            "finding_id": "7e517693",
+            "severity": "medium",
+            "category": "insecure_random",
+            "file_path": "/root/repo/advanced_test_suite.py",
+            "line_number": 50,
+            "description": "Potential insecure random vulnerability detected",
+            "recommendation": "Use secrets module for cryptographically secure random numbers",
+            "cwe_id": "CWE-338",
+            "confidence": "medium"
+          },
+          {
+            "finding_id": "dad4b936",
+            "severity": "medium",
+            "category": "file_operations",
+            "file_path": "/root/repo/advanced_test_suite.py",
+            "line_number": 332,
+            "description": "File deletion without validation",
+            "recommendation": "Add proper validation and error handling",
+            "cwe_id": "CWE-73",
+            "confidence": "medium"
+          },
+          {
+            "finding_id": "f98196cd",
+            "severity": "medium",
+            "category": "file_operations",
+            "file_path": "/root/repo/advanced_test_suite.py",
+            "line_number": 356,
+            "description": "File deletion without validation",
+            "recommendation": "Add proper validation and error handling",
+            "cwe_id": "CWE-73",
+            "confidence": "medium"
+          }
+        ]
+      },
+      "recommendations": [
+        "Add proper validation and error handling",
+        "Use strong cryptographic algorithms like SHA-256 or AES",
+        "Use secrets module for cryptographically secure random numbers",
+        "Review usage: Subprocess can be dangerous if user input is involved",
+        "Review usage: Pickle can execute arbitrary code during deserialization"
+      ],
+      "execution_time": 0.4530925750732422,
+      "severity": "info"
+    },
+    {
+      "gate_name": "performance_standards_validation",
+      "timestamp": 1756182297.1720662,
+      "passed": false,
+      "score": 0.5833333333333334,
+      "threshold": 0.75,
+      "details": {
+        "files_benchmarked": 15,
+        "total_benchmarks": 60,
+        "passed_benchmarks": 35,
+        "benchmark_summary": {
+          "file_size": {
+            "count": 15,
+            "passed": 15,
+            "avg_value": 29180.333333333332,
+            "avg_percentile": 0.5999999999999999,
+            "pass_rate": 1.0
+          },
+          "cyclomatic_complexity": {
+            "count": 15,
+            "passed": 2,
+            "avg_value": 83.2,
+            "avg_percentile": 0.92,
+            "pass_rate": 0.13333333333333333
+          },
+          "line_count": {
+            "count": 15,
+            "passed": 4,
+            "avg_value": 592.9333333333333,
+            "avg_percentile": 0.9466666666666667,
+            "pass_rate": 0.26666666666666666
+          },
+          "import_count": {
+            "count": 15,
+            "passed": 14,
+            "avg_value": 14.6,
+            "avg_percentile": 0.7466666666666667,
+            "pass_rate": 0.9333333333333333
+          }
+        },
+        "performance_percentiles": {
+          "avg_percentile": 0.8033333333333333,
+          "min_percentile": 0.4,
+          "max_percentile": 1.0,
+          "top_quarter": 0.6333333333333333
+        }
+      },
+      "recommendations": [
+        "Reduce function complexity through refactoring",
+        "Break down large files for better maintainability"
+      ],
+      "execution_time": 0.024471521377563477,
+      "severity": "medium"
+    },
+    {
+      "gate_name": "documentation_coverage_analysis",
+      "timestamp": 1756182297.218362,
+      "passed": false,
+      "score": 0.54420836007796,
+      "threshold": 0.65,
+      "details": {
+        "files_analyzed": 21,
+        "python_files": 89,
+        "readme_files": 1,
+        "average_documentation_score": 0.54420836007796,
+        "documentation_gaps": []
+      },
+      "recommendations": [
+        "Add docstrings to functions and classes",
+        "Include usage examples in README",
+        "Document API parameters and return values",
+        "Add inline comments for complex logic",
+        "Create installation and setup instructions",
+        "Include contribution guidelines"
+      ],
+      "execution_time": 0.04587364196777344,
+      "severity": "medium"
+    },
+    {
+      "gate_name": "overall_compliance_check",
+      "timestamp": 1756182297.22442,
+      "passed": false,
+      "score": 0.6903279390722431,
+      "threshold": 0.75,
+      "details": {
+        "individual_gate_results": [
+          {
+            "name": "code_quality_assessment",
+            "passed": false,
+            "score": 0.5493986679666146,
+            "severity": "high"
+          },
+          {
+            "name": "security_compliance_scan",
+            "passed": true,
+            "score": 1.0,
+            "severity": "info"
+          },
+          {
+            "name": "performance_standards_validation",
+            "passed": false,
+            "score": 0.5833333333333334,
+            "severity": "medium"
+          },
+          {
+            "name": "documentation_coverage_analysis",
+            "passed": false,
+            "score": 0.54420836007796,
+            "severity": "medium"
+          }
+        ],
+        "critical_failures": 0,
+        "failed_gates": 3,
+        "overall_compliance": "non_compliant"
+      },
+      "recommendations": [
+        "Add logging statements for debugging and monitoring",
+        "Implement proper exception handling with try-except blocks",
+        "Break down large files for better maintainability",
+        "Address 3 failed quality gates",
+        "Add docstrings to functions and classes",
+        "Include usage examples in README",
+        "Reduce function complexity through refactoring"
+      ],
+      "execution_time": 1.9550323486328125e-05,
+      "severity": "high"
+    }
+  ]
+}
