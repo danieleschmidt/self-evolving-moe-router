@@ -1,0 +1,242 @@
+{
+  "timestamp": "2025-08-27 15:17:05",
+  "overall_passed": false,
+  "overall_score": 577.358292404164,
+  "results": [
+    {
+      "name": "Code Complexity Analysis",
+      "passed": false,
+      "score": 100,
+      "details": {
+        "total_functions": 1393,
+        "average_complexity": 3.575735821966978,
+        "complex_functions": [
+          {
+            "name": "run_advanced_evolution_demo",
+            "complexity": 17,
+            "lines": 267,
+            "file": "/root/repo/advanced_evolution_demo.py",
+            "line_no": 499,
+            "issue_level": "high"
+          },
+          {
+            "name": "_select_diverse_from_pareto",
+            "complexity": 12,
+            "lines": 44,
+            "file": "/root/repo/advanced_evolution_demo.py",
+            "line_no": 307,
+            "issue_level": "medium"
+          },
+          {
+            "name": "_execute",
+            "complexity": 15,
+            "lines": 70,
+            "file": "/root/repo/comprehensive_quality_gates.py",
+            "line_no": 121,
+            "issue_level": "medium"
+          },
+          {
+            "name": "_execute",
+            "complexity": 18,
+            "lines": 86,
+            "file": "/root/repo/comprehensive_quality_gates.py",
+            "line_no": 199,
+            "issue_level": "high"
+          },
+          {
+            "name": "_execute",
+            "complexity": 12,
+            "lines": 72,
+            "file": "/root/repo/comprehensive_quality_gates.py",
+            "line_no": 293,
+            "issue_level": "medium"
+          },
+          {
+            "name": "_execute",
+            "complexity": 18,
+            "lines": 142,
+            "file": "/root/repo/comprehensive_quality_gates.py",
+            "line_no": 494,
+            "issue_level": "high"
+          },
+          {
+            "name": "_execute",
+            "complexity": 11,
+            "lines": 68,
+            "file": "/root/repo/comprehensive_quality_gates.py",
+            "line_no": 644,
+            "issue_level": "medium"
+          },
+          {
+            "name": "_perform_statistical_analysis",
+            "complexity": 11,
+            "lines": 89,
+            "file": "/root/repo/comprehensive_research_validator.py",
+            "line_no": 781,
+            "issue_level": "medium"
+          },
+          {
+            "name": "main",
+            "complexity": 22,
+            "lines": 363,
+            "file": "/root/repo/demo_complete_system.py",
+            "line_no": 24,
+            "issue_level": "high"
+          },
+          {
+            "name": "main",
+            "complexity": 11,
+            "lines": 96,
+            "file": "/root/repo/high_performance_evolution.py",
+            "line_no": 786,
+            "issue_level": "medium"
+          }
+        ],
+        "files_analyzed": 5411,
+        "high_complexity_count": 70
+      },
+      "duration": 1.469353437423706,
+      "error_message": "None",
+      "recommendations": [
+        "Found 70 functions with high complexity (>10)",
+        "Break down complex functions into smaller, focused functions",
+        "Extract common logic into utility functions",
+        "Consider using design patterns to reduce conditional complexity"
+      ]
+    },
+    {
+      "name": "Intelligent Security Analysis",
+      "passed": false,
+      "score": 0,
+      "details": {
+        "security_issues": [
+          {
+            "file": "/root/repo/comprehensive_quality_gates.py",
+            "line": 207,
+            "issue": "exec() function usage",
+            "context": "(r\"\\bexec\\s*\\(\", \"Use of exec() function detected\"),"
+          },
+          {
+            "file": "/root/repo/comprehensive_quality_gates.py",
+            "line": 208,
+            "issue": "os.system() usage",
+            "context": "(\"os.system(\", \"Use of os.system() detected\"),"
+          },
+          {
+            "file": "/root/repo/comprehensive_quality_gates.py",
+            "line": 208,
+            "issue": "os.system() usage",
+            "context": "(\"os.system(\", \"Use of os.system() detected\"),"
+          },
+          {
+            "file": "/root/repo/create_comprehensive_tests.py",
+            "line": 91,
+            "issue": "eval() function usage",
+            "context": "def eval(self):"
+          },
+          {
+            "file": "/root/repo/quality_gates.py",
+            "line": 70,
+            "issue": "shell=True parameter",
+            "context": "r'import\\s+subprocess\\s*;.*shell=True',"
+          },
+          {
+            "file": "/root/repo/simple_quality_gates.py",
+            "line": 224,
+            "issue": "eval() function usage",
+            "context": "(r'eval\\s*\\(', \"Use of eval() function\"),"
+          },
+          {
+            "file": "/root/repo/simple_quality_gates.py",
+            "line": 225,
+            "issue": "exec() function usage",
+            "context": "(r'exec\\s*\\(', \"Use of exec() function\"),"
+          },
+          {
+            "file": "/root/repo/simple_quality_gates.py",
+            "line": 226,
+            "issue": "os.system() usage",
+            "context": "(r'os\\.system\\s*\\(', \"Use of os.system()\"),"
+          },
+          {
+            "file": "/root/repo/terragon_v9_comprehensive_quality_gates.py",
+            "line": 502,
+            "issue": "eval() function usage",
+            "context": "'eval': 'Built-in eval() can execute arbitrary code',"
+          },
+          {
+            "file": "/root/repo/terragon_v9_comprehensive_quality_gates.py",
+            "line": 503,
+            "issue": "exec() function usage",
+            "context": "'exec': 'Built-in exec() can execute arbitrary code',"
+          }
+        ],
+        "total_issues": 762,
+        "files_scanned": 5411
+      },
+      "duration": 9.037216186523438,
+      "error_message": "None",
+      "recommendations": [
+        "Replace dangerous function calls with safer alternatives",
+        "Implement input validation and sanitization",
+        "Use subprocess instead of os.system()",
+        "Avoid eval() and exec() - use ast.literal_eval() for safe evaluation"
+      ]
+    },
+    {
+      "name": "Test Coverage Analysis",
+      "passed": true,
+      "score": 1632.0748772124919,
+      "details": {
+        "source_modules": 27,
+        "test_files": 1199,
+        "coverage_ratio": 0.14814814814814814,
+        "test_quality_score": 40.57964970809007,
+        "uncovered_modules": [
+          "src.self_evolving_moe.cli",
+          "src.self_evolving_moe.data.cache",
+          "src.self_evolving_moe.data.repository",
+          "src.self_evolving_moe.data.storage",
+          "src.self_evolving_moe.distributed.consensus_evolution",
+          "src.self_evolving_moe.distributed.distributed_evolution",
+          "src.self_evolving_moe.distributed.parallel_evolution",
+          "src.self_evolving_moe.evolution.adaptive_mutations",
+          "src.self_evolving_moe.evolution.advanced_mutations",
+          "src.self_evolving_moe.evolution.multi_objective_fitness"
+        ],
+        "test_patterns_found": [
+          "pytest_style",
+          "fixtures",
+          "assertions",
+          "unittest_class"
+        ]
+      },
+      "duration": 18.900766849517822,
+      "error_message": "None",
+      "recommendations": [
+        "Low test coverage (14.8%). Create tests for uncovered modules.",
+        "Priority: Add tests for critical modules: src.self_evolving_moe.cli, src.self_evolving_moe.data.cache, src.self_evolving_moe.data.repository, src.self_evolving_moe.data.storage, src.self_evolving_moe.distributed.consensus_evolution",
+        "Implement integration tests for end-to-end workflows",
+        "Add property-based testing with hypothesis",
+        "Set up continuous test coverage monitoring"
+      ]
+    }
+  ],
+  "summary": {
+    "execution_time": 29.40810799598694,
+    "gates_passed": 1,
+    "total_gates": 3,
+    "pass_rate": 33.33333333333333,
+    "improvement_areas": [
+      "Intelligent Security (Score: 0.0)"
+    ]
+  },
+  "global_recommendations": [
+    "URGENT: Address security vulnerabilities before deployment",
+    "Priority: Fix 2 failing quality gates",
+    "Implement automated quality gates in CI/CD pipeline",
+    "Set up code quality metrics dashboard",
+    "Establish quality gates as deployment blockers",
+    "Schedule regular code quality reviews"
+  ]
+}

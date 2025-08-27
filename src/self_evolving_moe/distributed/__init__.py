@@ -12,7 +12,7 @@ from .load_balancing import DynamicLoadBalancer, WorkerPool
 
 __all__ = [
     "DistributedEvolver",
-    "ParallelFitnessEvaluator", 
+    "ParallelFitnessEvaluator",
     "ModelParallelMoE",
     "ExpertParallelRouter",
     "EvolutionCommunicator",

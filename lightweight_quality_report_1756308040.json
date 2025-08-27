@@ -1,0 +1,179 @@
+{
+  "timestamp": "2025-08-27 15:20:40",
+  "overall_passed": false,
+  "overall_score": 59.65259924003558,
+  "results": [
+    {
+      "name": "Code Quality Analysis",
+      "passed": false,
+      "score": 85.5,
+      "details": {
+        "files_analyzed": 30,
+        "average_score": 85.5,
+        "complex_functions": 16,
+        "long_functions": 108,
+        "total_issues": 31,
+        "top_issues": [
+          "/root/repo/advanced_evolution_demo.py:182 - Long line (132 chars)",
+          "/root/repo/advanced_evolution_demo.py:297 - Long line (127 chars)",
+          "/root/repo/high_performance_evolution.py:393 - Long line (142 chars)",
+          "/root/repo/high_performance_evolution.py:440 - Long line (122 chars)",
+          "/root/repo/high_performance_evolution.py:500 - Long line (123 chars)",
+          "/root/repo/meta_learning_transfer_engine.py:393 - Long line (134 chars)",
+          "/root/repo/meta_learning_transfer_engine.py:473 - Long line (122 chars)",
+          "/root/repo/meta_learning_transfer_engine.py:908 - Long line (125 chars)",
+          "/root/repo/next_gen_production_server.py:138 - Long line (124 chars)",
+          "/root/repo/next_gen_production_server.py:577 - Long line (123 chars)"
+        ]
+      },
+      "duration": 0.7821683883666992,
+      "recommendations": [
+        "Refactor 16 complex functions (complexity > 15)",
+        "Break down 108 long functions (> 50 lines)",
+        "Address code style issues and technical debt",
+        "Use automated code formatting (black, isort)",
+        "Implement code review checklist",
+        "Add function and class docstrings",
+        "Consider using type hints for better code clarity"
+      ],
+      "error_message": null
+    },
+    {
+      "name": "Security Analysis",
+      "passed": false,
+      "score": 0,
+      "details": {
+        "files_scanned": 5413,
+        "security_score": 0,
+        "total_issues": 728,
+        "high_severity": 700,
+        "medium_severity": 28,
+        "issues": [
+          {
+            "file": "/root/repo/comprehensive_quality_gates.py",
+            "line": 207,
+            "severity": "HIGH",
+            "issue": "exec() function usage",
+            "context": "(r\"\\bexec\\s*\\(\", \"Use of exec() function detected\"),"
+          },
+          {
+            "file": "/root/repo/comprehensive_quality_gates.py",
+            "line": 208,
+            "severity": "MEDIUM",
+            "issue": "os.system() usage",
+            "context": "(\"os.system(\", \"Use of os.system() detected\"),"
+          },
+          {
+            "file": "/root/repo/comprehensive_quality_gates.py",
+            "line": 208,
+            "severity": "MEDIUM",
+            "issue": "os.system() usage",
+            "context": "(\"os.system(\", \"Use of os.system() detected\"),"
+          },
+          {
+            "file": "/root/repo/create_comprehensive_tests.py",
+            "line": 91,
+            "severity": "HIGH",
+            "issue": "eval() function usage",
+            "context": "def eval(self):"
+          },
+          {
+            "file": "/root/repo/quality_gates.py",
+            "line": 70,
+            "severity": "MEDIUM",
+            "issue": "shell=True in subprocess",
+            "context": "r'import\\s+subprocess\\s*;.*shell=True',"
+          },
+          {
+            "file": "/root/repo/simple_quality_gates.py",
+            "line": 224,
+            "severity": "HIGH",
+            "issue": "eval() function usage",
+            "context": "(r'eval\\s*\\(', \"Use of eval() function\"),"
+          },
+          {
+            "file": "/root/repo/simple_quality_gates.py",
+            "line": 225,
+            "severity": "HIGH",
+            "issue": "exec() function usage",
+            "context": "(r'exec\\s*\\(', \"Use of exec() function\"),"
+          },
+          {
+            "file": "/root/repo/simple_quality_gates.py",
+            "line": 226,
+            "severity": "MEDIUM",
+            "issue": "os.system() usage",
+            "context": "(r'os\\.system\\s*\\(', \"Use of os.system()\"),"
+          },
+          {
+            "file": "/root/repo/terragon_v9_comprehensive_quality_gates.py",
+            "line": 502,
+            "severity": "HIGH",
+            "issue": "eval() function usage",
+            "context": "'eval': 'Built-in eval() can execute arbitrary code',"
+          },
+          {
+            "file": "/root/repo/terragon_v9_comprehensive_quality_gates.py",
+            "line": 503,
+            "severity": "HIGH",
+            "issue": "exec() function usage",
+            "context": "'exec': 'Built-in exec() can execute arbitrary code',"
+          }
+        ]
+      },
+      "duration": 11.541683435440063,
+      "recommendations": [
+        "CRITICAL: Security vulnerabilities need immediate attention",
+        "HIGH PRIORITY: Fix 700 critical security issues",
+        "Address 28 medium-severity security issues",
+        "Replace eval()/exec() with safer alternatives like ast.literal_eval()",
+        "Move secrets to environment variables or secure vaults",
+        "Replace os.system() with subprocess module",
+        "Implement automated security scanning in CI/CD",
+        "Use static analysis tools (bandit, safety)",
+        "Regular security audits and penetration testing"
+      ],
+      "error_message": null
+    },
+    {
+      "name": "Documentation Analysis",
+      "passed": true,
+      "score": 93.45779772010673,
+      "details": {
+        "readme_score": 100,
+        "docstring_score": 90.91559544021344,
+        "comment_score": 90,
+        "docstring_stats": {
+          "total_functions": 620,
+          "documented_functions": 526,
+          "total_classes": 133,
+          "documented_classes": 129,
+          "function_coverage": 84.83870967741936,
+          "class_coverage": 96.99248120300751
+        }
+      },
+      "duration": 0.37810707092285156,
+      "recommendations": [
+        "Use consistent docstring format (Google/Sphinx style)",
+        "Add type hints to improve code documentation",
+        "Generate API documentation with Sphinx",
+        "Include code examples in docstrings"
+      ],
+      "error_message": null
+    }
+  ],
+  "summary": {
+    "execution_time": 12.702690839767456,
+    "gates_passed": 1,
+    "total_gates": 3,
+    "pass_rate": 33.33333333333333
+  },
+  "global_recommendations": [
+    "URGENT: Fix security issues before deployment",
+    "Fix 2 failing quality gates",
+    "Address critical quality issues in low-scoring areas",
+    "Integrate quality gates into CI/CD pipeline",
+    "Set up automated quality monitoring",
+    "Establish quality gates as pre-deployment checklist"
+  ]
+}
