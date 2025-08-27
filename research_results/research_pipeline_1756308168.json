@@ -1,0 +1,196 @@
+{
+  "pipeline_id": "ea630f0b1e1faf1a",
+  "timestamp": 1756308166.8606188,
+  "experiments": 5,
+  "results": [
+    {
+      "experiment_id": "5a3bf7a8ead88f86",
+      "config": {
+        "experiment_name": "quantum_evolution_convergence",
+        "description": "Test quantum-inspired evolution convergence rate",
+        "parameters": {
+          "population_size": 25,
+          "generations": 20,
+          "mutation_rate": 0.15,
+          "coherence_time": 1.2
+        },
+        "success_criteria": {
+          "final_fitness": -0.4,
+          "convergence_generation": 18
+        },
+        "timeout_seconds": 300,
+        "retry_attempts": 3,
+        "seed": 42,
+        "validation_required": true
+      },
+      "status": "failed",
+      "metrics": {},
+      "duration": 0.08485007286071777,
+      "artifacts": [],
+      "error_message": "Experiment failed: Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\nModuleNotFoundError: No module named 'numpy'\n",
+      "validation_results": null,
+      "reproducibility_hash": null
+    },
+    {
+      "experiment_id": "81d3308253aad276",
+      "config": {
+        "experiment_name": "performance_benchmark_scaling",
+        "description": "Benchmark MoE routing performance across scales",
+        "parameters": {
+          "batch_size": 64,
+          "num_experts": 8,
+          "num_tokens": 16
+        },
+        "success_criteria": {
+          "throughput": 50.0,
+          "latency_per_sample": 0.1
+        },
+        "timeout_seconds": 180,
+        "retry_attempts": 3,
+        "seed": 123,
+        "validation_required": true
+      },
+      "status": "failed",
+      "metrics": {
+        "total_execution_time": 0.629403829574585,
+        "throughput": 158.8805077140858,
+        "latency_per_sample": 0.00629403829574585,
+        "memory_efficiency": 0.942
+      },
+      "duration": 1.8866417407989502,
+      "artifacts": [],
+      "error_message": "Success criteria not met",
+      "validation_results": {
+        "passed": true,
+        "message": "",
+        "warnings": [],
+        "details": {}
+      },
+      "reproducibility_hash": null
+    },
+    {
+      "experiment_id": "a60ea2c191f4ff8c",
+      "config": {
+        "experiment_name": "convergence_analysis_stability",
+        "description": "Analyze convergence stability across runs",
+        "parameters": {
+          "generations": 25,
+          "population_size": 30,
+          "runs": 3
+        },
+        "success_criteria": {
+          "best_fitness": -0.35,
+          "fitness_stability": 0.8
+        },
+        "timeout_seconds": 600,
+        "retry_attempts": 3,
+        "seed": 456,
+        "validation_required": true
+      },
+      "status": "success",
+      "metrics": {
+        "best_fitness": -0.34890000000000004,
+        "convergence_generation": 24,
+        "convergence_rate": 0.96,
+        "final_fitness": -0.34890000000000004,
+        "fitness_stability": 0.8943000000000001
+      },
+      "duration": 0.0005481243133544922,
+      "artifacts": [],
+      "error_message": null,
+      "validation_results": {
+        "passed": true,
+        "message": "",
+        "warnings": [
+          "Slow convergence detected"
+        ],
+        "details": {}
+      },
+      "reproducibility_hash": "8389cb2ec4f74d73d205aae699ba2308"
+    },
+    {
+      "experiment_id": "e4d4c5988c2673e6",
+      "config": {
+        "experiment_name": "distributed_evolution_efficiency",
+        "description": "Test distributed evolution coordination",
+        "parameters": {
+          "num_workers": 4,
+          "migration_rate": 0.2,
+          "sync_frequency": 5
+        },
+        "success_criteria": {
+          "best_worker_fitness": -0.3,
+          "migration_efficiency": 0.05
+        },
+        "timeout_seconds": 400,
+        "retry_attempts": 3,
+        "seed": 789,
+        "validation_required": true
+      },
+      "status": "failed",
+      "metrics": {
+        "best_worker_fitness": -0.415,
+        "avg_worker_fitness": -0.5615,
+        "fitness_variance": 0.011254250000000006,
+        "num_workers": 4,
+        "migration_efficiency": 0.083
+      },
+      "duration": 0.0005693435668945312,
+      "artifacts": [],
+      "error_message": "Success criteria not met",
+      "validation_results": {
+        "passed": true,
+        "message": "",
+        "warnings": [],
+        "details": {}
+      },
+      "reproducibility_hash": null
+    },
+    {
+      "experiment_id": "37aa6c0da0cc3f61",
+      "config": {
+        "experiment_name": "meta_learning_adaptation",
+        "description": "Evaluate meta-learning across routing tasks",
+        "parameters": {
+          "num_tasks": 5,
+          "adaptation_steps": 15,
+          "transfer_rate": 0.7
+        },
+        "success_criteria": {
+          "avg_task_performance": 0.75,
+          "knowledge_transfer": 0.8
+        },
+        "timeout_seconds": 500,
+        "retry_attempts": 3,
+        "seed": 321,
+        "validation_required": true
+      },
+      "status": "success",
+      "metrics": {
+        "avg_task_performance": 1.0,
+        "best_task_performance": 1.1,
+        "meta_learning_efficiency": 0.18181818181818196,
+        "adaptation_speed": 1.5,
+        "knowledge_transfer": 1.0
+      },
+      "duration": 0.00031828880310058594,
+      "artifacts": [],
+      "error_message": null,
+      "validation_results": {
+        "passed": true,
+        "message": "",
+        "warnings": [],
+        "details": {}
+      },
+      "reproducibility_hash": "6e8c6d207bb71c1a1078ecb558d85524"
+    }
+  ],
+  "summary": {
+    "success_rate": 40.0,
+    "successful_experiments": 2,
+    "failed_experiments": 3,
+    "total_duration": 1.9729275703430176,
+    "avg_duration": 0.39458551406860354
+  },
+  "artifacts": []
+}
