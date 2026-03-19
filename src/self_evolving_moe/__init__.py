@@ -1,26 +1,26 @@
 """
-Self-Evolving MoE-Router: Evolutionary Discovery of Sparse Expert Routing
+self-evolving-moe-router
+========================
+Neuroevolution framework for discovering sparse expert routing topologies
+in Mixture-of-Experts (MoE) language models.
 
-A neuro-evolution framework for discovering optimal routing topologies
-in Mixture of Experts models through evolutionary algorithms.
+Public API
+----------
+MoERouter          – sparse router controlled by a binary connectivity mask
+SlimmableExpert    – MLP expert that runs at 100 / 75 / 50 % width
+EvolutionarySearch – evolutionary loop: mutate → score → select
 """
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 __author__ = "Daniel Schmidt"
-__email__ = "daniel@example.com"
 
-from .evolution import EvolvingMoERouter
-from .experts import ExpertPool, SlimmableMoE
-from .routing import TopologyGenome
-from .data import TopologyRepository, ExperimentRepository, EvolutionCache, ModelStorage
+from .router import MoERouter
+from .experts import SlimmableExpert
+from .evolution import EvolutionarySearch, Individual
 
 __all__ = [
-    "EvolvingMoERouter",
-    "ExpertPool",
-    "SlimmableMoE",
-    "TopologyGenome",
-    "TopologyRepository",
-    "ExperimentRepository",
-    "EvolutionCache",
-    "ModelStorage",
+    "MoERouter",
+    "SlimmableExpert",
+    "EvolutionarySearch",
+    "Individual",
 ]
